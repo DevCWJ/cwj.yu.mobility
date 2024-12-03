@@ -6,10 +6,10 @@
   "unity": "2021.3",
   "unityRelease": "1f1",
   "dependencies": {
-    "com.unity.burst": "^1.8.7",
-    "com.unity.textmeshpro": "^3.0.6",
-    "com.unity.render-pipelines.core": "^12.1.10",
-    "com.unity.render-pipelines.universal": "^12.1.10"
+    "com.unity.burst": "1.8.18",
+    "com.unity.textmeshpro": "3.0.9",
+    "com.unity.render-pipelines.core": "12.1.15",
+    "com.unity.render-pipelines.universal": "12.1.15"
   },
   "keywords": [
     "mobility",

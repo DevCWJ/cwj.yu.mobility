@@ -1,0 +1,25 @@
+{
+  "name": "com.cwj.yu.mobility",
+  "version": "1.0.1",
+  "displayName": "CWJ.YU.Mobility",
+  "description": "Yeungnam University Smart Mobility - Mobility Kinematics Class",
+  "unity": "2021.3",
+  "unityRelease": "1f1",
+  "dependencies": {
+    "com.unity.burst": "^1.8.7",
+    "com.unity.textmeshpro": "^3.0.6",
+    "com.unity.render-pipelines.core": "^12.1.10",
+    "com.unity.render-pipelines.universal": "^12.1.10"
+  },
+  "keywords": [
+    "mobility",
+    "framework",
+    "cwj",
+    "yu"
+  ],
+  "author": {
+    "name": "CWJ",
+    "email": "cwj@kakao.com",
+    "url": ""
+  }
+}

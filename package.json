@@ -10,9 +10,7 @@
     "com.unity.textmeshpro": "3.0.9",
     "com.unity.render-pipelines.core": "12.1.15",
     "com.unity.render-pipelines.universal": "12.1.15",
-    "com.unity.nuget.newtonsoft-json": "3.2.1",
-    "com.cysharp.unitask": "2.5.10",
-    "com.neuecc.unirx": "7.1.0"
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
   },
   "keywords": [
     "mobility",

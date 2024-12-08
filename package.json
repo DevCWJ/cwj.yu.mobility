@@ -9,7 +9,9 @@
     "com.unity.burst": "1.8.18",
     "com.unity.textmeshpro": "3.0.9",
     "com.unity.render-pipelines.core": "12.1.15",
-    "com.unity.render-pipelines.universal": "12.1.15"
+    "com.unity.render-pipelines.universal": "12.1.15",
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
   },
   "keywords": [
     "mobility",

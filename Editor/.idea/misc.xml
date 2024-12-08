@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>EditorConfig</id>
+          </State>
+          <State>
+            <id>GitHub 액션</id>
+          </State>
+          <State>
+            <id>HTML</id>
+          </State>
+          <State>
+            <id>HTTP 클라이언트</id>
+          </State>
+          <State>
+            <id>JSON 및 JSON5</id>
+          </State>
+          <State>
+            <id>PostCSS</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+          <State>
+            <id>교정</id>
+          </State>
+          <State>
+            <id>국제화</id>
+          </State>
+          <State>
+            <id>일반</id>
+          </State>
+          <State>
+            <id>잘못된 요소CSS</id>
+          </State>
+          <State>
+            <id>접근성HTML</id>
+          </State>
+          <State>
+            <id>정규식</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+</project>

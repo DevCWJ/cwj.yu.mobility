@@ -11,8 +11,8 @@ public class PackageInstaller
 	                                           {
 		                                           UniRxUrl, UniTaskUrl
 	                                           };
-	private const string UniRxUrl = "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts#v7.1.0";
-	private const string UniTaskUrl = "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#v2.5.10";
+	private const string UniRxUrl = "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts";
+	private const string UniTaskUrl = "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask";
 
 	static PackageInstaller()
 	{

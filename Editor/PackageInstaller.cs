@@ -16,7 +16,7 @@ public class PackageInstaller
 	private const string UniTaskUrl = "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask";
 
 	[MenuItem("CWJ/Install CWJ Packages")]
-	public static void InstallPackages()
+	public static void InstallPackageMenu()
 	{
 		Debug.Log("Installing UnityDevTool and Required packages...");
 		foreach (var url in gitUrls)

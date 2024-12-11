@@ -37,6 +37,15 @@ crashlytics-build.properties
 # CWJ #
 CWJ_ProfilingLog.txt
 CWJ_ProfilingLog.txt.meta
+**/CWJ/**/*_ScriptableObject.asset
+**/CWJ/**/*_ScriptableObject.asset.meta
+**/CWJ/**/ScriptableObjectStore.asset
+**/CWJ/**/ScriptableObjectStore.asset.meta
+**/CWJ/**/CustomDefine_ScriptableObject.asset
+**/CWJ/**/CustomDefine_ScriptableObject.asset.meta
+**/CWJ/**/PsMessage_ScriptableObject.asset
+**/CWJ/**/PsMessage_ScriptableObject.asset.meta
+
 
 .idea/
 *.iml

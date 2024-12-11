@@ -22,12 +22,5 @@
     "name": "CWJ",
     "email": "cwj@kakao.com",
     "url": "https://github.com/DevCWJ/yu.mobility"
-  },
-  "samples": [
-    {
-      "displayName": "Assets in Samples",
-      "description": "Assets for RIS.YU.Mobility.",
-      "path": "Samples~/RIS"
-    }
-  ]
+  }
 }

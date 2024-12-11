@@ -77,7 +77,7 @@ namespace CWJ.YU.Editor
                 lastLine.style.flexDirection = FlexDirection.Row;
                 lastLine.style.flexWrap = Wrap.Wrap;
 
-                sampleDescLbl = new Label { text = "아래 Samples에서 데모씬을 import 받을수있습니다.\n(import이후 데모씬 위치 : Assets/Samples/CWJ.YU.Mobility/1.1.2/데모용 Resources, Scene/)" };
+                sampleDescLbl = new Label { text = "아래 Samples에서 데모씬을 import 받을수있습니다.\n(import이후 데모씬 위치 : Assets/Samples/CWJ.YU.Mobility/1.1.2/데모용_Scene&Resources/)" };
                 lastLine.Add(sampleDescLbl);
                 return ExtentionRoot;
             }

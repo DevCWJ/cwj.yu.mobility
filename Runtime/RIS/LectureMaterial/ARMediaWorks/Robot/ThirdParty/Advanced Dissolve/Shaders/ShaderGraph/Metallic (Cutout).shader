@@ -30,17 +30,17 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
 [HideInInspector][AdvancedDissolveToggleFloat]				        _AdvancedDissolveCutoutStandardMap3Invert("", INT) = 0
 
 [HideInInspector][Enum(Multiply, 0, Add, 1)]				        _AdvancedDissolveCutoutStandardMapsBlendType("", Float) = 0
-[HideInInspector][Enum(World, 0, Local, 1)]					        _AdvancedDissolveCutoutStandardMapsTriplanarMappingSpace("", Float) = 0	
+[HideInInspector][Enum(World, 0, Local, 1)]					        _AdvancedDissolveCutoutStandardMapsTriplanarMappingSpace("", Float) = 0
 [HideInInspector][Enum(Constant, 0, Camera Relative, 1)]            _AdvancedDissolveCutoutStandardMapsScreenSpaceUVScale("", Float) = 0
 [HideInInspector][AdvancedDissolveToggleFloat]				        _AdvancedDissolveCutoutStandardBaseInvert("", INT) = 0
 
 //Geometric
 [HideInInspector][AdvancedDissolveToggleFloat]			    	    _AdvancedDissolveCutoutGeometricInvert("", Float) = 0
-[HideInInspector]										    	    _AdvancedDissolveCutoutGeometricNoise("", Float) = 0.1	
+[HideInInspector]										    	    _AdvancedDissolveCutoutGeometricNoise("", Float) = 0.1
 
 [HideInInspector][Enum(X, 0, Y, 1, Z, 2)]                           _AdvancedDissolveCutoutGeometricXYZAxis("", Float) = 0
-[HideInInspector][Enum(Linear, 0, Symmetrical, 1)]                  _AdvancedDissolveCutoutGeometricXYZStyle("", Float) = 0 
-[HideInInspector][Enum(World, 0, Local, 1)]                         _AdvancedDissolveCutoutGeometricXYZSpace("", Float) = 0	 
+[HideInInspector][Enum(Linear, 0, Symmetrical, 1)]                  _AdvancedDissolveCutoutGeometricXYZStyle("", Float) = 0
+[HideInInspector][Enum(World, 0, Local, 1)]                         _AdvancedDissolveCutoutGeometricXYZSpace("", Float) = 0
 [HideInInspector]											        _AdvancedDissolveCutoutGeometricXYZRollout("", Float) = 0
 [HideInInspector]											        _AdvancedDissolveCutoutGeometricXYZPosition("", Vector) = (0, 0, 0, 0)
 
@@ -53,7 +53,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
 [HideInInspector]									    		    _AdvancedDissolveCutoutGeometric2Normal("", Vector) = (1,0,0,0)
 [HideInInspector]									    		    _AdvancedDissolveCutoutGeometric2Radius("", Float) = 1
 [HideInInspector]									    		    _AdvancedDissolveCutoutGeometric2Height("", Float) = 1
- 
+
 [HideInInspector]									    		    _AdvancedDissolveCutoutGeometric3Position("", Vector) = (0,0,0,0)
 [HideInInspector]									    		    _AdvancedDissolveCutoutGeometric3Normal("", Vector) = (1,0,0,0)
 [HideInInspector]									    		    _AdvancedDissolveCutoutGeometric3Radius("", Float) = 1
@@ -65,12 +65,12 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
 [HideInInspector]											        _AdvancedDissolveCutoutGeometric4Height("", Float) = 1
 
 //Edge
-[HideInInspector]										    	    _AdvancedDissolveEdgeBaseWidthStandard("", Range(0,1)) = 0.1 
-[HideInInspector]										    	    _AdvancedDissolveEdgeBaseWidthGeometric("", Range(0,1)) = 0.1 
+[HideInInspector]										    	    _AdvancedDissolveEdgeBaseWidthStandard("", Range(0,1)) = 0.1
+[HideInInspector]										    	    _AdvancedDissolveEdgeBaseWidthGeometric("", Range(0,1)) = 0.1
 [HideInInspector][Enum(Solid, 0, Smooth, 1, Smoother, 2)]           _AdvancedDissolveEdgeBaseShape("", INT) = 0
 [HideInInspector][AdvancedDissolveColorRGB]  				        _AdvancedDissolveEdgeBaseColor("", Color) = (0,1,0,1)
 [HideInInspector]											        _AdvancedDissolveEdgeBaseColorTransparency("", Range(0, 1)) = 1
-[HideInInspector][AdvancedDissolveExponental]                       _AdvancedDissolveEdgeBaseColorIntensity("", Vector) = (0, 0, 0, 0)		
+[HideInInspector][AdvancedDissolveExponental]                       _AdvancedDissolveEdgeBaseColorIntensity("", Vector) = (0, 0, 0, 0)
 
 [HideInInspector][AdvancedDissolveColorRGB]					        _AdvancedDissolveEdgeAdditionalColor("", color) = (1, 0, 0, 1)
 [HideInInspector]											        _AdvancedDissolveEdgeAdditionalColorTransparency("", Range(0, 1)) = 1
@@ -80,9 +80,9 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
 [HideInInspector]					                                _AdvancedDissolveEdgeAdditionalColorMapOffset("", Vector) = (0, 0, 0, 0)
 [HideInInspector]					                                _AdvancedDissolveEdgeAdditionalColorMapScroll("", Vector) = (0, 0, 0, 0)
 [HideInInspector][AdvancedDissolveToggleFloat]				        _AdvancedDissolveEdgeAdditionalColorMapReverse("", FLOAT) = 0
-[HideInInspector]											        _AdvancedDissolveEdgeAdditionalColorMapMipmap("", Range(0, 10)) = 1	
+[HideInInspector]											        _AdvancedDissolveEdgeAdditionalColorMapMipmap("", Range(0, 10)) = 1
 [HideInInspector]											        _AdvancedDissolveEdgeAdditionalColorPhaseOffset("", FLOAT) = 0
-[HideInInspector]											        _AdvancedDissolveEdgeAdditionalColorAlphaOffset("", Range(-1, 1)) = 0	
+[HideInInspector]											        _AdvancedDissolveEdgeAdditionalColorAlphaOffset("", Range(-1, 1)) = 0
 [HideInInspector][AdvancedDissolveToggleFloat]				        _AdvancedDissolveEdgeAdditionalColorClipInterpolation("", Float) = 0
 
 
@@ -106,7 +106,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
 [HideInInspector][AdvancedDissolveKeywordGlobalControlID]           _AdvancedDissolveKeywordGlobalControlID("", INT) = 0
 
 //BakedKeywords
-[HideInInspector]                                                   _AdvancedDissolveBakedKeywords("", Vector) = (0,0,0,0)	
+[HideInInspector]                                                   _AdvancedDissolveBakedKeywords("", Vector) = (0,0,0,0)
 
 //Advanced Dissolve Properties End////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -148,21 +148,21 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
             {
                 "LightMode" = "UniversalForward"
             }
-        
+
         // Render State
         Cull Off
         Blend One Zero
         ZTest LEqual
         ZWrite On
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 4.5
         #pragma exclude_renderers gles gles3 glcore
@@ -172,10 +172,10 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
         #pragma multi_compile _ DOTS_INSTANCING_ON
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
         #pragma multi_compile _ LIGHTMAP_ON
@@ -195,9 +195,9 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
         #pragma multi_compile_fragment _ _LIGHT_COOKIES
         #pragma multi_compile _ _CLUSTERED_RENDERING
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -218,11 +218,11 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
         #define _FOG_FRAGMENT 1
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -233,13 +233,13 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -336,7 +336,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -374,7 +374,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -411,11 +411,11 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -433,7 +433,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -452,7 +452,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -467,62 +467,62 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void Unity_Multiply_float4_float4(float4 A, float4 B, out float4 Out)
         {
             Out = A * B;
         }
-        
+
         void LerpWhiteTo_float(float3 b, float t, out float3 _out){
             half oneMinusT = 1 - t;
             _out = half3(oneMinusT, oneMinusT, oneMinusT) + b * t;
         }
-        
+
         void Unity_Multiply_float3_float3(float3 A, float3 B, out float3 Out)
         {
             Out = A * B;
         }
-        
+
         void Unity_NormalStrength_float(float3 In, float Strength, out float3 Out)
         {
             Out = float3(In.rg * Strength, lerp(1, In.b, saturate(Strength)));
         }
-        
+
         void Unity_NormalBlend_float(float3 A, float3 B, out float3 Out)
         {
             Out = SafeNormalize(float3(A.rg + B.rg, A.b * B.b));
         }
-        
+
         void Unity_Multiply_float_float(float A, float B, out float Out)
         {
             Out = A * B;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -532,7 +532,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -542,15 +542,15 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -558,7 +558,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -567,7 +567,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -576,7 +576,7 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
@@ -589,11 +589,11 @@ Shader "Amazing Assets/Advanced Dissolve/Shader Graph/Metallic (Cutout)"
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -702,7 +702,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -714,36 +714,36 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
             output.TangentSpaceNormal = float3(0.0f, 0.0f, 1.0f);
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -754,22 +754,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/PBRForwardPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -779,21 +779,21 @@ return surface;
             {
                 "LightMode" = "UniversalGBuffer"
             }
-        
+
         // Render State
         Cull Off
         Blend One Zero
         ZTest LEqual
         ZWrite On
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 4.5
         #pragma exclude_renderers gles gles3 glcore
@@ -803,10 +803,10 @@ return surface;
         #pragma multi_compile _ DOTS_INSTANCING_ON
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         #pragma multi_compile _ LIGHTMAP_ON
         #pragma multi_compile _ DYNAMICLIGHTMAP_ON
@@ -824,9 +824,9 @@ return surface;
         #pragma multi_compile_fragment _ _RENDER_PASS_ENABLED
         #pragma multi_compile_fragment _ DEBUG_DISPLAY
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -847,11 +847,11 @@ return surface;
         #define _FOG_FRAGMENT 1
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -862,13 +862,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -965,7 +965,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -1003,7 +1003,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -1040,11 +1040,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -1062,7 +1062,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -1081,7 +1081,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -1096,62 +1096,62 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void Unity_Multiply_float4_float4(float4 A, float4 B, out float4 Out)
         {
             Out = A * B;
         }
-        
+
         void LerpWhiteTo_float(float3 b, float t, out float3 _out){
             half oneMinusT = 1 - t;
             _out = half3(oneMinusT, oneMinusT, oneMinusT) + b * t;
         }
-        
+
         void Unity_Multiply_float3_float3(float3 A, float3 B, out float3 Out)
         {
             Out = A * B;
         }
-        
+
         void Unity_NormalStrength_float(float3 In, float Strength, out float3 Out)
         {
             Out = float3(In.rg * Strength, lerp(1, In.b, saturate(Strength)));
         }
-        
+
         void Unity_NormalBlend_float(float3 A, float3 B, out float3 Out)
         {
             Out = SafeNormalize(float3(A.rg + B.rg, A.b * B.b));
         }
-        
+
         void Unity_Multiply_float_float(float A, float B, out float Out)
         {
             Out = A * B;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -1161,7 +1161,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -1171,15 +1171,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -1187,7 +1187,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -1196,7 +1196,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -1205,7 +1205,7 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
@@ -1218,11 +1218,11 @@ return surface;
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -1331,7 +1331,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -1343,36 +1343,36 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
             output.TangentSpaceNormal = float3(0.0f, 0.0f, 1.0f);
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -1383,23 +1383,23 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityGBuffer.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/PBRGBufferPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -1409,21 +1409,21 @@ return surface;
             {
                 "LightMode" = "ShadowCaster"
             }
-        
+
         // Render State
         Cull Off
         ZTest LEqual
         ZWrite On
         ColorMask 0
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 4.5
         #pragma exclude_renderers gles gles3 glcore
@@ -1431,16 +1431,16 @@ return surface;
         #pragma multi_compile _ DOTS_INSTANCING_ON
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -1454,11 +1454,11 @@ return surface;
         #define SHADERPASS SHADERPASS_SHADOWCASTER
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -1467,13 +1467,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -1537,7 +1537,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -1560,7 +1560,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -1582,11 +1582,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -1604,7 +1604,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -1623,7 +1623,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -1638,32 +1638,32 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -1673,7 +1673,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -1683,15 +1683,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -1699,7 +1699,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -1708,7 +1708,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -1717,18 +1717,18 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -1766,7 +1766,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -1778,35 +1778,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -1817,22 +1817,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShadowCasterPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -1842,21 +1842,21 @@ return surface;
             {
                 "LightMode" = "DepthOnly"
             }
-        
+
         // Render State
         Cull Off
         ZTest LEqual
         ZWrite On
         ColorMask 0
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 4.5
         #pragma exclude_renderers gles gles3 glcore
@@ -1864,16 +1864,16 @@ return surface;
         #pragma multi_compile _ DOTS_INSTANCING_ON
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -1887,11 +1887,11 @@ return surface;
         #define SHADERPASS SHADERPASS_DEPTHONLY
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -1900,13 +1900,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -1970,7 +1970,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -1993,7 +1993,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -2015,11 +2015,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -2037,7 +2037,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -2056,7 +2056,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -2071,32 +2071,32 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -2106,7 +2106,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -2116,15 +2116,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -2132,7 +2132,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -2141,7 +2141,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -2150,18 +2150,18 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -2199,7 +2199,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -2211,35 +2211,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -2250,22 +2250,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DepthOnlyPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -2275,20 +2275,20 @@ return surface;
             {
                 "LightMode" = "DepthNormals"
             }
-        
+
         // Render State
         Cull Off
         ZTest LEqual
         ZWrite On
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 4.5
         #pragma exclude_renderers gles gles3 glcore
@@ -2296,16 +2296,16 @@ return surface;
         #pragma multi_compile _ DOTS_INSTANCING_ON
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -2321,11 +2321,11 @@ return surface;
         #define SHADERPASS SHADERPASS_DEPTHNORMALS
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -2334,13 +2334,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -2408,7 +2408,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -2432,7 +2432,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -2455,11 +2455,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -2477,7 +2477,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -2496,7 +2496,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -2511,42 +2511,42 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void Unity_NormalStrength_float(float3 In, float Strength, out float3 Out)
         {
             Out = float3(In.rg * Strength, lerp(1, In.b, saturate(Strength)));
         }
-        
+
         void Unity_NormalBlend_float(float3 A, float3 B, out float3 Out)
         {
             Out = SafeNormalize(float3(A.rg + B.rg, A.b * B.b));
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -2556,7 +2556,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -2566,15 +2566,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -2582,7 +2582,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -2591,7 +2591,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -2600,7 +2600,7 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
@@ -2608,11 +2608,11 @@ return surface;
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -2676,7 +2676,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -2688,36 +2688,36 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
             output.TangentSpaceNormal = float3(0.0f, 0.0f, 1.0f);
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -2728,22 +2728,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DepthNormalsOnlyPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -2753,33 +2753,33 @@ return surface;
             {
                 "LightMode" = "Meta"
             }
-        
+
         // Render State
         Cull Off
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 4.5
         #pragma exclude_renderers gles gles3 glcore
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         #pragma shader_feature _ EDITOR_VISUALIZATION
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -2798,11 +2798,11 @@ return surface;
         #define _FOG_FRAGMENT 1
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -2812,13 +2812,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/MetaInput.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -2888,7 +2888,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -2913,7 +2913,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -2937,11 +2937,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -2960,7 +2960,7 @@ return surface;
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_META_PASS
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -2979,7 +2979,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -2994,47 +2994,47 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void Unity_Multiply_float4_float4(float4 A, float4 B, out float4 Out)
         {
             Out = A * B;
         }
-        
+
         void LerpWhiteTo_float(float3 b, float t, out float3 _out){
             half oneMinusT = 1 - t;
             _out = half3(oneMinusT, oneMinusT, oneMinusT) + b * t;
         }
-        
+
         void Unity_Multiply_float3_float3(float3 A, float3 B, out float3 Out)
         {
             Out = A * B;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -3044,7 +3044,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -3054,15 +3054,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -3070,7 +3070,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -3079,7 +3079,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -3088,7 +3088,7 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
@@ -3097,11 +3097,11 @@ return surface;
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -3166,7 +3166,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -3178,35 +3178,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -3217,22 +3217,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/LightingMetaPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -3242,33 +3242,33 @@ return surface;
             {
                 "LightMode" = "SceneSelectionPass"
             }
-        
+
         // Render State
         Cull Off
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 4.5
         #pragma exclude_renderers gles gles3 glcore
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -3284,11 +3284,11 @@ return surface;
         #define ALPHA_CLIP_THRESHOLD 1
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -3297,13 +3297,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -3367,7 +3367,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -3390,7 +3390,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -3412,11 +3412,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -3434,7 +3434,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -3453,7 +3453,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -3468,32 +3468,32 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -3503,7 +3503,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -3513,15 +3513,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -3529,7 +3529,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -3538,7 +3538,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -3547,18 +3547,18 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -3596,7 +3596,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -3608,35 +3608,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -3647,22 +3647,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/SelectionPickingPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -3672,33 +3672,33 @@ return surface;
             {
                 "LightMode" = "Picking"
             }
-        
+
         // Render State
         Cull Off
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 4.5
         #pragma exclude_renderers gles gles3 glcore
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -3714,11 +3714,11 @@ return surface;
         #define ALPHA_CLIP_THRESHOLD 1
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -3727,13 +3727,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -3797,7 +3797,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -3820,7 +3820,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -3842,11 +3842,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -3864,7 +3864,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -3883,7 +3883,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -3898,32 +3898,32 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -3933,7 +3933,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -3943,15 +3943,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -3959,7 +3959,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -3968,7 +3968,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -3977,18 +3977,18 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -4026,7 +4026,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -4038,35 +4038,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -4077,22 +4077,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/SelectionPickingPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -4102,36 +4102,36 @@ return surface;
             {
                 "LightMode" = "Universal2D"
             }
-        
+
         // Render State
         Cull Off
         Blend One Zero
         ZTest LEqual
         ZWrite On
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 4.5
         #pragma exclude_renderers gles gles3 glcore
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -4145,11 +4145,11 @@ return surface;
         #define SHADERPASS SHADERPASS_2D
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -4158,13 +4158,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -4228,7 +4228,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -4251,7 +4251,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -4273,11 +4273,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -4295,7 +4295,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -4314,7 +4314,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -4329,47 +4329,47 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void Unity_Multiply_float4_float4(float4 A, float4 B, out float4 Out)
         {
             Out = A * B;
         }
-        
+
         void LerpWhiteTo_float(float3 b, float t, out float3 _out){
             half oneMinusT = 1 - t;
             _out = half3(oneMinusT, oneMinusT, oneMinusT) + b * t;
         }
-        
+
         void Unity_Multiply_float3_float3(float3 A, float3 B, out float3 Out)
         {
             Out = A * B;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -4379,7 +4379,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -4389,15 +4389,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -4405,7 +4405,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -4414,7 +4414,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -4423,7 +4423,7 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
@@ -4431,11 +4431,11 @@ return surface;
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -4499,7 +4499,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -4511,35 +4511,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -4550,22 +4550,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/PBR2DPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
     }
@@ -4587,21 +4587,21 @@ return surface;
             {
                 "LightMode" = "UniversalForward"
             }
-        
+
         // Render State
         Cull Off
         Blend One Zero
         ZTest LEqual
         ZWrite On
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 2.0
         #pragma only_renderers gles gles3 glcore d3d11
@@ -4610,10 +4610,10 @@ return surface;
         #pragma instancing_options renderinglayer
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
         #pragma multi_compile _ LIGHTMAP_ON
@@ -4633,9 +4633,9 @@ return surface;
         #pragma multi_compile_fragment _ _LIGHT_COOKIES
         #pragma multi_compile _ _CLUSTERED_RENDERING
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -4656,11 +4656,11 @@ return surface;
         #define _FOG_FRAGMENT 1
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -4671,13 +4671,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -4774,7 +4774,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -4812,7 +4812,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -4849,11 +4849,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -4871,7 +4871,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -4890,7 +4890,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -4905,62 +4905,62 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void Unity_Multiply_float4_float4(float4 A, float4 B, out float4 Out)
         {
             Out = A * B;
         }
-        
+
         void LerpWhiteTo_float(float3 b, float t, out float3 _out){
             half oneMinusT = 1 - t;
             _out = half3(oneMinusT, oneMinusT, oneMinusT) + b * t;
         }
-        
+
         void Unity_Multiply_float3_float3(float3 A, float3 B, out float3 Out)
         {
             Out = A * B;
         }
-        
+
         void Unity_NormalStrength_float(float3 In, float Strength, out float3 Out)
         {
             Out = float3(In.rg * Strength, lerp(1, In.b, saturate(Strength)));
         }
-        
+
         void Unity_NormalBlend_float(float3 A, float3 B, out float3 Out)
         {
             Out = SafeNormalize(float3(A.rg + B.rg, A.b * B.b));
         }
-        
+
         void Unity_Multiply_float_float(float A, float B, out float Out)
         {
             Out = A * B;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -4970,7 +4970,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -4980,15 +4980,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -4996,7 +4996,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -5005,7 +5005,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -5014,7 +5014,7 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
@@ -5027,11 +5027,11 @@ return surface;
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -5140,7 +5140,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -5152,36 +5152,36 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
             output.TangentSpaceNormal = float3(0.0f, 0.0f, 1.0f);
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -5192,22 +5192,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/PBRForwardPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -5217,37 +5217,37 @@ return surface;
             {
                 "LightMode" = "ShadowCaster"
             }
-        
+
         // Render State
         Cull Off
         ZTest LEqual
         ZWrite On
         ColorMask 0
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 2.0
         #pragma only_renderers gles gles3 glcore d3d11
         #pragma multi_compile_instancing
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -5261,11 +5261,11 @@ return surface;
         #define SHADERPASS SHADERPASS_SHADOWCASTER
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -5274,13 +5274,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -5344,7 +5344,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -5367,7 +5367,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -5389,11 +5389,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -5411,7 +5411,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -5430,7 +5430,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -5445,32 +5445,32 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -5480,7 +5480,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -5490,15 +5490,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -5506,7 +5506,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -5515,7 +5515,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -5524,18 +5524,18 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -5573,7 +5573,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -5585,35 +5585,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -5624,22 +5624,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShadowCasterPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -5649,37 +5649,37 @@ return surface;
             {
                 "LightMode" = "DepthOnly"
             }
-        
+
         // Render State
         Cull Off
         ZTest LEqual
         ZWrite On
         ColorMask 0
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 2.0
         #pragma only_renderers gles gles3 glcore d3d11
         #pragma multi_compile_instancing
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -5693,11 +5693,11 @@ return surface;
         #define SHADERPASS SHADERPASS_DEPTHONLY
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -5706,13 +5706,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -5776,7 +5776,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -5799,7 +5799,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -5821,11 +5821,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -5843,7 +5843,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -5862,7 +5862,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -5877,32 +5877,32 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -5912,7 +5912,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -5922,15 +5922,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -5938,7 +5938,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -5947,7 +5947,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -5956,18 +5956,18 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -6005,7 +6005,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -6017,35 +6017,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -6056,22 +6056,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DepthOnlyPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -6081,36 +6081,36 @@ return surface;
             {
                 "LightMode" = "DepthNormals"
             }
-        
+
         // Render State
         Cull Off
         ZTest LEqual
         ZWrite On
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 2.0
         #pragma only_renderers gles gles3 glcore d3d11
         #pragma multi_compile_instancing
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -6126,11 +6126,11 @@ return surface;
         #define SHADERPASS SHADERPASS_DEPTHNORMALS
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -6139,13 +6139,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -6213,7 +6213,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -6237,7 +6237,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -6260,11 +6260,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -6282,7 +6282,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -6301,7 +6301,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -6316,42 +6316,42 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void Unity_NormalStrength_float(float3 In, float Strength, out float3 Out)
         {
             Out = float3(In.rg * Strength, lerp(1, In.b, saturate(Strength)));
         }
-        
+
         void Unity_NormalBlend_float(float3 A, float3 B, out float3 Out)
         {
             Out = SafeNormalize(float3(A.rg + B.rg, A.b * B.b));
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -6361,7 +6361,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -6371,15 +6371,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -6387,7 +6387,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -6396,7 +6396,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -6405,7 +6405,7 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
@@ -6413,11 +6413,11 @@ return surface;
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -6481,7 +6481,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -6493,36 +6493,36 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
             output.TangentSpaceNormal = float3(0.0f, 0.0f, 1.0f);
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -6533,22 +6533,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/DepthNormalsOnlyPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -6558,33 +6558,33 @@ return surface;
             {
                 "LightMode" = "Meta"
             }
-        
+
         // Render State
         Cull Off
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 2.0
         #pragma only_renderers gles gles3 glcore d3d11
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         #pragma shader_feature _ EDITOR_VISUALIZATION
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -6603,11 +6603,11 @@ return surface;
         #define _FOG_FRAGMENT 1
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -6617,13 +6617,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/MetaInput.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -6693,7 +6693,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -6718,7 +6718,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -6742,11 +6742,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -6765,7 +6765,7 @@ return surface;
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_META_PASS
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -6784,7 +6784,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -6799,47 +6799,47 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void Unity_Multiply_float4_float4(float4 A, float4 B, out float4 Out)
         {
             Out = A * B;
         }
-        
+
         void LerpWhiteTo_float(float3 b, float t, out float3 _out){
             half oneMinusT = 1 - t;
             _out = half3(oneMinusT, oneMinusT, oneMinusT) + b * t;
         }
-        
+
         void Unity_Multiply_float3_float3(float3 A, float3 B, out float3 Out)
         {
             Out = A * B;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -6849,7 +6849,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -6859,15 +6859,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -6875,7 +6875,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -6884,7 +6884,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -6893,7 +6893,7 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
@@ -6902,11 +6902,11 @@ return surface;
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -6971,7 +6971,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -6983,35 +6983,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -7022,22 +7022,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/LightingMetaPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -7047,34 +7047,34 @@ return surface;
             {
                 "LightMode" = "SceneSelectionPass"
             }
-        
+
         // Render State
         Cull Off
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 2.0
         #pragma only_renderers gles gles3 glcore d3d11
         #pragma multi_compile_instancing
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -7090,11 +7090,11 @@ return surface;
         #define ALPHA_CLIP_THRESHOLD 1
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -7103,13 +7103,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -7173,7 +7173,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -7196,7 +7196,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -7218,11 +7218,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -7240,7 +7240,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -7259,7 +7259,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -7274,32 +7274,32 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -7309,7 +7309,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -7319,15 +7319,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -7335,7 +7335,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -7344,7 +7344,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -7353,18 +7353,18 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -7402,7 +7402,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -7414,35 +7414,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -7453,22 +7453,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/SelectionPickingPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -7478,34 +7478,34 @@ return surface;
             {
                 "LightMode" = "Picking"
             }
-        
+
         // Render State
         Cull Off
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 2.0
         #pragma only_renderers gles gles3 glcore d3d11
         #pragma multi_compile_instancing
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -7521,11 +7521,11 @@ return surface;
         #define ALPHA_CLIP_THRESHOLD 1
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -7534,13 +7534,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -7604,7 +7604,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -7627,7 +7627,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -7649,11 +7649,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -7671,7 +7671,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -7690,7 +7690,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -7705,32 +7705,32 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -7740,7 +7740,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -7750,15 +7750,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -7766,7 +7766,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -7775,7 +7775,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -7784,18 +7784,18 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -7833,7 +7833,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -7845,35 +7845,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -7884,22 +7884,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/SelectionPickingPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
         Pass
@@ -7909,37 +7909,37 @@ return surface;
             {
                 "LightMode" = "Universal2D"
             }
-        
+
         // Render State
         Cull Off
         Blend One Zero
         ZTest LEqual
         ZWrite On
-        
+
         // Debug
         // <None>
-        
+
         // --------------------------------------------------
         // Pass
-        
+
         HLSLPROGRAM
-        
+
         // Pragmas
         #pragma target 2.0
         #pragma only_renderers gles gles3 glcore d3d11
         #pragma multi_compile_instancing
         #pragma vertex vert
         #pragma fragment frag
-        
+
         // DotsInstancingOptions: <None>
         // HybridV1InjectedBuiltinProperties: <None>
-        
+
         // Keywords
         // PassKeywords: <None>
         // GraphKeywords: <None>
-        
+
         // Defines
-        
+
         #define _NORMALMAP 1
         #define _NORMAL_DROPOFF_TS 1
         #define ATTRIBUTES_NEED_NORMAL
@@ -7953,11 +7953,11 @@ return surface;
         #define SHADERPASS SHADERPASS_2D
         #define _ALPHATEST_ON 1
         /* WARNING: $splice Could not find named fragment 'DotsInstancingVars' */
-        
-        
+
+
         // custom interpolator pre-include
         /* WARNING: $splice Could not find named fragment 'sgci_CustomInterpolatorPreInclude' */
-        
+
         // Includes
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
@@ -7966,13 +7966,13 @@ return surface;
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-        
+
         // --------------------------------------------------
         // Structs and Packing
-        
+
         // custom interpolators pre packing
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPrePacking' */
-        
+
         struct Attributes
         {
              float3 positionOS : POSITION;
@@ -8036,7 +8036,7 @@ return surface;
              FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
             #endif
         };
-        
+
         PackedVaryings PackVaryings (Varyings input)
         {
             PackedVaryings output;
@@ -8059,7 +8059,7 @@ return surface;
             #endif
             return output;
         }
-        
+
         Varyings UnpackVaryings (PackedVaryings input)
         {
             Varyings output;
@@ -8081,11 +8081,11 @@ return surface;
             #endif
             return output;
         }
-        
-        
+
+
         // --------------------------------------------------
         // Graph
-        
+
         // Graph Properties
 
 
@@ -8103,7 +8103,7 @@ return surface;
 
 #define ADVANCED_DISSOLVE_SHADER_GRAPH
 #define ADVANCED_DISSOLVE_UNIVERSAL_RENDER_PIPELINE
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Defines.cginc"
+#include "../cginc/Defines.cginc"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -8122,7 +8122,7 @@ return surface;
         float _DetailNormalMapScale;
         float4 _DetailNormalMap_TexelSize;
         CBUFFER_END
-        
+
         // Object and Global properties
         SAMPLER(SamplerState_Linear_Repeat);
         TEXTURE2D(_MainTex);
@@ -8137,47 +8137,47 @@ return surface;
         SAMPLER(sampler_DetailAlbedoMap);
         TEXTURE2D(_DetailNormalMap);
         SAMPLER(sampler_DetailNormalMap);
-        
+
         // Graph Includes
         // GraphIncludes: <None>
-        
+
         // -- Property used by ScenePickingPass
         #ifdef SCENEPICKINGPASS
         float4 _SelectionID;
         #endif
-        
+
         // -- Properties used by SceneSelectionPass
         #ifdef SCENESELECTIONPASS
         int _ObjectId;
         int _PassValue;
         #endif
-        
+
         // Graph Functions
-        
+
         void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
         {
             Out = UV * Tiling + Offset;
         }
-        
+
         void Unity_Multiply_float4_float4(float4 A, float4 B, out float4 Out)
         {
             Out = A * B;
         }
-        
+
         void LerpWhiteTo_float(float3 b, float t, out float3 _out){
             half oneMinusT = 1 - t;
             _out = half3(oneMinusT, oneMinusT, oneMinusT) + b * t;
         }
-        
+
         void Unity_Multiply_float3_float3(float3 A, float3 B, out float3 Out)
         {
             Out = A * B;
         }
-        
+
         void AdvancedDissolveShaderGraphFunction_float(float2 UV, float3 PositionOS, float3 PositionWS, float3 PositionWS_Absolut, float3 NormalOS, float3 NormalWS, float Custom_Cutout, float4 Custom_Color, out float Value){
         Value = 0;
         }
-        
+
         struct Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float
         {
         float3 ObjectSpaceNormal;
@@ -8187,7 +8187,7 @@ return surface;
         float3 AbsoluteWorldSpacePosition;
         half4 uv0;
         };
-        
+
         void SG_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float(float Vector1_9E44E7D0, float4 Color_d37717e22d9845eeb5507ed0b661e197, Bindings_AdvancedDissolve_58cc1ed7edc36664e85cbe55fd29d527_float IN, out float Out_3)
         {
         float4 _UV_0af11090dff4968fbefbff780ab3f959_Out_0 = IN.uv0;
@@ -8197,15 +8197,15 @@ return surface;
         AdvancedDissolveShaderGraphFunction_float((_UV_0af11090dff4968fbefbff780ab3f959_Out_0.xy), IN.ObjectSpacePosition, IN.WorldSpacePosition, IN.AbsoluteWorldSpacePosition, IN.ObjectSpaceNormal, IN.WorldSpaceNormal, _Property_2254a3efc4fcf082bc34b2ce5b131975_Out_0, _Property_6d35f866e3e7457cb788755ca206532e_Out_0, _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7);
         Out_3 = _AdvancedDissolveShaderGraphFunctionCustomFunction_18f0160f9996fe8f938c567e2ad92b60_Value_7;
         }
-        
+
         void Unity_Add_float(float A, float B, out float Out)
         {
             Out = A + B;
         }
-        
+
         // Custom interpolators pre vertex
         /* WARNING: $splice Could not find named fragment 'CustomInterpolatorPreVertex' */
-        
+
         // Graph Vertex
         struct VertexDescription
         {
@@ -8213,7 +8213,7 @@ return surface;
             float3 Normal;
             float3 Tangent;
         };
-        
+
         VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
         {
             VertexDescription description = (VertexDescription)0;
@@ -8222,7 +8222,7 @@ return surface;
             description.Tangent = IN.ObjectSpaceTangent;
             return description;
         }
-        
+
         // Custom interpolators, pre surface
         #ifdef FEATURES_GRAPH_VERTEX
         Varyings CustomInterpolatorPassThroughFunc(inout Varyings output, VertexDescription input)
@@ -8231,7 +8231,7 @@ return surface;
         }
         #define CUSTOMINTERPOLATOR_VARYPASSTHROUGH_FUNC
         #endif
-        
+
         // Graph Pixel
         struct SurfaceDescription
         {
@@ -8239,11 +8239,11 @@ return surface;
             float Alpha;
             float AlphaClipThreshold;
         };
-        
+
 
 
 //Advanced Dissolve
-#include "Assets/RIS/LectureMaterial/ARMediaWorks/Robot/ThirdParty/Advanced Dissolve/Shaders/cginc/Core.cginc"
+#include "../cginc/Core.cginc"
 
 
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
@@ -8307,7 +8307,7 @@ AdvancedDissolveShaderGraph(IN.uv0.xy, IN.ObjectSpacePosition, IN.WorldSpacePosi
 return surface;
 
         }
-        
+
         // --------------------------------------------------
         // Build Graph Inputs
         #ifdef HAVE_VFX_MODIFICATION
@@ -8319,35 +8319,35 @@ return surface;
         {
             VertexDescriptionInputs output;
             ZERO_INITIALIZE(VertexDescriptionInputs, output);
-        
+
             output.ObjectSpaceNormal =                          input.normalOS;
             output.ObjectSpaceTangent =                         input.tangentOS.xyz;
             output.ObjectSpacePosition =                        input.positionOS;
-        
+
             return output;
         }
         SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
         {
             SurfaceDescriptionInputs output;
             ZERO_INITIALIZE(SurfaceDescriptionInputs, output);
-        
+
         #ifdef HAVE_VFX_MODIFICATION
             // FragInputs from VFX come from two places: Interpolator or CBuffer.
             /* WARNING: $splice Could not find named fragment 'VFXSetFragInputs' */
-        
+
         #endif
-        
-            
-        
+
+
+
             // must use interpolated tangent, bitangent and normal before they are normalized in the pixel shader.
             float3 unnormalizedNormalWS = input.normalWS;
             const float renormFactor = 1.0 / length(unnormalizedNormalWS);
-        
-        
+
+
             output.WorldSpaceNormal = renormFactor * input.normalWS.xyz;      // we want a unit length Normal Vector node in shader graph
             output.ObjectSpaceNormal = normalize(mul(output.WorldSpaceNormal, (float3x3) UNITY_MATRIX_M));           // transposed multiplication by inverse matrix to handle normal scale
-        
-        
+
+
             output.WorldSpacePosition = input.positionWS;
             output.ObjectSpacePosition = TransformWorldToObject(input.positionWS);
             output.AbsoluteWorldSpacePosition = GetAbsolutePositionWS(input.positionWS);
@@ -8358,22 +8358,22 @@ return surface;
         #define BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
         #endif
         #undef BUILD_SURFACE_DESCRIPTION_INPUTS_OUTPUT_FACESIGN
-        
+
                 return output;
         }
-        
+
         // --------------------------------------------------
         // Main
-        
+
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/Varyings.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/PBR2DPass.hlsl"
-        
+
         // --------------------------------------------------
         // Visual Effect Vertex Invocations
         #ifdef HAVE_VFX_MODIFICATION
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/VisualEffectVertex.hlsl"
         #endif
-        
+
         ENDHLSL
         }
     }

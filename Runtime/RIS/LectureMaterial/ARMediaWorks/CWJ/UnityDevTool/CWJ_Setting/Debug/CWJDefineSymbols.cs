@@ -2,7 +2,7 @@
 {
 #if NET_STANDARD_2_0 || NET_STANDARD_2_1
 #if UNITY_2021_1_OR_NEWER
-#error (Project Settings>Player>Other Settings 'API Compatibility Level' Set '.Net Framework') UnityDevTool is incapable of compiling source code against the .NET Standard 2.1 API surface. You can change the API Compatibility Level to '.Net Framework' in the Player settings.
+#error [상단 탭 Edit > Project Settings 클릭,\n우측상단 검색란: 'API Compatibility Level' 입력.\n'.NET Framework'로 설정] UnityDevTool is incapable of compiling source code against the .NET Standard 2.1 API surface. You can change the API Compatibility Level to '.Net Framework' in the Player settings.
 #else
 #error (Project Settings>Player>Other Settings 'API Compatibility Level' Set '.Net 4.x') UnityDevTool is incapable of compiling source code against the .NET Standard 2.0 API surface. You can change the API Compatibility Level to '.Net 4.x' in the Player settings.
 #endif
@@ -27,7 +27,7 @@
         public const string CWJ_LOG_SAVE = nameof(CWJ_LOG_SAVE);
 
         public const string CWJ_EDITOR_DEBUG_ENABLED = nameof(CWJ_EDITOR_DEBUG_ENABLED);
-        
+
         //
 
         public const string CWJ_LOG_ENABLED = "CWJ_FAKE_LOG_ENABLED_CHOWOOJEONG"; //절대로 Scripting Define Symbols에 등록 될 일이 없는 이름이여야함
@@ -61,7 +61,7 @@
 
         //
 
-        // Manager 
+        // Manager
         public const string CWJ_MULTI_DISPLAY = nameof(CWJ_MULTI_DISPLAY);
 
 #if CWJ_LOG_DISABLED || (!UNITY_EDITOR && CWJ_LOG_DISABLED_IN_BUILD)

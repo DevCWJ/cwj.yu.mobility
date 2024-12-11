@@ -72,12 +72,18 @@ namespace CWJ.YU.Editor
                 buttonsLine2.Add(openDemoUrlBtn);
                 //
 
+                VisualElement lastLine = new VisualElement();
+                ExtentionRoot.Add(lastLine);
+                lastLine.style.flexDirection = FlexDirection.Row;
+                lastLine.style.flexWrap = Wrap.Wrap;
 
+                sampleDescLbl = new Label { text = "아래 Samples에서 데모씬을 import 받을수있습니다.\n(import이후 데모씬 위치 : Assets/Samples/CWJ.YU.Mobility/1.1.2/데모용 Resources, Scene/)" };
+                lastLine.Add(sampleDescLbl);
                 return ExtentionRoot;
             }
 
             private Button downloadAssetsBtn, openDemoUrlBtn, changeApiCompatibilityBtn;
-            private Label descLbl;
+            private Label descLbl, sampleDescLbl;
             private PackageInfo current = null;
 
             public void OnPackageSelectionChange(PackageInfo packageInfo)
@@ -89,6 +95,7 @@ namespace CWJ.YU.Editor
                 downloadAssetsBtn.visible = false; //다운받을필요없어짐
                 openDemoUrlBtn.visible = isTargetPackage;
                 changeApiCompatibilityBtn.visible = isTargetPackage;
+                sampleDescLbl.visible = isTargetPackage;
 
                 if (!isTargetPackage)
                 {

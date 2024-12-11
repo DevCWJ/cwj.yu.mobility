@@ -97,7 +97,7 @@ namespace CWJ.AccessibleEditor
 			return CacheFilePath<T>(typeof(T).Name);
 		}
 
-		private const string _EditorCacheDirectroy = "Assets/RIS/LectureMaterial/ARMediaWorks/CWJ/UnityDevTool/_Cache";
+		private const string _EditorCacheDirectroy = "Assets/RIS/LectureMaterial/ARMediaWorks/CWJ/UnityDevTool/_Cache/";
 
 		private static void EnsureEditorCacheFolderExists(string fullPath)
 		{

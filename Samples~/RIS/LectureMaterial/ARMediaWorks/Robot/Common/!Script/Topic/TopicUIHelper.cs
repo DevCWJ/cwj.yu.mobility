@@ -83,8 +83,7 @@ namespace CWJ.YU.Mobility
 
 		public void SetTarget(Transform targetTrf, bool isHoldDefault = true)
 		{
-			if (targetTrf)
-				rotateAxes = targetTrf.GetComponentInChildren<RotateObjByDrag>(true);
+			rotateAxes = targetTrf ? targetTrf.GetComponentInChildren<RotateObjByDrag>(true) : null;
 			bool hasTargetTrf = rotateAxes && rotateAxes.AxesPivot;
 			if (!hasTargetTrf)
 				rotateAxes = null;

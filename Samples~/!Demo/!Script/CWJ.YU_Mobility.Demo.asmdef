@@ -1,0 +1,20 @@
+{
+    "name": "CWJ.YU_Mobility.Demo",
+    "rootNamespace": "CWJ.YU.Mobility.Demo",
+    "references": [
+        "GUID:209afe16bc455f64399a25262696d492",
+        "GUID:7a821f129ac81b243badafeed6b81f39",
+        "GUID:2b536c869c0010846b5a64ca6145d580",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:80373f1c97b94af44a790121b6e83d44"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -22,5 +22,12 @@
     "name": "CWJ",
     "email": "cwj@kakao.com",
     "url": "https://github.com/DevCWJ/yu.mobility"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Get Demo Scene",
+      "description": "데모씬 포함되어있음. (!Demo/YU_Demo.unity)\n우클릭 또는 esc 커서 보이기/숨기기\n[Left Shift]를 누른채 숫자1~9 or 0키 입력 : 1~9번 or 10번 토픽 활성화",
+      "path": "Samples~/!Demo"
+    }
+  ]
 }

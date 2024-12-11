@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TriangularFace
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Axis_21p
+    m_Weight: 1
+  - m_Path: Cone
+    m_Weight: 1
+  - m_Path: oPrimeCircle
+    m_Weight: 1
+  - m_Path: oPrimeLine
+    m_Weight: 1
+  - m_Path: oRrimeCircleArrow
+    m_Weight: 1
+  - m_Path: pLine
+    m_Weight: 1
+  - m_Path: pLine/pLineArrow
+    m_Weight: 1
+  - m_Path: Text_O
+    m_Weight: 1
+  - m_Path: Text_oPrime
+    m_Weight: 1
+  - m_Path: Text_pNaught
+    m_Weight: 1
+  - m_Path: TriangularFace_Ending
+    m_Weight: 1
+  - m_Path: TriangularFace_Starting
+    m_Weight: 1

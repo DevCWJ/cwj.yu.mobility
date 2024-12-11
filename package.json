@@ -1,6 +1,6 @@
 {
   "name": "com.cwj.yu.mobility",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "displayName": "CWJ.YU.Mobility",
   "description": "Dependencies of 'Yeungnam University Smart Mobility - Mobility Kinematics Class'",
   "unity": "2021.3",
@@ -13,13 +13,21 @@
   },
   "keywords": [
     "mobility",
-    "framework",
+    "assets",
     "cwj",
     "yu"
   ],
+  "category": "CWJ",
   "author": {
     "name": "CWJ",
     "email": "cwj@kakao.com",
-    "url": ""
-  }
+    "url": "https://github.com/DevCWJ/yu.mobility"
+  },
+  "samples": [
+    {
+      "displayName": "Assets in Samples",
+      "description": "Assets for RIS.YU.Mobility.",
+      "path": "Samples~/RIS"
+    }
+  ]
 }

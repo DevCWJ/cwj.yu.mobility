@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1bffc583284a928ba9e5d0a70f4987, type: 3}
+  m_Name: Player Footsteps
+  m_EditorClassIdentifier: 
+  physicsSoundStore:
+    keys:
+    - {fileID: 0}
+    values:
+    - {fileID: 0}
+  physicsSfx:
+  - {fileID: 11400000, guid: 426eddb3dd13d694da26f860482f51e1, type: 2}
+  - {fileID: 11400000, guid: 1695c3f778aab2a46ad931db096ce720, type: 2}
+  defaultClips:
+  - {fileID: 8300000, guid: f5cdb4bc7c2507143abeb8e33ad87430, type: 3}

@@ -1,0 +1,8 @@
+Micro-controller robotic arm 
+This is a fully functional robotic arm with 6 degrees of freedom (6 rotating arm joint),
+The arms of the robot can be controlled Manually (each joint controlled individually).
+Models Included:
+1. Robotic Arm
+2. Working table
+All the models come with PBR materials and high-quality 4k Texture.
+The pack contains a sample scene containing the fully functional robotic arm.

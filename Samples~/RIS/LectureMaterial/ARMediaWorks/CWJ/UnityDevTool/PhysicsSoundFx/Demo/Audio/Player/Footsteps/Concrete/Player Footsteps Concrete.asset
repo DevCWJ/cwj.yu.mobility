@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f2768a68634c15924c91ee9e052deb, type: 3}
+  m_Name: Player Footsteps Concrete
+  m_EditorClassIdentifier: 
+  _audioClips:
+  - {fileID: 8300000, guid: 5cc40919bcec7194d84b3ee0a12d0afe, type: 3}
+  - {fileID: 8300000, guid: 325786fb98bef314f8f87eec7b31ae2f, type: 3}
+  - {fileID: 8300000, guid: 87c688d64377471488f4425629a45f66, type: 3}
+  - {fileID: 8300000, guid: 0c790df65bcbd8548a961421da284dc2, type: 3}
+  - {fileID: 8300000, guid: f9cb4aeb6ba025544bad607d4dd4b03a, type: 3}
+  _materialKey: {fileID: 13400000, guid: b9684faa8700c854aa13504b2fc049ef, type: 2}

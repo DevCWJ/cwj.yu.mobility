@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Link
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature.003
+    m_Weight: 1
+  - m_Path: Armature.003/Bone
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.001
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.001/Bone.001_end
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.001/Cartesian2_HorizontalArm1
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.001/Cartesian2_HorizontalArm1/CartesianArrow2.001
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.002
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.002/Bone.003
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.002/Bone.003/Bone.003_end
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.002/Bone.003/Cartesian4_HorizontalArm3
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.002/Bone.003/Cartesian4_HorizontalArm3/CartesianArrow3
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.002/Cartesian3_HorizontalArm2
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Bone.002/Cartesian3_HorizontalArm2/CartesianArrow2
+    m_Weight: 1
+  - m_Path: Armature.003/Bone/Cartesian1_RotaryBase
+    m_Weight: 1
+  - m_Path: Cartesian0_BasePlate
+    m_Weight: 1

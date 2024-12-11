@@ -1,0 +1,16 @@
+{
+    "name": "CWJ.UnityEditorCor",
+    "rootNamespace": "CWJ.Unity.EditorCor.Editor",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

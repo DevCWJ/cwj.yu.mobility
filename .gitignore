@@ -14,8 +14,8 @@ crashlytics-build.properties
 *.dwlt
 *.unitypackage
 *.unitypackage.meta
-!**/Samples~J/**/*.unitypackage
-!**/Samples~J/**/*.unitypackage.meta
+!**/Samples~/**/*.unitypackage
+!**/Samples~/**/*.unitypackage.meta
 
 # Builds #
 [Bb]uild/

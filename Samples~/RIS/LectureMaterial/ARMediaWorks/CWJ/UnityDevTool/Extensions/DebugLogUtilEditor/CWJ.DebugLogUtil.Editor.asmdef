@@ -1,0 +1,21 @@
+{
+    "name": "CWJ.DebugLogUtil.Editor",
+    "rootNamespace": "CWJ.AccessibleEditor",
+    "references": [
+        "GUID:209afe16bc455f64399a25262696d492",
+        "GUID:898797e4902bfe648bdce02b7a4900c4"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [
+        ""
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

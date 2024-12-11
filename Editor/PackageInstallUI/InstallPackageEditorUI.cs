@@ -20,7 +20,7 @@ namespace CWJ.YU.Editor
         private const string This_Installer_Name = "com.cwj.yu.mobility";
         private const string GitRepoUrl = "https://github.com/DevCWJ/yu.mobility.git";
         private const string DemoDriveUrl = "https://drive.google.com/drive/folders/1m_9dOMbPEMA4S9hDls5PpNCcNXUULWh1?usp=sharing";
-        private const string descStr = "[RIS 영남대 스마트 모빌리티 에셋 다운로드]";
+        private const string descStr = "[RIS 영남대 스마트 모빌리티 패키지]";
 
         [InitializeOnLoadMethod]
         static void Init()

@@ -66,7 +66,7 @@ namespace CWJ.YU.Editor
                 buttonsLine2.style.flexWrap = Wrap.Wrap;
 
                 openDemoUrlBtn = new Button();
-                openDemoUrlBtn.text = "Open PC Demo URL";
+                openDemoUrlBtn.text = "PC_데모.exe Drive URL 열기";
                 openDemoUrlBtn.clicked += OnOpenDemoUrlBtnClicked;
                 openDemoUrlBtn.style.width = width;
                 buttonsLine2.Add(openDemoUrlBtn);

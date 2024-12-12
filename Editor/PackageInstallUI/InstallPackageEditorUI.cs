@@ -66,7 +66,7 @@ namespace CWJ.YU.Editor
                 buttonsLine2.style.flexWrap = Wrap.Wrap;
 
                 openDemoUrlBtn = new Button();
-                openDemoUrlBtn.text = "PC_데모.exe Drive URL 열기";
+                openDemoUrlBtn.text = "데모_PC빌드.exe Drive URL 열기";
                 openDemoUrlBtn.clicked += OnOpenDemoUrlBtnClicked;
                 openDemoUrlBtn.style.width = width;
                 buttonsLine2.Add(openDemoUrlBtn);
@@ -77,7 +77,9 @@ namespace CWJ.YU.Editor
                 lastLine.style.flexDirection = FlexDirection.Row;
                 lastLine.style.flexWrap = Wrap.Wrap;
 
-                sampleDescLbl = new Label { text = "아래 Samples에서 데모씬을 import 받을수있습니다.\n(import이후 데모씬 위치 : Assets/Samples/CWJ.YU.Mobility/1.1.2/데모용_Scene&Resources/)" };
+                sampleDescLbl = new Label { text = "\n아래 Samples에서 데모씬을 import 받을수있습니다."+
+"\n[Import이후 데모씬 위치 : \nAssets/Samples/CWJ.YU.Mobility/1.1.2/데모용_Scene&Resources/YU_Demo.unity]"
++"\n[조작: [Left Shift]를 누른채 숫자1~9 or 0키 입력 : 토픽 1~9번 or 10번 활성화]" };
                 lastLine.Add(sampleDescLbl);
                 return ExtentionRoot;
             }

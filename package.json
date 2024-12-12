@@ -2,13 +2,13 @@
   "name": "com.cwj.yu.mobility",
   "version": "1.1.2",
   "displayName": "CWJ.YU.Mobility",
-  "description": "Dependencies of 'Yeungnam University Smart Mobility - Mobility Kinematics Class'",
+  "description": "Assets of 'Ris - Yeungnam University Smart Mobility - Mobility Kinematics Class'",
   "unity": "2021.3",
   "dependencies": {
-    "com.unity.burst": "1.8.18",
     "com.unity.textmeshpro": "3.0.9",
     "com.unity.render-pipelines.core": "12.1.15",
     "com.unity.render-pipelines.universal": "12.1.15",
+    "com.unity.burst": "1.8.18",
     "com.unity.nuget.newtonsoft-json": "3.2.1"
   },
   "keywords": [
@@ -26,7 +26,7 @@
   "samples": [
     {
       "displayName": "데모용_Scene&Resources",
-      "description": "데모씬 포함되어있음. (!Demo/YU_Demo.unity)\n우클릭 또는 esc 커서 보이기/숨기기\n[Left Shift]를 누른채 숫자1~9 or 0키 입력 : 1~9번 or 10번 토픽 활성화",
+      "description": "데모씬 포함되어있음. (YU_Demo.unity)\n우클릭 또는 esc 커서 보이기/숨기기\n[Left Shift]를 누른채 숫자1~9 or 0키 입력 : 1~9번 or 10번 토픽 활성화",
       "path": "Samples~/!Demo"
     }
   ]

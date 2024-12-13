@@ -21,6 +21,7 @@ namespace CWJ.YU.Editor
         private const string GitRepoUrl = "https://github.com/DevCWJ/yu.mobility.git";
         private const string DemoDriveUrl = "https://drive.google.com/drive/folders/1m_9dOMbPEMA4S9hDls5PpNCcNXUULWh1?usp=sharing";
         private const string descStr = "[RIS 영남대 스마트 모빌리티 패키지]";
+private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 import 받을수있습니다.\n[Import이후 데모씬 위치 : \nAssets/Samples/CWJ.YU.Mobility/{0}/데모용_Scene&Resources/YU_Demo.unity]\n[조작: [Left Shift]를 누른채 숫자1~9 or 0키 입력 : 토픽 1~9번 or 10번 활성화]";
 
         [InitializeOnLoadMethod]
         static void Init()
@@ -77,9 +78,7 @@ namespace CWJ.YU.Editor
                 lastLine.style.flexDirection = FlexDirection.Row;
                 lastLine.style.flexWrap = Wrap.Wrap;
 
-                sampleDescLbl = new Label { text = "\n아래 Samples에서 데모씬을 import 받을수있습니다."+
-"\n[Import이후 데모씬 위치 : \nAssets/Samples/CWJ.YU.Mobility/1.1.2/데모용_Scene&Resources/YU_Demo.unity]"
-+"\n[조작: [Left Shift]를 누른채 숫자1~9 or 0키 입력 : 토픽 1~9번 or 10번 활성화]" };
+                sampleDescLbl = new Label { text = " " };
                 lastLine.Add(sampleDescLbl);
                 return ExtentionRoot;
             }
@@ -104,6 +103,7 @@ namespace CWJ.YU.Editor
                     return;
                 }
 
+				sampleDescLbl.text = string.Format(sampleImportDesc,current.version);
                 bool needChangeApi = PlayerSettings.GetApiCompatibilityLevel(EditorUserBuildSettings.selectedBuildTargetGroup) !=
                                      ApiCompatibilityLevel.NET_Unity_4_8;
 
@@ -145,7 +145,7 @@ namespace CWJ.YU.Editor
             {
                 bool needUpdate = current.CheckNeedUpdateByLastUpdateDate(out string latestVersion);
                 downloadAssetsBtn.SetEnabled(string.IsNullOrEmpty(latestVersion) || !needUpdate);
-                descLbl.text = $"{descStr}\n" + (needUpdate ? "Update가 필요합니다." : "현재 최신 버전입니다.");
+                descLbl.text = $"{descStr}\n" + (needUpdate ? ">> 현재 최신버전이 아닙니다. 하단에 [Update]버튼을 눌러주세요 <<" : "현재 최신 버전입니다.");
             }
 
             public void OnPackageAddedOrUpdated(PackageInfo packageInfo) { }

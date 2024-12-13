@@ -312,7 +312,7 @@ namespace CWJ
             return gameObject.AddComponent(type);
         }
 
-        public static T GetOrAddComponent<T>(this Transform transform) where T : Component => GetOrAddComponent<T>(transform.gameObject);
+        public static T GetOrAddComponent_New<T>(this Transform transform) where T : Component => GetOrAddComponent<T>(transform.gameObject);
 
         public static void GetAndRemoveComponent<T>(this GameObject gameObject) where T : Component
         {
@@ -322,12 +322,12 @@ namespace CWJ
         }
         public static void GetAndRemoveComponent<T>(this Transform transform) where T : Component => GetAndRemoveComponent<T>(transform.gameObject);
 
-        public static bool TryGetComponentInParent<T>(this Component comp, out T result, out GameObject resultTargetObj)
+        public static bool TryGetComponentInParent_New<T>(this Component comp, out T result, out GameObject resultTargetObj)
         {
-            return TryGetComponentInParent<T>(comp.gameObject, out result, out resultTargetObj);
+            return TryGetComponentInParent_New<T>(comp.gameObject, out result, out resultTargetObj);
         }
 
-        public static bool TryGetComponentInParent<T>(this GameObject gameObject, out T result, out GameObject resultTargetObj)
+        public static bool TryGetComponentInParent_New<T>(this GameObject gameObject, out T result, out GameObject resultTargetObj)
         {
             Transform transform = gameObject.transform;
             do

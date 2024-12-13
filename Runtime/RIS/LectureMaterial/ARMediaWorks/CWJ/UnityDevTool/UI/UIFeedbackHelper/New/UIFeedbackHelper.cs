@@ -128,7 +128,7 @@ namespace CWJ
 			var selectable = hoveredObj.GetComponentInParent<Selectable>();
 			if (!selectable)
 			{
-				if (!hoveredObj.TryGetComponentInParent<IPointerClickHandler>(out _, out curSelectObj))
+				if (!hoveredObj.TryGetComponentInParent_New<IPointerClickHandler>(out _, out curSelectObj))
 				{
 					return;
 				}

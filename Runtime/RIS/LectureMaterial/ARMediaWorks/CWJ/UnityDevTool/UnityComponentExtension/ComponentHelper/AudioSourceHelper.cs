@@ -56,7 +56,7 @@ public class AudioSourceHelper : MonoBehaviour
 
     private void Reset()
     {
-        audioSource = transform.GetOrAddComponent<AudioSource>();
+        audioSource = transform.GetOrAddComponent_New<AudioSource>();
     }
 
     private void Awake()

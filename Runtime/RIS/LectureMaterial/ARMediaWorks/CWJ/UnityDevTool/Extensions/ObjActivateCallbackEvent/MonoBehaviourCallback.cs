@@ -6,15 +6,15 @@ namespace CWJ
     {
         public static MonoBehaviourCallback GetMonoBehaviourEvent(this GameObject go)
         {
-            return go.transform.GetOrAddComponent<MonoBehaviourCallback>();
+            return go.transform.GetOrAddComponent_New<MonoBehaviourCallback>();
         }
         public static MonoBehaviourCallback GetMonoBehaviourEvent(this Transform transform)
         {
-            return transform.GetOrAddComponent<MonoBehaviourCallback>();
+            return transform.GetOrAddComponent_New<MonoBehaviourCallback>();
         }
         public static MonoBehaviourCallback GetMonoBehaviourEvent(this MonoBehaviour monoBehav)
         {
-            return monoBehav.transform.GetOrAddComponent<MonoBehaviourCallback>();
+            return monoBehav.transform.GetOrAddComponent_New<MonoBehaviourCallback>();
         }
 
         public static TC GetGenericMonoBehaviourEvent<T, TC>(this GameObject go, T eventParamValue) where TC : _MonoBehaviourGenericCallback<T>

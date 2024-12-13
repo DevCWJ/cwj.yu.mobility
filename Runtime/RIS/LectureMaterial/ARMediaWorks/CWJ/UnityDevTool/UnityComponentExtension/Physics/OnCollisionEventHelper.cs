@@ -15,7 +15,7 @@ namespace CWJ
 
         private void Awake()
         {
-            collider = transform.GetOrAddComponent<Collider>();
+            collider = transform.GetOrAddComponent_New<Collider>();
         }
 
         private void OnCollisionEnter(Collision collision)

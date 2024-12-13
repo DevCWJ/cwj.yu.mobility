@@ -71,7 +71,7 @@ namespace CWJ.EzPaint
 
             Transform outlineTrf = transform.Find("OutlineObj");
             if (outlineTrf == null) outlineTrf = new GameObject("OutlineObj", typeof(SpriteRenderer)).transform;
-            spriteOutline = outlineTrf.GetOrAddComponent<SpriteRenderer>();
+            spriteOutline = outlineTrf.GetOrAddComponent_New<SpriteRenderer>();
             spriteOutline.transform.SetParent(transform);
             spriteOutline.transform.Reset();
             spriteOutline.transform.localPosition = new Vector3(0, 0, .002f);

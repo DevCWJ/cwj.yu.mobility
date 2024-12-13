@@ -23,6 +23,8 @@ namespace CWJ.YU.Editor
         private const string descStr = "[RIS 영남대 스마트 모빌리티 패키지]";
 private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 import 받을수있습니다.\n[Import이후 데모씬 위치 : \nAssets/Samples/CWJ.YU.Mobility/{0}/데모용_Scene&Resources/YU_Demo.unity]\n[조작: [Left Shift]를 누른채 숫자1~9 or 0키 입력 : 토픽 1~9번 or 10번 활성화]";
 
+        private const string UnityPackageDriveUrl = "https://drive.google.com/drive/folders/1uFUo6L9C8B7cvKRE6Z2_I_Nq6UHxkMvQ?usp=sharing";
+
         [InitializeOnLoadMethod]
         static void Init()
         {
@@ -66,6 +68,12 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                 buttonsLine2.style.flexDirection = FlexDirection.Row;
                 buttonsLine2.style.flexWrap = Wrap.Wrap;
 
+                openUnityPackageBtn = new Button();
+                openUnityPackageBtn.text = ".unitypackage in GoogleDrive";
+                openUnityPackageBtn.clicked += OnOpenUnityPackageUrlBtnClicked;
+                openUnityPackageBtn.style.width = width;
+                buttonsLine2.Add(openUnityPackageBtn);
+
                 openDemoUrlBtn = new Button();
                 openDemoUrlBtn.text = "데모_PC빌드.exe in GoogleDrive";
                 openDemoUrlBtn.clicked += OnOpenDemoUrlBtnClicked;
@@ -83,7 +91,7 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                 return ExtentionRoot;
             }
 
-            private Button downloadAssetsBtn, openDemoUrlBtn, changeApiCompatibilityBtn;
+            private Button downloadAssetsBtn, openDemoUrlBtn, changeApiCompatibilityBtn, openUnityPackageBtn;
             private Label descLbl, sampleDescLbl;
             private PackageInfo current = null;
 
@@ -95,6 +103,7 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                 descLbl.visible = isTargetPackage;
                 downloadAssetsBtn.visible = false; //다운받을필요없어짐
                 openDemoUrlBtn.visible = isTargetPackage;
+                openUnityPackageBtn.visible = isTargetPackage;
                 changeApiCompatibilityBtn.visible = isTargetPackage;
                 sampleDescLbl.visible = isTargetPackage;
 
@@ -110,7 +119,7 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                 changeApiCompatibilityBtn.SetEnabled(needChangeApi);
                 downloadAssetsBtn.SetEnabled(!needChangeApi);
                 openDemoUrlBtn.SetEnabled(!needChangeApi);
-
+                openUnityPackageBtn.SetEnabled(!needChangeApi);
                 if (needChangeApi)
                 {
                     descLbl.text = $"[{changeApiCompatibilityBtn.text}] 버튼을 눌러주세요.";
@@ -139,7 +148,10 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                 Application.OpenURL(DemoDriveUrl);
             }
 
-
+            private void OnOpenUnityPackageUrlBtnClicked()
+            {
+                Application.OpenURL(UnityPackageDriveUrl);
+            }
 
             private void CheckForUpdates()
             {

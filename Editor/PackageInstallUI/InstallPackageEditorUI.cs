@@ -21,7 +21,9 @@ namespace CWJ.YU.Editor
         private const string GitRepoUrl = "https://github.com/DevCWJ/yu.mobility.git";
         private const string DemoDriveUrl = "https://drive.google.com/drive/folders/1m_9dOMbPEMA4S9hDls5PpNCcNXUULWh1?usp=sharing";
         private const string descStr = "[RIS 영남대 스마트 모빌리티 패키지]";
-private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 import 받을수있습니다.\n[Import이후 데모씬 위치 : \nAssets/Samples/CWJ.YU.Mobility/{0}/데모용_Scene&Resources/YU_Demo.unity]\n[조작: [Left Shift]를 누른채 숫자1~9 or 0키 입력 : 토픽 1~9번 or 10번 활성화]";
+
+        private const string sampleImportDesc =
+            "\n아래 Samples에서 데모씬을 import 받을수있습니다.\n[Import이후 데모씬 위치 : \nAssets/Samples/CWJ.YU.Mobility/{0}/데모용_Scene&Resources/YU_Demo.unity]\n[조작: [Left Shift]를 누른채 숫자1~9 or 0키 입력 : 토픽 1~9번 or 10번 활성화]";
 
         private const string UnityPackageDriveUrl = "https://drive.google.com/drive/folders/1uFUo6L9C8B7cvKRE6Z2_I_Nq6UHxkMvQ?usp=sharing";
 
@@ -56,23 +58,16 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                 changeApiCompatibilityBtn.style.width = width;
                 buttonsLine1.Add(changeApiCompatibilityBtn);
 
-                downloadAssetsBtn = new Button();
-                downloadAssetsBtn.text = "Download Assets";
-                downloadAssetsBtn.clicked += OnDownloadAssetsBtnClicked;
-                downloadAssetsBtn.style.width = width;
-                downloadAssetsBtn.visible = false;
-                buttonsLine1.Add(downloadAssetsBtn);
+                importUnityPackageBtn = new Button();
+                importUnityPackageBtn.text = "Import 유니티패키지";
+                importUnityPackageBtn.clicked += OnImportUnityPackageBtnClicked;
+                importUnityPackageBtn.style.width = width;
+                buttonsLine1.Add(importUnityPackageBtn);
 
                 VisualElement buttonsLine2 = new VisualElement();
                 ExtentionRoot.Add(buttonsLine2);
                 buttonsLine2.style.flexDirection = FlexDirection.Row;
                 buttonsLine2.style.flexWrap = Wrap.Wrap;
-
-                openUnityPackageBtn = new Button();
-                openUnityPackageBtn.text = ".unitypackage in GoogleDrive";
-                openUnityPackageBtn.clicked += OnOpenUnityPackageUrlBtnClicked;
-                openUnityPackageBtn.style.width = width;
-                buttonsLine2.Add(openUnityPackageBtn);
 
                 openDemoUrlBtn = new Button();
                 openDemoUrlBtn.text = "데모_PC빌드.exe in GoogleDrive";
@@ -91,7 +86,7 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                 return ExtentionRoot;
             }
 
-            private Button downloadAssetsBtn, openDemoUrlBtn, changeApiCompatibilityBtn, openUnityPackageBtn;
+            private Button openDemoUrlBtn, changeApiCompatibilityBtn, importUnityPackageBtn;
             private Label descLbl, sampleDescLbl;
             private PackageInfo current = null;
 
@@ -101,9 +96,9 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                 bool isTargetPackage = current != null && current.name == This_Installer_Name;
 
                 descLbl.visible = isTargetPackage;
-                downloadAssetsBtn.visible = false; //다운받을필요없어짐
+
                 openDemoUrlBtn.visible = isTargetPackage;
-                openUnityPackageBtn.visible = isTargetPackage;
+                importUnityPackageBtn.visible = false; //TODO : export시키고 unitypackage로 만들고 import하는것까지 자동화
                 changeApiCompatibilityBtn.visible = isTargetPackage;
                 sampleDescLbl.visible = isTargetPackage;
 
@@ -112,14 +107,13 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                     return;
                 }
 
-				sampleDescLbl.text = string.Format(sampleImportDesc,current.version);
+                sampleDescLbl.text = string.Format(sampleImportDesc, current.version);
                 bool needChangeApi = PlayerSettings.GetApiCompatibilityLevel(EditorUserBuildSettings.selectedBuildTargetGroup) !=
                                      ApiCompatibilityLevel.NET_Unity_4_8;
 
                 changeApiCompatibilityBtn.SetEnabled(needChangeApi);
-                downloadAssetsBtn.SetEnabled(!needChangeApi);
                 openDemoUrlBtn.SetEnabled(!needChangeApi);
-                openUnityPackageBtn.SetEnabled(!needChangeApi);
+                importUnityPackageBtn.SetEnabled(!needChangeApi);
                 if (needChangeApi)
                 {
                     descLbl.text = $"[{changeApiCompatibilityBtn.text}] 버튼을 눌러주세요.";
@@ -148,15 +142,27 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                 Application.OpenURL(DemoDriveUrl);
             }
 
-            private void OnOpenUnityPackageUrlBtnClicked()
+            private void OnImportUnityPackageBtnClicked()
             {
-                Application.OpenURL(UnityPackageDriveUrl);
+                string packagePath = GetPackagePath(current);
+                if (string.IsNullOrEmpty(packagePath))
+                {
+                    Debug.LogError("패키지 경로를 찾을 수 없습니다.");
+                    return;
+                }
+
+                string samplesPath = Path.Combine(packagePath, "Samples~");
+                if (!Directory.Exists(samplesPath))
+                {
+                    Debug.LogError("Samples~ 폴더를 찾을 수 없습니다.");
+                    return;
+                }
             }
 
             private void CheckForUpdates()
             {
                 bool needUpdate = current.CheckNeedUpdateByLastUpdateDate(out string latestVersion);
-                downloadAssetsBtn.SetEnabled(string.IsNullOrEmpty(latestVersion) || !needUpdate);
+                importUnityPackageBtn.SetEnabled(string.IsNullOrEmpty(latestVersion) || !needUpdate);
                 descLbl.text = $"{descStr}\n" + (needUpdate ? ">> 현재 최신버전이 아닙니다. 하단에 [Update]버튼을 눌러주세요 <<" : "현재 최신 버전입니다.");
             }
 
@@ -164,6 +170,40 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
 
             public void OnPackageRemoved(PackageInfo packageInfo) { }
         }
+        //
+        // private static void ExportSamplesPath(PackageInfo packageInfo, string exportTargetPath, string moveToPath)
+        // {
+        //     string packagePath = GetPackagePath(packageInfo);
+        //     if (string.IsNullOrEmpty(packagePath))
+        //     {
+        //         Debug.LogError("패키지 경로를 찾을 수 없습니다.");
+        //         return;
+        //     }
+        //
+        //     string samplesPath = Path.Combine(packagePath, "Samples~");
+        //     if (!Directory.Exists(samplesPath))
+        //     {
+        //         Debug.LogError("Samples~ 폴더를 찾을 수 없습니다.");
+        //         return;
+        //     }
+        //
+        //     if (!Directory.Exists(exportTargetPath))
+        //     {
+        //         return;
+        //     }
+        //     //
+        //
+        //     string[] samples = Directory.GetDirectories(exportTargetPath);
+        //     foreach (string samplePath in samples)
+        //     {
+        //         string sampleName = Path.GetFileName(samplePath);
+        //         string packagePath = Path.Combine(moveToPath, $"{sampleName}.unitypackage");
+        //
+        //         Debug.Log($"Exporting {sampleName} to {packagePath}");
+        //
+        //         AssetDatabase.ExportPackage(samplePath, packagePath, ExportPackageOptions.Default);
+        //     }
+        // }
 
         private static void ImportSamples(string downloadFolderPath)
         {
@@ -200,11 +240,13 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
             Debug.Log("Samples~ 폴더의 샘플이 프로젝트로 복사되었습니다: " + downloadFolderPath);
         }
 
-        private static string GetPackagePath()
+        private static string GetPackagePath(PackageInfo packageInfo = null)
         {
             var request = UnityEditor.PackageManager.Client.List(true, false);
             while (!request.IsCompleted) { }
-            var packageInfo = request.Result.FirstOrDefault(p => p.name == This_Installer_Name);
+
+
+            packageInfo ??= request.Result.FirstOrDefault(p => p.name == This_Installer_Name);
             return packageInfo?.resolvedPath;
         }
 
@@ -239,6 +281,7 @@ private const string sampleImportDesc = "\n아래 Samples에서 데모씬을 imp
                    .Replace("\r", "") // 캐리지 리턴 제거
                    .Replace("\t", ""); // 탭 제거
         }
+
         private static string GetLatestGitTag()
         {
             try

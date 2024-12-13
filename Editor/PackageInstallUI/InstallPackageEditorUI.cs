@@ -45,7 +45,7 @@ namespace CWJ.YU.Editor
                 buttonsLine1.style.flexDirection = FlexDirection.Row;
                 buttonsLine1.style.flexWrap = Wrap.Wrap;
 
-                const int width = 160;
+                const int width = 200;
 
                 changeApiCompatibilityBtn = new Button();
                 changeApiCompatibilityBtn.text = "Change API Compatibility";
@@ -66,7 +66,7 @@ namespace CWJ.YU.Editor
                 buttonsLine2.style.flexWrap = Wrap.Wrap;
 
                 openDemoUrlBtn = new Button();
-                openDemoUrlBtn.text = "데모_PC빌드.exe Drive URL 열기";
+                openDemoUrlBtn.text = "데모_PC빌드.exe in GoogleDrive";
                 openDemoUrlBtn.clicked += OnOpenDemoUrlBtnClicked;
                 openDemoUrlBtn.style.width = width;
                 buttonsLine2.Add(openDemoUrlBtn);

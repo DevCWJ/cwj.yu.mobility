@@ -14,8 +14,9 @@ crashlytics-build.properties
 *.dwlt
 *.unitypackage
 *.unitypackage.meta
-!**/Samples~/**/*.unitypackage
-!**/Samples~/**/*.unitypackage.meta
+!**/UnityPackages/**/*.unitypackage
+!**/UnityPackages/**/*.unitypackage.meta
+
 
 # Builds #
 [Bb]uild/
@@ -46,7 +47,7 @@ CWJ_ProfilingLog.txt.meta
 **/CWJ/**/PsMessage_ScriptableObject.asset
 **/CWJ/**/PsMessage_ScriptableObject.asset.meta
 
-
+# Rider/IntelliJ 관련 파일
 .idea/
 *.iml
 out/
@@ -83,10 +84,11 @@ out/
 ehthumbs.db
 Thumbs.db
 
-/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+**/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
+**/[Aa]ssets/[Ss]treamingAssets/aa.meta
+**/[Aa]ssets/[Ss]treamingAssets/aa/*
+
 
 

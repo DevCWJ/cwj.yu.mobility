@@ -99,8 +99,8 @@ namespace CWJ.Editor
 
 			public void OnPackageSelectionChange(PackageInfo packageInfo)
 			{
-				current = packageInfo;
-				bool isTargetPackage = current != null && current.name == MyPackageName;
+				bool isTargetPackage = packageInfo != null && packageInfo.name == MyPackageName;
+				current = isTargetPackage ? packageInfo : null;
 
 				if (isTargetPackage)
 					updateDescLbl.text = "Checking for Updates...";
@@ -199,9 +199,19 @@ namespace CWJ.Editor
 				isUpdateChecking = false;
 			}
 
-			public void OnPackageAddedOrUpdated(PackageInfo packageInfo) { }
+			public void OnPackageAddedOrUpdated(PackageInfo packageInfo)
+			{
+				bool isTargetPackage = packageInfo != null && packageInfo.name == MyPackageName;
+				current = isTargetPackage ? packageInfo : null;
+				if (isTargetPackage)
+				{
+					ImportRuntimeUnityPackage($"{MyPackageInAssetName}.Runtime.{current.version}.unitypackage");
+				}
+			}
 
-			public void OnPackageRemoved(PackageInfo packageInfo) { }
+			public void OnPackageRemoved(PackageInfo packageInfo)
+			{
+			}
 		}
 		//
 
@@ -219,14 +229,14 @@ namespace CWJ.Editor
 		/// <summary>
 		/// 사실 Runtime~ 폴더를 unitypackage로 export하는거임
 		/// </summary>
-		private static void DownloadRuntimeUnityPackage(string srcPath, string exportToPath)
+		private static void DownloadRuntimeUnityPackage(string srcPath, string exportFilePath)
 		{
-			exportToPath = null;
+			Debug.LogError(srcPath + " -> " + exportFilePath);
 			try
 			{
-				AssetDatabase.ExportPackage(srcPath, exportToPath, ExportPackageOptions.Recurse);
+				AssetDatabase.ExportPackage(srcPath, exportFilePath, ExportPackageOptions.Recurse);
 				AssetDatabase.Refresh();
-				Debug.Log("Folder download successfully: " + exportToPath);
+				Debug.Log("Folder download successfully: " + exportFilePath);
 			}
 			catch (IOException ex)
 			{
@@ -234,13 +244,20 @@ namespace CWJ.Editor
 			}
 		}
 
-		private static void ImportRuntimeUnityPackage()
+		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Import RuntimePackage", false)]
+		private static void ImportRuntimeUnityPackage(string fileName)
 		{
-			if (TrySelectDownloadPath(out string exportFilePath) && exportFilePath != null)
+			if (EditorUtility.DisplayDialog(MyPackageInAssetName,
+			                                $"{MyPackageInAssetName} 실행에 필요한 Runtime.unitypackage파일을\n 다운로드 받으시겠습니까?.\n다소 시간이 소모됩니다."
+			                              , "Download", "Cancel"))
 			{
-				string packageSrcPath = $"{PackageFullPath}/{IgnoreRuntimeFolderName}"; //경로
-				DownloadRuntimeUnityPackage(packageSrcPath, exportFilePath);
-				ImportUnityPackage(exportFilePath);
+				if (TrySelectDownloadPath(out string downloadFolderPath) && downloadFolderPath != null)
+				{
+					string packageSrcPath = $"{PackageFullPath}/{IgnoreRuntimeFolderName}"; //경로
+					string exportFilePath = downloadFolderPath + $"/{fileName}";
+					DownloadRuntimeUnityPackage(packageSrcPath, exportFilePath);
+					ImportUnityPackage(exportFilePath);
+				}
 			}
 		}
 

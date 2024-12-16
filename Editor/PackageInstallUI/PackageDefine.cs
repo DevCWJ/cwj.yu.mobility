@@ -11,6 +11,8 @@ namespace CWJ.Editor
 		public const string UnityPackageFolderName = "UnityPackages~";
 		public const string ThirdPartyPackageFileName = "ThirdPartyPackage.unitypackage";
 		public const string TmpEssentialPackageFileName = "TMP Essential Resources.unitypackage";
+		public const string BeforeImportRuntimeFolderName = "Runtime~";
+		public const string AfterImportRuntimeFolderName = "Runtime";
 	}
 }
 

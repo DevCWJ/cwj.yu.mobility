@@ -10,7 +10,9 @@
 1. Go to `Edit > Project Settings > Player`.
 2. Under `Other Settings`, find `API Compatibility Level`.
 3. Select `.NET Framework` or '.NET Framework 4.x'.
+#### UnityDevTool is incapable of compiling source code against the .NET Standard 2.1 API surface. You can change the API Compatibility Level to '.Net Framework' in the Player settings.
 
+###
 #### 1. 상단 탭 Edit > Project Settings 클릭
 
 #### 2. 우측상단 검색란: 'API Compatibility Level' 입력

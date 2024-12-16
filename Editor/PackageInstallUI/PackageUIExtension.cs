@@ -49,7 +49,7 @@ namespace CWJ.Editor
 				ExtentionRoot.Add(labelLine);
 				updateDescLbl = new Label { text = " " };
 				labelLine.Add(updateDescLbl);
-				errorDescLbl = new Label { text = "오류가 난다면 아래 Import 버튼들을 눌러주세요." };
+				errorDescLbl = new Label { text = "오류가 난다면 아래 Import ThirdPartyPackage 버튼을 눌러주세요." };
 				labelLine.Add(errorDescLbl);
 
 				VisualElement buttonsLine1 = new VisualElement();
@@ -118,16 +118,23 @@ namespace CWJ.Editor
 					return;
 				}
 
-				importTmpEssentialPackageBtn.SetEnabled(!File.Exists("Assets/TextMesh Pro/Resources/TMP Settings.asset"));
+				importTmpEssentialPackageBtn.SetEnabled(!HasTmpEssential());
+
 
 				bool needChangeApi = PlayerSettings.GetApiCompatibilityLevel(EditorUserBuildSettings.selectedBuildTargetGroup) !=
 				                     ApiCompatibilityLevel.NET_Unity_4_8;
 
-				changeApiCompatibilityBtn.visible = needChangeApi;
 				importThirdPartyPackageBtn.SetEnabled(!needChangeApi);
+
+				changeApiCompatibilityBtn.visible = needChangeApi;
 				if (needChangeApi)
 				{
 					updateDescLbl.text = $"[{changeApiCompatibilityBtn.text}] 버튼을 눌러주세요.";
+					if (EditorUtility.DisplayDialog(MyPackageInAssetName,
+					                                $"{MyPackageName} 은 .NET Standard 2.1과 호환되지 않습니다.\nAPI 호환성 수준을 .NET Framework 4.x로 변경하시겠습니까?", "Ok"))
+					{
+						ChangeApiCompatibility();
+					}
 				}
 				else
 				{
@@ -135,6 +142,7 @@ namespace CWJ.Editor
 					dotCount = 3;
 					EditorApplication.update += OnUpdateChecking;
 					EditorApplication.delayCall += CheckForUpdates;
+					EditorApplication.delayCall += CheckRuntimeFolderAndTmp;
 				}
 			}
 
@@ -198,6 +206,50 @@ namespace CWJ.Editor
 			public void OnPackageRemoved(PackageInfo packageInfo) { }
 		}
 		//
+
+		private static void CheckRuntimeFolderAndTmp()
+		{
+			if (!HasRuntimeFolder())
+			{
+				if (!HasTmpEssential())
+				{
+					EditorUtility.DisplayDialog(MyPackageInAssetName,
+					                            $"{MyPackageName} 은 TextMeshPro가 필요합니다.\nTextMeshPro Essential.unitypackage 를 실행합니다.", "Next");
+					ImportTmpEssentialPackage();
+				}
+
+				ImportRuntimeFolder();
+			}
+		}
+
+		private static bool HasRuntimeFolder()
+		{
+			string beforePath = $"{PackageFullPath}/{AfterImportRuntimeFolderName}";
+			return Directory.Exists(beforePath);
+		}
+
+		private static void ImportRuntimeFolder()
+		{
+			if (HasRuntimeFolder()) return;
+			try
+			{
+				string packageFullPath = PackageFullPath;
+				string oldFolder = $"{packageFullPath}/{BeforeImportRuntimeFolderName}";
+				string newFolder = $"{packageFullPath}/{AfterImportRuntimeFolderName}";
+				Directory.Move(oldFolder, newFolder); // 폴더 이름 변경
+				AssetDatabase.Refresh();
+				Debug.Log("Folder renamed successfully: " + newFolder);
+			}
+			catch (IOException ex)
+			{
+				Debug.LogError("Error renaming folder: " + ex.Message);
+			}
+		}
+
+		private static bool HasTmpEssential()
+		{
+			return File.Exists("Assets/TextMesh Pro/Resources/TMP Settings.asset");
+		}
 
 
 		private static void ChangeApiCompatibility()

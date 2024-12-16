@@ -1,8 +1,8 @@
 #if UNITY_EDITOR
 using System.IO;
 using UnityEditor;
-using UnityEditor.PackageManager;
-using UnityEditor.PackageManager.Requests;
+// using UnityEditor.PackageManager;
+// using UnityEditor.PackageManager.Requests;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -25,9 +25,18 @@ namespace CWJ.Editor
 		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Import ThirdPartyPackage", false)]
 		public static void ImportThirdPartyPackage()
 		{
-			string packageFullPath = PackageFullPath;
-			Debug.LogError(packageFullPath);
-			AssetDatabase.ImportPackage(packageFullPath + $"/{UnityPackageFolderName}/{ThirdPartyPackageFileName}", true);
+			ImportUnityPackage(ThirdPartyPackageFileName);
+		}
+
+		private static void ImportUnityPackage(string unityPackageFilename)
+		{
+			string packageFullPath = $"{PackageFullPath}/{UnityPackageFolderName}/{unityPackageFilename}";
+			AssetDatabase.ImportPackage(packageFullPath, true);
+		}
+
+		public static void ImportTmpEssentialPackage()
+		{
+			ImportUnityPackage(TmpEssentialPackageFileName);
 		}
 
 		class UpmExtension : IPackageManagerExtension
@@ -38,8 +47,10 @@ namespace CWJ.Editor
 
 				VisualElement labelLine = new VisualElement();
 				ExtentionRoot.Add(labelLine);
-				descLbl = new Label { text = " " };
-				labelLine.Add(descLbl);
+				updateDescLbl = new Label { text = " " };
+				labelLine.Add(updateDescLbl);
+				errorDescLbl = new Label { text = "오류가 난다면 아래 Import 버튼들을 눌러주세요." };
+				labelLine.Add(errorDescLbl);
 
 				VisualElement buttonsLine1 = new VisualElement();
 				ExtentionRoot.Add(buttonsLine1);
@@ -54,6 +65,13 @@ namespace CWJ.Editor
 				importThirdPartyPackageBtn.clicked += ImportThirdPartyPackage;
 				importThirdPartyPackageBtn.style.width = width;
 				buttonsLine1.Add(importThirdPartyPackageBtn);
+
+				importTmpEssentialPackageBtn = new Button();
+				importTmpEssentialPackageBtn.text = "Import TextMeshPro Essential";
+				importTmpEssentialPackageBtn.clicked += ImportTmpEssentialPackage;
+				importTmpEssentialPackageBtn.style.width = width;
+				buttonsLine1.Add(importTmpEssentialPackageBtn);
+
 
 				changeApiCompatibilityBtn = new Button();
 				changeApiCompatibilityBtn.text = "Change API Compatibility";
@@ -77,8 +95,8 @@ namespace CWJ.Editor
 				return ExtentionRoot;
 			}
 
-			private Button changeApiCompatibilityBtn, importThirdPartyPackageBtn;
-			private Label descLbl;
+			private Button importThirdPartyPackageBtn, importTmpEssentialPackageBtn, changeApiCompatibilityBtn;
+			private Label updateDescLbl, errorDescLbl;
 			private PackageInfo current = null;
 
 			public void OnPackageSelectionChange(PackageInfo packageInfo)
@@ -86,17 +104,21 @@ namespace CWJ.Editor
 				current = packageInfo;
 				bool isTargetPackage = current != null && current.name == MyPackageName;
 
-				descLbl.visible = isTargetPackage;
-
+				if (isTargetPackage)
+					updateDescLbl.text = "Checking for Updates...";
+				updateDescLbl.visible = isTargetPackage;
+				errorDescLbl.visible = isTargetPackage;
 				importThirdPartyPackageBtn.visible = isTargetPackage;
 				changeApiCompatibilityBtn.visible = isTargetPackage;
-
+				importTmpEssentialPackageBtn.visible = isTargetPackage;
 				InjectSelectionChanged(isTargetPackage, current);
 
 				if (!isTargetPackage)
 				{
 					return;
 				}
+
+				importTmpEssentialPackageBtn.SetEnabled(!File.Exists("Assets/TextMesh Pro/Resources/TMP Settings.asset"));
 
 				bool needChangeApi = PlayerSettings.GetApiCompatibilityLevel(EditorUserBuildSettings.selectedBuildTargetGroup) !=
 				                     ApiCompatibilityLevel.NET_Unity_4_8;
@@ -105,13 +127,33 @@ namespace CWJ.Editor
 				importThirdPartyPackageBtn.SetEnabled(!needChangeApi);
 				if (needChangeApi)
 				{
-					descLbl.text = $"[{changeApiCompatibilityBtn.text}] 버튼을 눌러주세요.";
+					updateDescLbl.text = $"[{changeApiCompatibilityBtn.text}] 버튼을 눌러주세요.";
 				}
 				else
 				{
-					CheckForUpdates();
+					isUpdateChecking = true;
+					dotCount = 3;
+					EditorApplication.update += OnUpdateChecking;
+					EditorApplication.delayCall += CheckForUpdates;
 				}
 			}
+
+			private int dotCount = 3;
+
+			private void OnUpdateChecking()
+			{
+				if (!isUpdateChecking)
+				{
+					EditorApplication.update -= OnUpdateChecking;
+					return;
+				}
+
+				dotCount = (dotCount + 1) % 6; //0 ~ 5
+
+				updateDescLbl.text = "Checking for Updates" + new string('.', dotCount);
+			}
+
+			private bool isUpdateChecking = false;
 
 			private void OnDownloadSampleClicked()
 			{
@@ -147,7 +189,8 @@ namespace CWJ.Editor
 			private void CheckForUpdates()
 			{
 				bool needUpdate = current.CheckNeedUpdateByLastUpdate(out string latestVersion);
-				descLbl.text = $"{DescStr}\n" + (needUpdate ? ">> 현재 최신버전이 아닙니다. 하단에 [Update]버튼을 눌러주세요 <<" : "현재 최신 버전입니다.");
+				updateDescLbl.text = $"{TitleStr}\n" + (needUpdate ? ">> 현재 최신버전이 아닙니다. 하단에 [Update]버튼을 눌러주세요 <<" : "현재 최신 버전입니다.");
+				isUpdateChecking = false;
 			}
 
 			public void OnPackageAddedOrUpdated(PackageInfo packageInfo) { }

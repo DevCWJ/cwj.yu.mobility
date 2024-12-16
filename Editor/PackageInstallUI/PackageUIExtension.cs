@@ -39,6 +39,8 @@ namespace CWJ.Editor
 			ImportUnityPackage(TmpEssentialPackageFileName);
 		}
 
+		private static PackageInfo _CurPackage = null;
+
 		class UpmExtension : IPackageManagerExtension
 		{
 			public VisualElement CreateExtensionUI()
@@ -49,7 +51,7 @@ namespace CWJ.Editor
 				ExtentionRoot.Add(labelLine);
 				updateDescLbl = new Label { text = " " };
 				labelLine.Add(updateDescLbl);
-				errorDescLbl = new Label { text = "오류가 난다면 아래 Import ThirdPartyPackage 버튼을 눌러주세요." };
+				errorDescLbl = new Label { text = " " };
 				labelLine.Add(errorDescLbl);
 
 				VisualElement buttonsLine1 = new VisualElement();
@@ -66,6 +68,12 @@ namespace CWJ.Editor
 				importThirdPartyPackageBtn.style.width = width;
 				buttonsLine1.Add(importThirdPartyPackageBtn);
 
+				importTmpEssentialPackageBtn = new Button();
+				importTmpEssentialPackageBtn.text = "Import TextMeshPro Essential";
+				importTmpEssentialPackageBtn.clicked += ImportTmpEssentialPackage;
+				importTmpEssentialPackageBtn.style.width = width;
+				buttonsLine1.Add(importTmpEssentialPackageBtn);
+
 				changeApiCompatibilityBtn = new Button();
 				changeApiCompatibilityBtn.text = "Change API Compatibility";
 				changeApiCompatibilityBtn.clicked += ChangeApiCompatibility;
@@ -77,11 +85,11 @@ namespace CWJ.Editor
 				buttonsLine2.style.flexDirection = FlexDirection.Row;
 				buttonsLine2.style.flexWrap = Wrap.Wrap;
 				//
-				importTmpEssentialPackageBtn = new Button();
-				importTmpEssentialPackageBtn.text = "Import TextMeshPro Essential";
-				importTmpEssentialPackageBtn.clicked += ImportTmpEssentialPackage;
-				importTmpEssentialPackageBtn.style.width = width;
-				buttonsLine2.Add(importTmpEssentialPackageBtn);
+				downloadRuntimePackageBtn = new Button();
+				downloadRuntimePackageBtn.text = "Download Runtime Resources";
+				downloadRuntimePackageBtn.clicked += DownloadRuntimeUnityPackage;
+				downloadRuntimePackageBtn.style.width = width;
+				buttonsLine2.Add(downloadRuntimePackageBtn);
 
 				VisualElement lastLine = new VisualElement();
 				ExtentionRoot.Add(lastLine);
@@ -93,14 +101,13 @@ namespace CWJ.Editor
 				return ExtentionRoot;
 			}
 
-			private Button importThirdPartyPackageBtn, importTmpEssentialPackageBtn, changeApiCompatibilityBtn;
+			private Button importThirdPartyPackageBtn, importTmpEssentialPackageBtn, changeApiCompatibilityBtn, downloadRuntimePackageBtn;
 			private Label updateDescLbl, errorDescLbl;
-			private PackageInfo current = null;
 
 			public void OnPackageSelectionChange(PackageInfo packageInfo)
 			{
 				bool isTargetPackage = packageInfo != null && packageInfo.name == MyPackageName;
-				current = isTargetPackage ? packageInfo : null;
+				_CurPackage = isTargetPackage ? packageInfo : null;
 
 				if (isTargetPackage)
 					updateDescLbl.text = "Checking for Updates...";
@@ -109,12 +116,16 @@ namespace CWJ.Editor
 				importThirdPartyPackageBtn.visible = isTargetPackage;
 				changeApiCompatibilityBtn.visible = isTargetPackage;
 				importTmpEssentialPackageBtn.visible = isTargetPackage;
-				InjectSelectionChanged(isTargetPackage, current);
+				downloadRuntimePackageBtn.SetEnabled(false);
+				downloadRuntimePackageBtn.visible = isTargetPackage;
+				InjectSelectionChanged(isTargetPackage, _CurPackage);
 
 				if (!isTargetPackage)
 				{
 					return;
 				}
+
+				errorDescLbl.text = $"오류가 난다면 아래 {importTmpEssentialPackageBtn.text} 버튼을 눌러주세요.\\n오류가 없을 시 {downloadRuntimePackageBtn.text} 를 눌러 다운로드 받으세요";
 
 				importTmpEssentialPackageBtn.SetEnabled(!HasTmpEssential());
 
@@ -161,51 +172,34 @@ namespace CWJ.Editor
 
 			private bool isUpdateChecking = false;
 
-			private void OnDownloadSampleClicked()
-			{
-				if (UnityEditor.EditorUtility.DisplayDialog($"{MyPackageInAssetName} Info",
-				                                            "다운로드 받으시겠습니까?", "Download", "Cancel"))
-				{
-					if (TrySelectDownloadPath(out string downloadFolderPath))
-					{
-						ImportSamplesToPath(current, downloadFolderPath);
-						UnityEditor.EditorUtility.DisplayDialog($"{MyPackageInAssetName} Info", "Download 완료", "OK");
-					}
-				}
-			}
-
-			private void OnImportThirdPartyPackageBtnClicked()
-			{
-				if (current == null) return;
-				string packagePath = current.GetPackagePath();
-				if (string.IsNullOrEmpty(packagePath))
-				{
-					Debug.LogError("패키지 경로를 찾을 수 없습니다.");
-					return;
-				}
-
-				string samplesPath = Path.Combine(packagePath, "Samples~");
-				if (!Directory.Exists(samplesPath))
-				{
-					Debug.LogError("Samples~ 폴더를 찾을 수 없습니다.");
-					return;
-				}
-			}
+			// private void OnDownloadSampleClicked()
+			// {
+			// 	if (UnityEditor.EditorUtility.DisplayDialog($"{MyPackageInAssetName} Info",
+			// 	                                            "다운로드 받으시겠습니까?", "Download", "Cancel"))
+			// 	{
+			// 		if (TrySelectDownloadPath(out string downloadFolderPath))
+			// 		{
+			// 			ImportSamplesToPath(current, downloadFolderPath);
+			// 			UnityEditor.EditorUtility.DisplayDialog($"{MyPackageInAssetName} Info", "Download 완료", "OK");
+			// 		}
+			// 	}
+			// }
 
 			private void CheckForUpdates()
 			{
-				bool needUpdate = current.CheckNeedUpdateByLastUpdate(out string latestVersion);
+				bool needUpdate = _CurPackage.CheckNeedUpdateByLastUpdate(out string latestVersion);
 				updateDescLbl.text = $"{TitleStr}\n" + (needUpdate ? ">> 현재 최신버전이 아닙니다. 하단에 [Update]버튼을 눌러주세요 <<" : "현재 최신 버전입니다.");
 				isUpdateChecking = false;
+				downloadRuntimePackageBtn.SetEnabled(true);
 			}
 
 			public void OnPackageAddedOrUpdated(PackageInfo packageInfo)
 			{
 				bool isTargetPackage = packageInfo != null && packageInfo.name == MyPackageName;
-				current = isTargetPackage ? packageInfo : null;
+				_CurPackage = isTargetPackage ? packageInfo : null;
 				if (isTargetPackage)
 				{
-					ImportRuntimeUnityPackage($"{MyPackageInAssetName}.Runtime.{current.version}.unitypackage");
+					DownloadRuntimeUnityPackage();
 				}
 			}
 
@@ -229,33 +223,29 @@ namespace CWJ.Editor
 		/// <summary>
 		/// 사실 Runtime~ 폴더를 unitypackage로 export하는거임
 		/// </summary>
-		private static void DownloadRuntimeUnityPackage(string srcPath, string exportFilePath)
-		{
-			Debug.LogError(srcPath + " -> " + exportFilePath);
-			try
-			{
-				AssetDatabase.ExportPackage(srcPath, exportFilePath, ExportPackageOptions.Recurse);
-				AssetDatabase.Refresh();
-				Debug.Log("Folder download successfully: " + exportFilePath);
-			}
-			catch (IOException ex)
-			{
-				Debug.LogError("Error download : " + ex.Message);
-			}
-		}
-
-		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Import RuntimePackage", false)]
-		private static void ImportRuntimeUnityPackage(string fileName)
+		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Download RuntimeResources", false)]
+		private static void DownloadRuntimeUnityPackage()
 		{
 			if (EditorUtility.DisplayDialog(MyPackageInAssetName,
-			                                $"{MyPackageInAssetName} 실행에 필요한 Runtime.unitypackage파일을\n 다운로드 받으시겠습니까?.\n다소 시간이 소모됩니다."
+			                                $"{MyPackageInAssetName}의 Runtime.unitypackage파일을\n 다운로드 받으시겠습니까?.\n다소 시간이 소모됩니다."
 			                              , "Download", "Cancel"))
 			{
 				if (TrySelectDownloadPath(out string downloadFolderPath) && downloadFolderPath != null)
 				{
 					string packageSrcPath = $"{PackageFullPath}/{IgnoreRuntimeFolderName}"; //경로
-					string exportFilePath = downloadFolderPath + $"/{fileName}";
-					DownloadRuntimeUnityPackage(packageSrcPath, exportFilePath);
+					string exportFilePath = downloadFolderPath + $"/{MyPackageInAssetName}.Runtime.unitypackage";
+					Debug.LogError(packageSrcPath + " -> " + exportFilePath);
+					try
+					{
+						AssetDatabase.ExportPackage(packageSrcPath, exportFilePath, ExportPackageOptions.Recurse);
+						AssetDatabase.Refresh();
+						Debug.Log("Folder download successfully: " + exportFilePath);
+					}
+					catch (IOException ex)
+					{
+						Debug.LogError("Error download : " + ex.Message);
+					}
+
 					ImportUnityPackage(exportFilePath);
 				}
 			}

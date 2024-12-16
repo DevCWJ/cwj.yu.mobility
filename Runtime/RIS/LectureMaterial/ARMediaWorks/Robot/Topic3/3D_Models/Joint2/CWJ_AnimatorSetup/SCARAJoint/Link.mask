@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Link
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature.002
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2/Bone3
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2/Bone3/Bone4
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2/Bone3/Bone4/Bone4_end
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2/Bone3/Bone4/SCARAJoint5_VerticalJoint
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2/Bone3/Bone4/SCARAJoint5_VerticalJoint/CylindericalArrow2.003
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2/Bone3/SCARAJoint4_RotaryJoint3
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2/Bone3/SCARAJoint4_RotaryJoint3/ArrowHead.005
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2/SCARAJoint3_RotaryJoint2
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/Bone2/SCARAJoint3_RotaryJoint2/ArrowHead.006
+    m_Weight: 1
+  - m_Path: Armature.002/Bone1/SCARAJoint2_RotaryJoint1
+    m_Weight: 1
+  - m_Path: Joint-armArrow1.001
+    m_Weight: 1
+  - m_Path: SCARAJoint1_BasePlate
+    m_Weight: 1

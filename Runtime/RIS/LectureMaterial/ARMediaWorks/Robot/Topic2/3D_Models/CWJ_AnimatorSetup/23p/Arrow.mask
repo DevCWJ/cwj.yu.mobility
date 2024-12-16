@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Arrow
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Axis_23p
+    m_Weight: 1
+  - m_Path: ConeAll
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.001
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.002
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.003
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.004
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.005
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.006
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.007
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.008
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.009
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.010
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.011
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.012
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.013
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.014
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.015
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.016
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.017
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.018
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.019
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.020
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.021
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.022
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.023
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.024
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.025
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.026
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.027
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.028
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.029
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.030
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.031
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.032
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.033
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.034
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.035
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.036
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.037
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.038
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.039
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.040
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.041
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.042
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.043
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.044
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.045
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.046
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.047
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.048
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.049
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.050
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.051
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.052
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.053
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.054
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.055
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.056
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.057
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.058
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.059
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.060
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.061
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.062
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.063
+    m_Weight: 1
+  - m_Path: ConeAll/ConeRoll1.064
+    m_Weight: 1
+  - m_Path: oPrimeCircle
+    m_Weight: 1
+  - m_Path: oPrimeLine
+    m_Weight: 1
+  - m_Path: oRrimeCircleArrow
+    m_Weight: 1
+  - m_Path: pLine
+    m_Weight: 1
+  - m_Path: pLine/pLineArrow
+    m_Weight: 1
+  - m_Path: Text_O
+    m_Weight: 1
+  - m_Path: Text_oPrime
+    m_Weight: 1
+  - m_Path: Text_pNaught
+    m_Weight: 1
+  - m_Path: TriangularFace_Ending
+    m_Weight: 1
+  - m_Path: TriangularFace_Starting
+    m_Weight: 1

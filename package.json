@@ -1,6 +1,6 @@
 {
   "name": "com.cwj.yu.mobility",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "displayName": "CWJ.YU.Mobility",
   "description": "Assets of 'Ris - Yeungnam University Smart Mobility - Mobility Kinematics Class'",
   "unity": "2021.3",
@@ -10,7 +10,11 @@
     "com.unity.render-pipelines.universal": "12.1.15",
     "com.unity.burst": "1.8.18",
     "com.unity.nuget.newtonsoft-json": "3.2.1",
-    "com.unity.postprocessing" : "3.4.0"
+    "com.unity.postprocessing": "3.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevCWJ/cwj.yu.mobility.git"
   },
   "keywords": [
     "mobility",
@@ -22,7 +26,7 @@
   "author": {
     "name": "CWJ",
     "email": "cwj@kakao.com",
-    "url": "https://github.com/DevCWJ/yu.mobility"
+    "url": "https://github.com/DevCWJ"
   },
   "samples": [
     {

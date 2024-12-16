@@ -66,13 +66,6 @@ namespace CWJ.Editor
 				importThirdPartyPackageBtn.style.width = width;
 				buttonsLine1.Add(importThirdPartyPackageBtn);
 
-				importTmpEssentialPackageBtn = new Button();
-				importTmpEssentialPackageBtn.text = "Import TextMeshPro Essential";
-				importTmpEssentialPackageBtn.clicked += ImportTmpEssentialPackage;
-				importTmpEssentialPackageBtn.style.width = width;
-				buttonsLine1.Add(importTmpEssentialPackageBtn);
-
-
 				changeApiCompatibilityBtn = new Button();
 				changeApiCompatibilityBtn.text = "Change API Compatibility";
 				changeApiCompatibilityBtn.clicked += ChangeApiCompatibility;
@@ -84,6 +77,11 @@ namespace CWJ.Editor
 				buttonsLine2.style.flexDirection = FlexDirection.Row;
 				buttonsLine2.style.flexWrap = Wrap.Wrap;
 				//
+				importTmpEssentialPackageBtn = new Button();
+				importTmpEssentialPackageBtn.text = "Import TextMeshPro Essential";
+				importTmpEssentialPackageBtn.clicked += ImportTmpEssentialPackage;
+				importTmpEssentialPackageBtn.style.width = width;
+				buttonsLine2.Add(importTmpEssentialPackageBtn);
 
 				VisualElement lastLine = new VisualElement();
 				ExtentionRoot.Add(lastLine);
@@ -142,7 +140,7 @@ namespace CWJ.Editor
 					dotCount = 3;
 					EditorApplication.update += OnUpdateChecking;
 					EditorApplication.delayCall += CheckForUpdates;
-					EditorApplication.delayCall += CheckRuntimeFolderAndTmp;
+					EditorApplication.delayCall += CheckTmpEssential;
 				}
 			}
 
@@ -207,42 +205,42 @@ namespace CWJ.Editor
 		}
 		//
 
-		private static void CheckRuntimeFolderAndTmp()
+		private static void CheckTmpEssential()
 		{
-			if (!HasRuntimeFolder())
+			if (!HasTmpEssential())
 			{
-				if (!HasTmpEssential())
-				{
-					EditorUtility.DisplayDialog(MyPackageInAssetName,
-					                            $"{MyPackageName} 은 TextMeshPro가 필요합니다.\nTextMeshPro Essential.unitypackage 를 실행합니다.", "Next");
-					ImportTmpEssentialPackage();
-				}
-
-				ImportRuntimeFolder();
+				EditorUtility.DisplayDialog(MyPackageInAssetName,
+				                            $"{MyPackageName} 은 TextMeshPro가 필요합니다.\nTextMeshPro Essential.unitypackage 를 실행합니다.", "Next");
+				ImportTmpEssentialPackage();
 			}
 		}
 
-		private static bool HasRuntimeFolder()
-		{
-			string beforePath = $"{PackageFullPath}/{AfterImportRuntimeFolderName}";
-			return Directory.Exists(beforePath);
-		}
 
-		private static void ImportRuntimeFolder()
+		/// <summary>
+		/// 사실 Runtime~ 폴더를 unitypackage로 export하는거임
+		/// </summary>
+		private static void DownloadRuntimeUnityPackage(string srcPath, string exportToPath)
 		{
-			if (HasRuntimeFolder()) return;
+			exportToPath = null;
 			try
 			{
-				string packageFullPath = PackageFullPath;
-				string oldFolder = $"{packageFullPath}/{BeforeImportRuntimeFolderName}";
-				string newFolder = $"{packageFullPath}/{AfterImportRuntimeFolderName}";
-				Directory.Move(oldFolder, newFolder); // 폴더 이름 변경
+				AssetDatabase.ExportPackage(srcPath, exportToPath, ExportPackageOptions.Recurse);
 				AssetDatabase.Refresh();
-				Debug.Log("Folder renamed successfully: " + newFolder);
+				Debug.Log("Folder download successfully: " + exportToPath);
 			}
 			catch (IOException ex)
 			{
-				Debug.LogError("Error renaming folder: " + ex.Message);
+				Debug.LogError("Error download : " + ex.Message);
+			}
+		}
+
+		private static void ImportRuntimeUnityPackage()
+		{
+			if (TrySelectDownloadPath(out string exportFilePath) && exportFilePath != null)
+			{
+				string packageSrcPath = $"{PackageFullPath}/{IgnoreRuntimeFolderName}"; //경로
+				DownloadRuntimeUnityPackage(packageSrcPath, exportFilePath);
+				ImportUnityPackage(exportFilePath);
 			}
 		}
 

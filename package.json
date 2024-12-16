@@ -1,6 +1,6 @@
 {
   "name": "com.cwj.yu.mobility",
-  "version": "1.1.5",
+  "version": "1.2.2",
   "displayName": "CWJ.YU.Mobility",
   "description": "Assets of 'Ris - Yeungnam University Smart Mobility - Mobility Kinematics Class'",
   "unity": "2021.3",
@@ -9,7 +9,8 @@
     "com.unity.render-pipelines.core": "12.1.15",
     "com.unity.render-pipelines.universal": "12.1.15",
     "com.unity.burst": "1.8.18",
-    "com.unity.nuget.newtonsoft-json": "3.2.1"
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.unity.postprocessing" : "3.4.0"
   },
   "keywords": [
     "mobility",

@@ -53,6 +53,8 @@ namespace CWJ.Editor
 				VisualElement labelLine = new VisualElement();
 				ExtentionRoot.Add(labelLine);
 
+				titleLbl = new Label { text = TitleStr };
+				labelLine.Add(titleLbl);
 				errorDescLbl = new Label { text = " " };
 				labelLine.Add(errorDescLbl);
 
@@ -106,7 +108,7 @@ namespace CWJ.Editor
 			}
 
 			private Button importThirdPartyPackageBtn, importTmpEssentialPackageBtn, changeApiCompatibilityBtn, downloadRuntimePackageBtn;
-			private Label updateDescLbl, errorDescLbl;
+			private Label titleLbl, updateDescLbl, errorDescLbl;
 
 			public void OnPackageSelectionChange(PackageInfo packageInfo)
 			{
@@ -122,6 +124,7 @@ namespace CWJ.Editor
 				importTmpEssentialPackageBtn.visible = isTargetPackage;
 				downloadRuntimePackageBtn.SetEnabled(false);
 				downloadRuntimePackageBtn.visible = isTargetPackage;
+				titleLbl.visible = isTargetPackage;
 				InjectSelectionChanged(isTargetPackage, _CurPackage);
 
 				if (!isTargetPackage)
@@ -192,7 +195,7 @@ namespace CWJ.Editor
 			private void CheckForUpdates()
 			{
 				bool needUpdate = _CurPackage.CheckNeedUpdateByLastUpdate(out string latestVersion);
-				updateDescLbl.text = $"{TitleStr}\n" + (needUpdate ? ">> 현재 최신버전이 아닙니다. 하단에 [Update]버튼을 눌러주세요 <<" : "현재 최신 버전입니다.");
+				updateDescLbl.text = (needUpdate ? ">> 현재 최신버전이 아닙니다 <<\n>> 하단에 [Update]버튼을 눌러주세요 <<" : "현재 최신 버전입니다");
 				isUpdateChecking = false;
 				downloadRuntimePackageBtn.SetEnabled(!needUpdate);
 			}

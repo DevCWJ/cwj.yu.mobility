@@ -11,7 +11,7 @@
 	/// </summary>
 	public enum SceneEnum
 	{ 
-		YU_ScenarioDemo
+		YU_Demo
 	}
 
 	/// <summary>
@@ -26,8 +26,10 @@
 		/// </summary>
 		public enum SceneEnum_BuildSettings
 		{ 
-			ⁿ0,
-			YU_ScenarioDemo
+			YU_Demo,
+			FbxAutoSetupTest,
+			GrabSpinThrow,
+			Demoscene
 		}
 
 		/// <summary>
@@ -37,8 +39,10 @@
 		/// </summary>
 		public enum SceneEnum_BuildIndex
 		{ 
-			YU_ScenarioDemo,
-			ⁿ0
+			YU_Demo,
+			FbxAutoSetupTest,
+			GrabSpinThrow,
+			Demoscene
 		}
 
 		/// <summary>
@@ -47,7 +51,9 @@
 		/// </summary>
 		public enum SceneEnum_Disabled
 		{ 
-			ⁿ0
+			FbxAutoSetupTest,
+			GrabSpinThrow,
+			Demoscene
 		}
 
 	}

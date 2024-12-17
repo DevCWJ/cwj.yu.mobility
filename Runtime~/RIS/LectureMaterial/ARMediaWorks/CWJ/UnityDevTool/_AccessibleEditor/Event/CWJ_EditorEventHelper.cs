@@ -52,7 +52,9 @@ namespace CWJ.AccessibleEditor
             {
                 if (_ProjectGUIDCacheObj == null)
                 {
-                    _ProjectGUIDCacheObj = ScriptableObjectStore.Instanced.GetScriptableObj<ProjectGUIDCache_ScriptableObject>();
+                    var ins = ScriptableObjectStore.Instanced;
+                    if (ins != null)
+                        _ProjectGUIDCacheObj = ins.GetScriptableObj<ProjectGUIDCache_ScriptableObject>();
                 }
                 return _ProjectGUIDCacheObj;
             }

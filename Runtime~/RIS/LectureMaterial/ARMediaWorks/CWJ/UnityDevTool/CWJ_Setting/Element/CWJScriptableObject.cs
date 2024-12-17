@@ -19,9 +19,12 @@ namespace CWJ
 
         public void SaveScriptableObj()
         {
-            EditorUtility.SetDirty(this);
+	        EditorUtility.SetDirty(this);
 #if UNITY_2020_1_OR_NEWER
-            AssetDatabase.SaveAssetIfDirty(this);
+	        if (AssetDatabase.IsMainAsset(this))
+		        AssetDatabase.SaveAssetIfDirty(this);
+	        else
+		        AssetDatabase.SaveAssets(); // 강제 저장
 #else
             AssetDatabase.SaveAssets();
 #endif

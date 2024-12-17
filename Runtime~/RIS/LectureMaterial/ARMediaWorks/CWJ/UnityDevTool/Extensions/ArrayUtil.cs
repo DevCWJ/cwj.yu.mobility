@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using DG.DemiEditor;
 
 namespace CWJ
 {
@@ -1172,16 +1173,19 @@ namespace CWJ
 
         public static TOutput[] ConvertAll<T,TOutput>(this T[] array, Converter<T, TOutput> converter)
         {
+            if (array == null) return Array.Empty<TOutput>();
             return Array.ConvertAll(array, converter);
         }
 
         public static IEnumerable<TOutput> ConvertAll<T, TOutput>(this IEnumerable<T> array, Func<T, TOutput> converter)
         {
+            if (array == null) return Array.Empty<TOutput>();
             return array.Select(converter);
         }
 
         public static IList<T> ModifyEach<T>(this IList<T> sources, Func<T, T> modifyFunc)
         {
+            if (sources == null) return Array.Empty<T>();
             int length = sources.Count;
             for (int i = 0; i < length; i++)
             {

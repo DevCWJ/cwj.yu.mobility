@@ -97,140 +97,165 @@ namespace CWJ.AccessibleEditor
 			return true;
 		}
 
-		private const string _EditorCacheDirectroy = "Assets/RIS/LectureMaterial/ARMediaWorks/CWJ/UnityDevTool/_Cache/";
 
-		private static void EnsureEditorCacheFolderExists(string fullPath)
-		{
-			if (string.IsNullOrEmpty(fullPath)) return;
-			string[] subFolders = fullPath.Replace('\\', '/').Split('/'); // "CWJ", "UnityDevTool", "_EditorCache"
-			string currentPath = subFolders[0];
+	    private static void EnsureEditorCacheFolderExists(string fullPath)
+	    {
+		    if (string.IsNullOrEmpty(fullPath)) return;
 
-			for (int i = 1; i < subFolders.Length; i++)
-			{
-				string folderName = subFolders[i];
-				currentPath = currentPath + "/" + folderName;
+		    string[] subFolders = fullPath.Replace('\\', '/').Split('/'); // "CWJ", "UnityDevTool", "_EditorCache"
 
-				if (!AssetDatabase.IsValidFolder(currentPath))
-				{
-					string parentFolder = System.IO.Path.GetDirectoryName(currentPath)?.Replace('\\', '/');
-					if (!string.IsNullOrEmpty(parentFolder))
-						AssetDatabase.CreateFolder(parentFolder, folderName);
-				}
-			}
-		}
+		    string currentPath = subFolders[0];
+		    if (!currentPath.StartsWith("Assets"))
+		    {
+			    Debug.LogError("EnsureEditorCacheFolderExists: Path must start with 'Assets/'");
+			    return;
+		    }
 
-		public static string GetCacheFilePath<T>(string typeName = null) where T : CWJScriptableObject
-		{
-			typeName ??= typeof(T).Name;
-			var findAssets = AssetDatabase.FindAssets($"t:{typeName}");
-			if (findAssets.LengthSafe() == 0)
-			{
-				// ScriptableObjectStore 자산 존재 여부 확인
-				var storeAssets = AssetDatabase.FindAssets($"t:{nameof(ScriptableObjectStore)}");
+		    for (int i = 1; i < subFolders.Length; i++)
+		    {
+			    string folderName = subFolders[i];
+			    currentPath = currentPath + "/" + folderName;
 
-				if (storeAssets.LengthSafe() == 0)
-				{
-					// ScriptableObjectStore.cs 파일 존재 여부 확인
-					var scriptPaths = AssetDatabase.FindAssets($"{nameof(ScriptableObjectStore)} t:Script");
-					bool hasScript = scriptPaths.LengthSafe() > 0;
-					if (!hasScript)
-					{
-						// ScriptableObjectStore.asset이 없고 ScriptableObjectStore.cs도 없으면 작업 중단
-						CWJ.DebugLogUtil.PrintLogError($"Error: {nameof(ScriptableObjectStore)}.cs 파일이 존재하지 않습니다. 작업을 중단합니다.");
-						return null; // 작업 중단
-					}
+			    if (!AssetDatabase.IsValidFolder(currentPath))
+			    {
+				    string parentFolder = System.IO.Path.GetDirectoryName(currentPath)?.Replace('\\', '/');
+				    if (!string.IsNullOrEmpty(parentFolder))
+					    AssetDatabase.CreateFolder(parentFolder, folderName);
+			    }
+		    }
+	    }
 
-					// 에디터 캐시 폴더 생성 후 경로 반환
-					EnsureEditorCacheFolderExists(_EditorCacheDirectroy);
-					return _EditorCacheDirectroy + typeName + ".asset";
-				}
-				else
-				{
-					// ScriptableObjectStore.asset이 있는 경우, 해당 경로 반환
-					return Path.GetDirectoryName(AssetDatabase.GUIDToAssetPath(storeAssets[0])) + $"/{typeName}.asset";
-				}
-			}
-			else
-			{
-				// 대상 자산이 이미 존재하면 경로 반환
-				return AssetDatabase.GUIDToAssetPath(findAssets[0]);
-			}
-		}
-		//const string CachePathFormat = "Assets/CWJ/UnityDevTool/_Cache/{0}.asset";
+	    private static string GetScriptDirectory<T>(string scriptName = null)
+	    {
+		    scriptName ??= typeof(T).Name;
+		    var scriptPaths = AssetDatabase.FindAssets($"{scriptName} t:script");
+		    if (scriptPaths.LengthSafe() == 0) return null;
 
-		//public readonly static string MyPath = string.Format(CachePathFormat, nameof(ScriptableObjectStore));
+		    string scriptPath = AssetDatabase.GUIDToAssetPath(scriptPaths[0]);
+		    return Path.GetDirectoryName(scriptPath)!.Replace('\\', '/');
+	    }
 
-		private static T CreateScriptableObj<T>(string path) where T : CWJScriptableObject
-		{
-			if (string.IsNullOrEmpty(path))
-			{
-				if (!AccessibleEditorUtil.TryGetScriptPath(typeof(T).Name, out path))
-					return null;
-				else
-					path = path + ".assset";
-			}
+	    public static string GetCacheFilePath<T>(string typeName = null) where T : CWJScriptableObject
+	    {
+		    typeName ??= typeof(T).Name;
 
-			T ins = ScriptableObject.CreateInstance<T>();
-			AssetDatabase.CreateAsset(ins, /*AssetDatabase.GenerateUniqueAssetPath(*/path /*)*/);
-			ins.OnConstruct();
-			ins.SaveScriptableObj();
-			//AssetDatabase.SaveAssets();
-			//AssetDatabase.Refresh();
-			return ins;
-		}
+		    // 대상 자산 검색
+		    var findAssets = AssetDatabase.FindAssets($"t:{typeName}");
+		    if (findAssets.LengthSafe() > 0)
+			    return AssetDatabase.GUIDToAssetPath(findAssets[0]);
 
-		[SerializeField, SerializableDictionary(isReadonly: true)]
-		StrScriptableObjDictionary scriptableObjDic = new StrScriptableObjDictionary();
+		    // ScriptableObjectStore.asset 검색
+		    var storeAssets = AssetDatabase.FindAssets($"t:{nameof(ScriptableObjectStore)}");
+		    var assetPath = storeAssets.LengthSafe() > 0 ? AssetDatabase.GUIDToAssetPath(storeAssets[0]) : null;
+		    if (assetPath != null)
+		    {
+			    return $"{Path.GetDirectoryName(assetPath).Replace('\\', '/')}/{typeName}.asset";
+		    }
 
-		const string SearchFileTypeFormat = "t:{0}";
+		    // ScriptableObjectStore.cs가 존재하는 경우 _Cache 폴더 생성
+		    string storeScriptDirectory = GetScriptDirectory<ScriptableObjectStore>();
+		    if (string.IsNullOrEmpty(storeScriptDirectory))
+		    {
+			    CWJ.DebugLogUtil.PrintLogError($"Error: {nameof(ScriptableObjectStore)}.cs 파일이 존재하지 않습니다. 작업을 중단합니다.");
+			    return null;
+		    }
 
-		// readonly static string[] CWJFolderPath = new[] { "Assets/CWJ" };
-		public T GetScriptableObj<T>() where T : CWJScriptableObject
-		{
-			string key = typeof(T).FullName;
-			bool hasKey;
-			if ((hasKey = scriptableObjDic.TryGetValue(key, out var value)) && !value.IsNullOrMissing())
-			{
-				try
-				{
-					T returnVal = (T)value;
-					return returnVal;
-				}
-				catch (System.InvalidCastException e)
-				{
-					Debug.LogError("CWJ폴더를 삭제후 다시 import해주세요\n" + e.ToString());
-				}
-			}
+		    string unityDevToolDir = PathUtil.GetParentDirectory(storeScriptDirectory, 2).Replace('\\', '/');
+		    string cacheDirectory = unityDevToolDir + "/_EditorCache";
+		    Debug.LogError(cacheDirectory);
+		    EnsureEditorCacheFolderExists(cacheDirectory);
 
-			string typeName = typeof(T).Name;
-			string path = GetCacheFilePath<T>(typeName);
-			T obj;
-			if (string.IsNullOrEmpty(path))
-			{
-				obj = CreateScriptableObj<T>(path);
-			}
-			else
-			{
-				obj = DelegateUtil.ManyConditions(
-					checkNotNull: (o) => o,
-					() => AssetDatabase.LoadAssetAtPath<T>(path),
-					() =>
-					{
-						string[] paths = AssetDatabase.FindAssets(string.Format(SearchFileTypeFormat, typeName)).ConvertAll(AssetDatabase.GUIDToAssetPath);
-						return paths.Length > 0 ? AssetDatabase.LoadAssetAtPath<T>(paths[0]) : CreateScriptableObj<T>(path);
-					}
-				);
-			}
+		    return $"{cacheDirectory}/{typeName}.asset";
+	    }
 
+        //const string CachePathFormat = "Assets/CWJ/UnityDevTool/_Cache/{0}.asset";
 
-			if (!hasKey)
-				scriptableObjDic.Add(key, obj);
-			else
-				scriptableObjDic[key] = obj;
+        //public readonly static string MyPath = string.Format(CachePathFormat, nameof(ScriptableObjectStore));
 
-			SaveScriptableObj();
-			return obj;
-		}
+        private static T CreateScriptableObj<T>(string path) where T : CWJScriptableObject
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                if (!AccessibleEditorUtil.TryGetScriptPath(typeof(T).Name, out path))
+                    return null;
+                else
+	                path = path + ".asset";
+            }
+            T ins = ScriptableObject.CreateInstance<T>();
+            AssetDatabase.CreateAsset(ins, /*AssetDatabase.GenerateUniqueAssetPath(*/path/*)*/);
+            ins.OnConstruct();
+	        EditorUtility.SetDirty(ins);
+
+            return ins;
+        }
+
+        [SerializeField, SerializableDictionary(isReadonly: true)] StrScriptableObjDictionary scriptableObjDic = new StrScriptableObjDictionary();
+
+        const string SearchFileTypeFormat = "t:{0}";
+
+        // readonly static string[] CWJFolderPath = new[] { "Assets/CWJ" };
+        public T GetScriptableObj<T>() where T : CWJScriptableObject
+        {
+            string key = typeof(T).FullName;
+	        bool hasKey = scriptableObjDic.TryGetValue(key, out var value);
+	        if (hasKey && !value.IsNullOrMissing())
+            {
+                try
+                {
+                    T returnVal = (T)value;
+                    return returnVal;
+                }
+                catch (System.InvalidCastException e)
+                {
+                    Debug.LogError("CWJ폴더를 삭제후 다시 import해주세요\n" + e.ToString());
+                }
+            }
+            string typeName = typeof(T).Name;
+	        string path = GetCacheFilePath<T>(typeName);
+            T obj;
+            if (string.IsNullOrEmpty(path))
+            {
+                obj = CreateScriptableObj<T>(path);
+            }
+            else
+            {
+                obj = DelegateUtil.ManyConditions(
+                    checkNotNull: (o) => o,
+                () => AssetDatabase.LoadAssetAtPath<T>(path),
+                () =>
+                {
+	                try
+	                {
+		                var guids = AssetDatabase.FindAssets(string.Format(SearchFileTypeFormat, typeName));
+		                if (guids.LengthSafe() == 0)
+		                {
+			                return CreateScriptableObj<T>(path);
+		                }
+		                else
+		                {
+			                string[] paths = guids.ConvertAll(AssetDatabase.GUIDToAssetPath);
+			                return paths[0] != null ? AssetDatabase.LoadAssetAtPath<T>(paths[0]) : CreateScriptableObj<T>(path);
+		                }
+	                }
+	                catch (Exception ex)
+	                {
+		                Debug.LogError($"Error while finding or creating ScriptableObject: {ex.Message}");
+		                return null;
+	                }
+                }
+            );
+            }
+
+            if (!hasKey)
+                scriptableObjDic.Add(key, obj);
+            else
+                scriptableObjDic[key] = obj;
+
+	        EditorUtility.SetDirty(this);
+	        AssetDatabase.SaveAssets();
+	        // AssetDatabase.Refresh();
+            return obj;
+        }
 	}
 }
 #endif

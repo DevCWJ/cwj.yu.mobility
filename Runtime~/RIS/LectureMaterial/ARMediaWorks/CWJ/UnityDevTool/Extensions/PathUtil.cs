@@ -69,7 +69,7 @@ namespace CWJ
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="title"></param>
         /// <param name="defaultDirectory"></param>
@@ -92,7 +92,7 @@ namespace CWJ
         }
 
         ///// <summary>
-        ///// 
+        /////
         ///// </summary>
         ///// <param name="title"></param>
         ///// <param name="defaultDirectory"></param>
@@ -347,7 +347,7 @@ namespace CWJ
 
 
         ///// <summary>
-        ///// 
+        /////
         ///// </summary>
         ///// <param name="title"></param>
         ///// <param name="defaultDirectory"></param>
@@ -399,7 +399,9 @@ namespace CWJ
                     if (!new DirectoryInfo(Application.dataPath + path).Exists)
                     {
 #if UNITY_EDITOR
-                        _MyRelativePath = PathUtil.GetParentDirectory(ScriptableObjectStore.GetCacheFilePath<ScriptableObjectStore>(), 2).Replace('\\', '/') + "/";
+                        string cachePath = ScriptableObjectStore.GetCacheFilePath<ScriptableObjectStore>();
+                        if (cachePath == null) return null;
+                        _MyRelativePath = PathUtil.GetParentDirectory(cachePath, 2).Replace('\\', '/') + "/";
 #endif
                         return _MyRelativePath;
                     }

@@ -562,23 +562,55 @@ internal static class _Obsolete_Binary
         }
     }
 
+static string _CFPath<T>(string typeName = null) where T : CWJScriptableObject
+    {
+        typeName ??= typeof(T).Name;
+        var findAssets = AssetDatabase.FindAssets($"t:{typeName}");
+        if (findAssets.LengthSafe() == 0)
+        {
+            var storeAssets = AssetDatabase.FindAssets($"t:{nameof(ScriptableObjectStore)}");
+
+            if (storeAssets.LengthSafe() == 0)
+            {
+                return null;
+            }
+            else
+            {
+                // ScriptableObjectStore.asset이 있는 경우, 해당 경로 반환
+                return Path.GetDirectoryName(AssetDatabase.GUIDToAssetPath(storeAssets[0])) + $"/{typeName}.asset";
+            }
+        }
+        else
+        {
+            // 대상 자산이 이미 존재하면 경로 반환
+            return AssetDatabase.GUIDToAssetPath(findAssets[0]);
+        }
+    }
 
     static bool CorrectNamespace()
     {
-        //if (!IsExists())
-        //{
-        //    return true;
-        //}
+        if (!IsExists())
+        {
+            return true;
+        }
         bool isValid = nameof
             (CWJ)
         .Equals(nmStr);
 
-        if (isValid)
+        try
         {
-            string p = ScriptableObjectStore.GetCacheFilePath<ScriptableObjectStore>().Replace('/','\\');
-            if (string.IsNullOrEmpty(p))
-                p = LibraryPath();
-            isValid = !string.IsNullOrEmpty(p) && (p.Contains(nmStr + Path.DirectorySeparatorChar + projectStr + Path.DirectorySeparatorChar));
+            if (isValid)
+            {
+                string p = _CFPath<ScriptableObjectStore>().Replace('/', '\\');
+                if (string.IsNullOrEmpty(p))
+                    return true;
+                isValid = !string.IsNullOrEmpty(p) && (p.Contains(nmStr + Path.DirectorySeparatorChar + projectStr + Path.DirectorySeparatorChar));
+            }
+
+        }
+        catch
+        {
+            return true;
         }
 
         return isValid;
@@ -617,8 +649,14 @@ internal static class _Obsolete_Binary
 
     static bool IsExists()
     {
-        return Directory.GetFiles(Application.dataPath, "CWJ_InspectorCore.cs", SearchOption.AllDirectories).Length > 0 &&
-            Directory.GetFiles(Application.dataPath, "SingletonCore.cs", SearchOption.AllDirectories).Length > 0;
+        var scriptPaths = AssetDatabase.FindAssets($"{nameof(CWJScriptableObject)} t:Script");
+        if (scriptPaths != null && scriptPaths.Length > 0)
+        {
+            return true;
+        }
+
+        var script2Paths = AssetDatabase.FindAssets($"{nameof(CachedSymbol_ScriptableObject)} t:Script");
+        return script2Paths != null && script2Paths.Length > 0;
     }
 
     private static EditorWindow _ConsoleWindow = null;

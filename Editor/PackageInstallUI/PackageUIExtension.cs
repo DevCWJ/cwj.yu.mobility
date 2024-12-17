@@ -25,7 +25,7 @@ namespace CWJ.Editor
 		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Import "+ ThirdPartyPackageFolderName, false)]
 		public static void ImportThirdPartyPackage()
 		{
-			ImportThirdPartyPackage(ThirdPartyPackageFileName, false, $"{RuntimeDownloadAssetsPath}/{ThirdPartyPackageFolderName}");
+			ImportThirdPartyPackage(ThirdPartyPackageFileName, false, "Assets/");
 		}
 
 		/// <summary>
@@ -40,7 +40,7 @@ namespace CWJ.Editor
 			if (originPath)
 				AssetDatabase.ImportPackage(packageFullPath, true);
 			else
-				ImportUnityPackage(packageFullPath, targetPath);
+				ImportUnityPackage(packageFullPath, targetPath ?? "Assets/");
 		}
 
 		public static void ImportTmpEssentialPackage()
@@ -212,7 +212,7 @@ namespace CWJ.Editor
 				_CurPackage = isTargetPackage ? packageInfo : null;
 				if (isTargetPackage)
 				{
-					DownloadRuntimeResources();
+					// EditorApplication.delayCall += DownloadRuntimeResources; //스스로 download누르게 두자
 				}
 			}
 
@@ -239,7 +239,7 @@ namespace CWJ.Editor
 		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Download RuntimeResources", false)]
 		private static void DownloadRuntimeResources()
 		{
-			ExportAndImportPackageAnywhere(RuntimeIgnoreFolderName);
+			DownloadOrImportRuntimePackage();
 		}
 
 		private static bool HasTmpEssential()

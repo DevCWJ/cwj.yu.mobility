@@ -359,9 +359,36 @@ namespace CWJ.Editor
                 return;
             }
 
+            EnsureEditorCacheFolderExists(importTargetPath);
             CodeStage.PackageToFolder.Partial.Package2Folder_Partial.ImportPackageToFolder(unitypackageFilePath, importTargetPath, true);
         }
 
+        private static void EnsureEditorCacheFolderExists(string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath)) return;
+
+            string[] subFolders = relativePath.Replace('\\', '/').Split('/'); // "Assets", "CWJ", "UnityDevTool", ...
+
+            string currentPath = subFolders[0];
+            if (!currentPath.StartsWith("Assets"))
+            {
+                Debug.LogError("EnsureEditorCacheFolderExists: Path must start with 'Assets/'");
+                return;
+            }
+
+            for (int i = 1; i < subFolders.Length; i++)
+            {
+                string folderName = subFolders[i];
+                currentPath = currentPath + "/" + folderName;
+
+                if (!AssetDatabase.IsValidFolder(currentPath))
+                {
+                    string parentFolder = System.IO.Path.GetDirectoryName(currentPath)?.Replace('\\', '/');
+                    if (!string.IsNullOrEmpty(parentFolder))
+                        AssetDatabase.CreateFolder(parentFolder, folderName);
+                }
+            }
+        }
 
         // private static void ExportSamplesPath(PackageInfo packageInfo, string exportTargetPath, string moveToPath)
         // {

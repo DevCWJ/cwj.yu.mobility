@@ -14,7 +14,7 @@ namespace CWJ.Editor
 
 		public const string UnityPacakgesFolderName = "CWJ.UnityPackages";
 		public const string ThirdPartyPackageFolderName = "ThirdPartyPackages";
-		public const string ThirdPartyPackageFileName = ThirdPartyPackageFolderName+".unitypackage"; ////will import to Assets/CWJ.UnityPackages/ThirdPartyPackages
+		public const string ThirdPartyPackageFileName = ThirdPartyPackageFolderName+".unitypackage"; ////will import to Assets/CWJ.UnityPackages/ThirdPartyPackages/ThirdPartyPackages.unitypackage
 	}
 }
 

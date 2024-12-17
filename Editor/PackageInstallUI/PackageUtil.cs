@@ -228,12 +228,20 @@ namespace CWJ.Editor
         private static string ToUnityPath(string path) => path.Replace('\\', '/');
         private static string ToSystemIoPath(string path) => path.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
 
-        public static void ExportAndImportPackageAnywhere(string srcFolderRootInPackagePath = RuntimeIgnoreFolderName)
+        public static void DownloadOrImportRuntimePackage()
         {
-            if (srcFolderRootInPackagePath == null) srcFolderRootInPackagePath = RuntimeIgnoreFolderName;
-
             _PackageFullPath = null;
-            string downloadSrcFolderRoot = ($"{PackageFullPath}/{srcFolderRootInPackagePath}").Replace("\\", "/");
+            string packageFullPath = PackageFullPath;
+
+            string releaseUnitypackagePath = ToSystemIoPath($"{packageFullPath}/{UnityPackageFolderName}/{MyPackageInAssetName}.unitypackage");
+
+            if (File.Exists(releaseUnitypackagePath))
+            {
+                ImportUnityPackage(releaseUnitypackagePath, $"Assets", false);
+                return;
+            }
+
+            string downloadSrcFolderRoot = ToSystemIoPath($"{packageFullPath}/{RuntimeIgnoreFolderName}".Replace("\\", "/"));
             if (!Directory.Exists(downloadSrcFolderRoot))
             {
                 Debug.LogError($"Source folder not found: {downloadSrcFolderRoot}");
@@ -253,33 +261,38 @@ namespace CWJ.Editor
                 return;
             }
 
-            string targetFolderFullPath = null;
-            string unitypackageFileFullPath = null;
-            string folderName = null;
+            string assetsFullPath = Application.dataPath;
 
+            string sourceFolder = subDirectories[0];
+            string folderName = Path.GetFileName(sourceFolder); //RIS
+
+            string downloadDestPath = $"{UnityPacakgesFolderName}/{folderName}";
+
+
+            string downloadFolderFullPath = ToSystemIoPath($"{assetsFullPath}/{downloadDestPath}");
+
+            string unitypackageFileFullPath = $"{assetsFullPath}/{UnityPacakgesFolderName}/{MyPackageInAssetName}.unitypackage";
+            unitypackageFileFullPath = ToSystemIoPath(unitypackageFileFullPath);
+
+            bool alreadyDownload = File.Exists(unitypackageFileFullPath);
             try
             {
-                AssetDatabase.StartAssetEditing();
-                EditorApplication.LockReloadAssemblies();
+                if (!alreadyDownload)
+                {
+                    EditorApplication.LockReloadAssemblies();
 
-                string randomFolderName = $"temp_{UnityEngine.Random.Range(1000, 9999)}";
-                string sourceFolder = subDirectories[0];
-                folderName = Path.GetFileName(sourceFolder);
+                    if (Directory.Exists(downloadFolderFullPath))
+                        Directory.Delete(downloadFolderFullPath, true);
+                    System.IO.Directory.CreateDirectory(downloadFolderFullPath);
+                    CheckFolderMeta(downloadFolderFullPath);
 
-                string target = $"{UnityPacakgesFolderName}/{randomFolderName}/{folderName}";
+                    // Debug.LogError($"CopyDirectory : {sourceFolder} to {targetFolderFullPath}");
+                    CopyDirectory(sourceFolder, downloadFolderFullPath);
 
-                string targetFolderRelativePath = $"Assets/{target}";
-                targetFolderFullPath = ToSystemIoPath($"{Application.dataPath}/{target}");
-
-                Debug.LogError($"CopyDirectory : {sourceFolder} to {targetFolderFullPath}");
-                CopyDirectory(sourceFolder, targetFolderFullPath);
-                AssetDatabase.Refresh();
-
-                unitypackageFileFullPath = $"{Application.dataPath}/{UnityPacakgesFolderName}/{MyPackageInAssetName}_{folderName}.unitypackage";
-                unitypackageFileFullPath = ToUnityPath(unitypackageFileFullPath);
-                Debug.LogError($"Try Export folder to UnityPackage: {unitypackageFileFullPath}");
-
-                AssetDatabase.ExportPackage(ToUnityPath(targetFolderRelativePath), unitypackageFileFullPath, ExportPackageOptions.Recurse);
+                    // AssetDatabase.Refresh();
+                    // string downloadFolderRelativePath = $"Assets/{downloadDestPath}";
+                    // AssetDatabase.ExportPackage(downloadFolderRelativePath, unitypackageFileFullPath, ExportPackageOptions.Recurse); //너무느려서 Export는 하지않기로
+                }
             }
             catch (Exception ex)
             {
@@ -287,29 +300,31 @@ namespace CWJ.Editor
             }
             finally
             {
-                if (!string.IsNullOrEmpty(targetFolderFullPath) && Directory.Exists(targetFolderFullPath))
+                if (!alreadyDownload)
                 {
-                    Directory.Delete(targetFolderFullPath, true);
-                    string metaFile = targetFolderFullPath + ".meta";
-                    if (File.Exists(metaFile)) File.Delete(metaFile);
+                    // DeleteDirectoryAndMeta(downloadFolderFullPath); //너무느려 Export는 하지않기로해서 리소스폴더 살림
+                    EditorApplication.UnlockReloadAssemblies();
+                    AssetDatabase.Refresh();
                 }
-
-                AssetDatabase.StopAssetEditing();
 
                 if (!string.IsNullOrEmpty(unitypackageFileFullPath) && File.Exists(unitypackageFileFullPath))
                 {
-                    ImportUnityPackage(unitypackageFileFullPath, $"Assets/{folderName}");
-
-                    if (UnityEditor.EditorUtility.DisplayDialog(MyPackageInAssetName, "다운로드 받은 unitypackage는 삭제하시겠습니까?", "Ok", "Cancel"))
+                    EditorApplication.delayCall += () =>
                     {
-                        File.Delete(unitypackageFileFullPath);
-                        string metaFile = unitypackageFileFullPath + ".meta";
-                        if (File.Exists(metaFile)) File.Delete(metaFile);
-                    }
+                        ImportUnityPackage(unitypackageFileFullPath, $"Assets", false);
+
+                        // EditorApplication.delayCall += () =>
+                        // {
+                        //     if (UnityEditor.EditorUtility.DisplayDialog(MyPackageInAssetName, "다운로드 받은 unitypackage는 삭제하시겠습니까?", "Ok", "Cancel"))
+                        //     {
+                        //         File.Delete(unitypackageFileFullPath);
+                        //         string metaFile = unitypackageFileFullPath + ".meta";
+                        //         if (File.Exists(metaFile)) File.Delete(metaFile);
+                        //     }
+                        // };
+                    };
                 }
 
-                EditorApplication.UnlockReloadAssemblies();
-                AssetDatabase.Refresh();
             }
         }
 
@@ -324,9 +339,6 @@ namespace CWJ.Editor
             if (!Directory.Exists(targetDir))
             {
                 Directory.CreateDirectory(targetDir);
-                string metaFile = targetDir + ".meta";
-                if (!File.Exists(metaFile))
-                    File.WriteAllText(metaFile, ""); // 빈 메타 파일 생성
             }
 
             try
@@ -343,20 +355,6 @@ namespace CWJ.Editor
                 {
                     string destFile = Path.Combine(targetDir, Path.GetFileName(file));
                     File.Copy(file, destFile, true);
-
-                    // 메타 파일 생성 (Unity 에셋으로 인식시키기 위해 필요)
-                    string metaFile = destFile + ".meta";
-                    if (!File.Exists(metaFile))
-                    {
-                        File.WriteAllText(metaFile, ""); // 빈 메타 파일 생성
-                    }
-                }
-
-                // 폴더 메타 파일 생성
-                string folderMetaFile = targetDir + ".meta";
-                if (!File.Exists(folderMetaFile))
-                {
-                    File.WriteAllText(folderMetaFile, ""); // 빈 메타 파일 생성
                 }
             }
             catch (Exception ex)
@@ -365,8 +363,62 @@ namespace CWJ.Editor
             }
         }
 
+        private static void CheckFolderMeta(string path)
+        {
+            // 상위 폴더 검사
+            DirectoryInfo currentDir = new DirectoryInfo(ToSystemIoPath(path));
+            string assetsPath = ToSystemIoPath(Application.dataPath).TrimEnd(Path.DirectorySeparatorChar);
 
-        public static void ImportUnityPackage(string unitypackageFilePath, string importTargetPath)
+            while (currentDir != null) // Assets 폴더까지 검사
+            {
+                if (currentDir.FullName.TrimEnd(Path.DirectorySeparatorChar)
+                              .Equals(assetsPath, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    break;
+                }
+
+                string folderMetaPath = currentDir.FullName + ".meta";
+
+                CreateMetaFile(folderMetaPath);
+
+                // 상위 폴더로 이동
+                currentDir = currentDir.Parent;
+            }
+        }
+
+        private static void CreateMetaFile(string path)
+        {
+            if (!File.Exists(path))
+                File.WriteAllText(path, GenerateDefaultMetaContent());
+        }
+
+        private static string GenerateDefaultMetaContent()
+        {
+            // Unity 기본 메타 파일의 형식을 흉내낸 내용
+            return "fileFormatVersion: 2\nguid: " + System.Guid.NewGuid().ToString("N") +
+                   "\nfolderAsset: yes\nDefaultImporter:\n  externalObjects: {}\n  userData: \n  assetBundleName: \n  assetBundleVariant: ";
+        }
+
+        private static void DeleteDirectoryAndMeta(string folderPath)
+        {
+            if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
+            {
+                Directory.Delete(folderPath, true);
+                string metaFile = folderPath + ".meta";
+                if (File.Exists(metaFile)) File.Delete(metaFile);
+            }
+        }
+
+        private static void DeleteFileAndMeta(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+                string metaFile = filePath + ".meta";
+                if (File.Exists(metaFile)) File.Delete(metaFile);
+            }
+        }
+        public static void ImportUnityPackage(string unitypackageFilePath, string importTargetPath, bool needCheckExists = true)
         {
             if (!File.Exists(unitypackageFilePath))
             {
@@ -374,7 +426,8 @@ namespace CWJ.Editor
                 return;
             }
 
-            EnsureEditorCacheFolderExists(importTargetPath);
+            if (needCheckExists)
+                EnsureEditorCacheFolderExists(importTargetPath);
             EditorApplication.delayCall += () =>
                 CodeStage.PackageToFolder.Partial.Package2Folder_Partial.ImportPackageToFolder(unitypackageFilePath, importTargetPath, true);
         }

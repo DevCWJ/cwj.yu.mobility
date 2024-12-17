@@ -162,7 +162,6 @@ namespace CWJ.AccessibleEditor
 
 		    string unityDevToolDir = PathUtil.GetParentDirectory(storeScriptDirectory, 2).Replace('\\', '/');
 		    string cacheDirectory = unityDevToolDir + "/_EditorCache";
-		    Debug.LogError(cacheDirectory);
 		    EnsureEditorCacheFolderExists(cacheDirectory);
 
 		    return $"{cacheDirectory}/{typeName}.asset";

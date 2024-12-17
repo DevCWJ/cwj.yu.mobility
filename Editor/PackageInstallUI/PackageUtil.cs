@@ -267,10 +267,11 @@ namespace CWJ.Editor
             string targetFolder = null;
             string unitypackageFilePath = null;
             string folderName = null;
+
             try
             {
+                AssetDatabase.StartAssetEditing();
                 EditorApplication.LockReloadAssemblies();
-
                 string sourceFolder = subDirectories[0]; // 복사 대상 폴더 (첫 번째 폴더)
                 folderName = Path.GetFileName(sourceFolder); // 폴더 이름 추출
                 string randomFolderName = $"temp_{UnityEngine.Random.Range(1000, 9999)}";
@@ -298,15 +299,31 @@ namespace CWJ.Editor
             }
             finally
             {
+                bool hasTargetFolder = targetFolder != null && Directory.Exists(targetFolder);
                 // 임시 폴더 정리
-                if (targetFolder != null && Directory.Exists(targetFolder))
+                if (hasTargetFolder)
                 {
                     Directory.Delete(targetFolder, true);
-                    File.Delete(targetFolder + ".meta");
+                    string _metaFile = targetFolder + ".meta";
+                    if (File.Exists(_metaFile))
+                        File.Delete(_metaFile);
+                }
 
-                    // 패키지 가져오기 (Import)
-                    if (unitypackageFilePath != null && File.Exists(unitypackageFilePath))
-                        ImportPackage(unitypackageFilePath, $"Assets/{folderName}");
+                AssetDatabase.StopAssetEditing();
+
+                // 패키지 가져오기 (Import)
+                if (hasTargetFolder && unitypackageFilePath != null && File.Exists(unitypackageFilePath))
+                {
+                    ImportPackage(unitypackageFilePath, $"Assets/{folderName}");
+
+                    if (File.Exists(unitypackageFilePath) &&
+                        UnityEditor.EditorUtility.DisplayDialog(MyPackageInAssetName, "다운로드 받은 unitypackage는 삭제하시겠습니까?", "Ok", "Cancel"))
+                    {
+                        File.Delete(unitypackageFilePath);
+                        string _metaFile = unitypackageFilePath + ".meta";
+                        if (File.Exists(_metaFile))
+                            File.Delete(_metaFile);
+                    }
                 }
 
                 EditorApplication.UnlockReloadAssemblies();
@@ -342,10 +359,7 @@ namespace CWJ.Editor
                 return;
             }
 
-            // Import Package
-            AssetDatabase.ImportPackage(unitypackagePath, false);
-
-            Debug.Log("Import complete.");
+            CodeStage.PackageToFolder.Partial.Package2Folder_Partial.ImportPackageToFolder(unitypackagePath, importTargetFolder, true);
         }
 
 

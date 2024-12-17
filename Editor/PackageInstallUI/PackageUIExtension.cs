@@ -25,18 +25,21 @@ namespace CWJ.Editor
 		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Import ThirdPartyPackage", false)]
 		public static void ImportThirdPartyPackage()
 		{
-			ImportUnityPackage(ThirdPartyPackageFileName);
+			ImportThirdPartyPackage(ThirdPartyPackageFileName, false, Path.Combine(RuntimeDownloadAssetsPath, "ThirdPartyPackage"));
 		}
 
-		private static void ImportUnityPackage(string unityPackageFilename)
+		private static void ImportThirdPartyPackage(string unityPackageFilename, bool originPath, string targetPath = null)
 		{
 			string packageFullPath = $"{PackageFullPath}/{UnityPackageFolderName}/{unityPackageFilename}";
-			AssetDatabase.ImportPackage(packageFullPath, true);
+			if (originPath)
+				AssetDatabase.ImportPackage(packageFullPath, true);
+			else
+				ImportUnityPackage(packageFullPath, targetPath);
 		}
 
 		public static void ImportTmpEssentialPackage()
 		{
-			ImportUnityPackage(TmpEssentialPackageFileName);
+			ImportThirdPartyPackage(TmpEssentialPackageFileName, true);
 		}
 
 		private static PackageInfo _CurPackage = null;
@@ -226,7 +229,7 @@ namespace CWJ.Editor
 		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Download RuntimeResources", false)]
 		private static void DownloadRuntimeResources()
 		{
-			ExportPackageFromLibrary();
+			ExportAndImportPackageAnywhere(RuntimeIgnoreFolderName);
 		}
 
 		private static bool HasTmpEssential()

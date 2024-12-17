@@ -1,6 +1,6 @@
 {
   "name": "com.cwj.yu.mobility",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "displayName": "CWJ.YU.Mobility",
   "description": "Assets of 'Ris - Yeungnam University Smart Mobility - Mobility Kinematics Class'",
   "unity": "2021.3",
@@ -36,7 +36,7 @@
     {
       "displayName": "데모용_Scene&Resources",
       "description": "데모씬 포함되어있음. (YU_Demo.unity)",
-      "path": "Samples~/Demo"
+      "path": "Samples~/!Demo"
     }
   ]
 }

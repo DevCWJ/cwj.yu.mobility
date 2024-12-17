@@ -241,7 +241,7 @@ namespace CWJ.Editor
             return latestTag;
         }
 
-        public static void ExportPackageFromLibrary(string srcFolderRootInPackagePath = RuntimeIgnoreFolderName)
+        public static void ExportAndImportPackageAnywhere(string srcFolderRootInPackagePath = RuntimeIgnoreFolderName)
         {
             if (srcFolderRootInPackagePath == null) srcFolderRootInPackagePath = RuntimeIgnoreFolderName;
 
@@ -314,7 +314,7 @@ namespace CWJ.Editor
                 // 패키지 가져오기 (Import)
                 if (hasTargetFolder && unitypackageFilePath != null && File.Exists(unitypackageFilePath))
                 {
-                    ImportPackage(unitypackageFilePath, $"Assets/{folderName}");
+                    ImportUnityPackage(unitypackageFilePath, $"Assets/{folderName}");
 
                     if (File.Exists(unitypackageFilePath) &&
                         UnityEditor.EditorUtility.DisplayDialog(MyPackageInAssetName, "다운로드 받은 unitypackage는 삭제하시겠습니까?", "Ok", "Cancel"))
@@ -351,15 +351,15 @@ namespace CWJ.Editor
             }
         }
 
-        private static void ImportPackage(string unitypackagePath, string importTargetFolder)
+        public static void ImportUnityPackage(string unitypackageFilePath, string importTargetPath)
         {
-            if (!File.Exists(unitypackagePath))
+            if (!File.Exists(unitypackageFilePath))
             {
-                Debug.LogError($"Unitypackage file not found: {unitypackagePath}");
+                Debug.LogError($"Unitypackage file not found: {unitypackageFilePath}");
                 return;
             }
 
-            CodeStage.PackageToFolder.Partial.Package2Folder_Partial.ImportPackageToFolder(unitypackagePath, importTargetFolder, true);
+            CodeStage.PackageToFolder.Partial.Package2Folder_Partial.ImportPackageToFolder(unitypackageFilePath, importTargetPath, true);
         }
 
 

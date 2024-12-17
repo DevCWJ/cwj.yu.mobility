@@ -322,7 +322,12 @@ namespace CWJ.Editor
 
             // 대상 폴더가 없으면 먼저 생성
             if (!Directory.Exists(targetDir))
+            {
                 Directory.CreateDirectory(targetDir);
+                string metaFile = targetDir + ".meta";
+                if (!File.Exists(metaFile))
+                    File.WriteAllText(metaFile, ""); // 빈 메타 파일 생성
+            }
 
             try
             {

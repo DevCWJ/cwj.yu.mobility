@@ -52,8 +52,7 @@ namespace CWJ.Editor
 
 				VisualElement labelLine = new VisualElement();
 				ExtentionRoot.Add(labelLine);
-				updateDescLbl = new Label { text = " " };
-				labelLine.Add(updateDescLbl);
+
 				errorDescLbl = new Label { text = " " };
 				labelLine.Add(errorDescLbl);
 
@@ -93,6 +92,8 @@ namespace CWJ.Editor
 				downloadRuntimePackageBtn.clicked += DownloadRuntimeResources;
 				downloadRuntimePackageBtn.style.width = width;
 				buttonsLine2.Add(downloadRuntimePackageBtn);
+				updateDescLbl = new Label { text = " " };
+				buttonsLine2.Add(updateDescLbl);
 
 				VisualElement lastLine = new VisualElement();
 				ExtentionRoot.Add(lastLine);
@@ -193,7 +194,7 @@ namespace CWJ.Editor
 				bool needUpdate = _CurPackage.CheckNeedUpdateByLastUpdate(out string latestVersion);
 				updateDescLbl.text = $"{TitleStr}\n" + (needUpdate ? ">> 현재 최신버전이 아닙니다. 하단에 [Update]버튼을 눌러주세요 <<" : "현재 최신 버전입니다.");
 				isUpdateChecking = false;
-				downloadRuntimePackageBtn.SetEnabled(true);
+				downloadRuntimePackageBtn.SetEnabled(!needUpdate);
 			}
 
 			public void OnPackageAddedOrUpdated(PackageInfo packageInfo)

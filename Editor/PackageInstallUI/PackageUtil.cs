@@ -333,7 +333,7 @@ namespace CWJ.Editor
             // 경로 통일 및 끝에 슬래시 제거
             sourceDir = ToSystemIoPath(sourceDir.TrimEnd(Path.DirectorySeparatorChar, '/'));
             targetDir = ToSystemIoPath(targetDir.TrimEnd(Path.DirectorySeparatorChar, '/'));
-            Debug.Log($"CopyDirectory : {sourceDir} to {targetDir}");
+            // Debug.Log($"CopyDirectory : {sourceDir} to {targetDir}");
 
             // 대상 폴더가 없으면 먼저 생성
             if (!Directory.Exists(targetDir))

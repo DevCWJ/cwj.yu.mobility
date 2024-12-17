@@ -9,10 +9,12 @@ namespace CWJ.Editor
 		public const string TitleStr = "[ RIS 영남대 스마트 모빌리티 패키지 ]";
 
 		public const string UnityPackageFolderName = "UnityPackages~";
-		public const string ThirdPartyPackageFileName = "ThirdPartyPackage.unitypackage";
 		public const string TmpEssentialPackageFileName = "TMP Essential Resources.unitypackage";
 		public const string RuntimeIgnoreFolderName = "Runtime~";
 		public const string RuntimeDownloadAssetsPath = "Assets/CWJ.UnityPackages";
+
+		public const string ThirdPartyPackageFolderName = "ThirdPartyPackages";
+		public const string ThirdPartyPackageFileName = ThirdPartyPackageFolderName+".unitypackage"; ////import to Assets/CWJ.UnityPackages/ThirdPartyPackages
 	}
 }
 

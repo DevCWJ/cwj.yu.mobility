@@ -22,12 +22,18 @@ namespace CWJ.Editor
 			PackageManagerExtensions.RegisterExtension(new UpmExtension());
 		}
 
-		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Import ThirdPartyPackage", false)]
+		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Import "+ ThirdPartyPackageFolderName, false)]
 		public static void ImportThirdPartyPackage()
 		{
-			ImportThirdPartyPackage(ThirdPartyPackageFileName, false, Path.Combine(RuntimeDownloadAssetsPath, "ThirdPartyPackage"));
+			ImportThirdPartyPackage(ThirdPartyPackageFileName, false, $"{RuntimeDownloadAssetsPath}/{ThirdPartyPackageFolderName}");
 		}
 
+		/// <summary>
+		/// UnityPackages~ 안의 unitypackage import
+		/// </summary>
+		/// <param name="unityPackageFilename"></param>
+		/// <param name="originPath"></param>
+		/// <param name="targetPath"></param>
 		private static void ImportThirdPartyPackage(string unityPackageFilename, bool originPath, string targetPath = null)
 		{
 			string packageFullPath = $"{PackageFullPath}/{UnityPackageFolderName}/{unityPackageFilename}";

@@ -360,7 +360,8 @@ namespace CWJ.Editor
             }
 
             EnsureEditorCacheFolderExists(importTargetPath);
-            CodeStage.PackageToFolder.Partial.Package2Folder_Partial.ImportPackageToFolder(unitypackageFilePath, importTargetPath, true);
+            EditorApplication.delayCall += () =>
+                CodeStage.PackageToFolder.Partial.Package2Folder_Partial.ImportPackageToFolder(unitypackageFilePath, importTargetPath, true);
         }
 
         private static void EnsureEditorCacheFolderExists(string relativePath)

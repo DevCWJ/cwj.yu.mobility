@@ -11,6 +11,7 @@ using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 namespace CWJ.Editor
 {
     using static PackageDefine;
+
     public static class PackageUtil
     {
         [SerializeField]
@@ -201,6 +202,7 @@ namespace CWJ.Editor
                    .Replace("\r", string.Empty) // 캐리지 리턴 제거
                    .Replace("\t", string.Empty); // 탭 제거
         }
+
         private static string GetLatestGitTag()
         {
             string latestTag = null;
@@ -243,7 +245,6 @@ namespace CWJ.Editor
         {
             if (srcFolderRootInPackagePath == null) srcFolderRootInPackagePath = RuntimeIgnoreFolderName;
 
-            // Library/com.cwj.yu.mobility/Runtime~
             string downloadSrcFolderRoot = Path.Combine(PackageRelativePath, srcFolderRootInPackagePath);
             if (!Directory.Exists(downloadSrcFolderRoot))
             {
@@ -258,44 +259,54 @@ namespace CWJ.Editor
                 return;
             }
 
+            if (!UnityEditor.EditorUtility.DisplayDialog(MyPackageInAssetName, "다소 시간이 소모됩니다.\n unitypackage를 다운로드 받으시겠습니까?", "Ok", "Cancel"))
+            {
+                return;
+            }
+
             string targetFolder = null;
+            string unitypackageFilePath = null;
+            string folderName = null;
             try
             {
                 EditorApplication.LockReloadAssemblies();
 
                 string sourceFolder = subDirectories[0]; // 복사 대상 폴더 (첫 번째 폴더)
-
-                // Assets/CWJ.UnityPackages/temp_랜덤숫자 폴더 생성
+                folderName = Path.GetFileName(sourceFolder); // 폴더 이름 추출
                 string randomFolderName = $"temp_{UnityEngine.Random.Range(1000, 9999)}";
-                targetFolder = Path.Combine(RuntimeDownloadAssetsPath, randomFolderName);
+                targetFolder = Path.Combine(RuntimeDownloadAssetsPath, randomFolderName, folderName);
 
                 if (!Directory.Exists(RuntimeDownloadAssetsPath))
                     Directory.CreateDirectory(RuntimeDownloadAssetsPath);
 
+                // 폴더 복사
                 CopyDirectory(sourceFolder, targetFolder);
                 AssetDatabase.Refresh();
 
                 // .unitypackage 파일 경로 설정
-                string folderName = Path.GetFileName(sourceFolder); // 폴더 이름 추출
-                string unitypackageFilePath = Path.Combine(RuntimeDownloadAssetsPath, $"{MyPackageInAssetName}.{folderName}.unitypackage");
-                Debug.Log($"Exporting: {sourceFolder} -> {unitypackageFilePath}");
+                unitypackageFilePath = Path.Combine(RuntimeDownloadAssetsPath, $"{MyPackageInAssetName}.{folderName}.unitypackage");
 
                 // 패키지 내보내기
                 AssetDatabase.ExportPackage(targetFolder, unitypackageFilePath, ExportPackageOptions.Recurse);
                 Debug.Log($"Exported folder to UnityPackage: {unitypackageFilePath}");
+
+
             }
             catch (Exception ex)
             {
-                Debug.LogError($"Error exporting folder: {ex}");
+                Debug.LogError($"Error exporting/importing folder: {ex}");
             }
             finally
             {
-                // 리로드 잠금 해제
-                // 정리: 임시 폴더 삭제
+                // 임시 폴더 정리
                 if (targetFolder != null && Directory.Exists(targetFolder))
                 {
                     Directory.Delete(targetFolder, true);
                     File.Delete(targetFolder + ".meta");
+
+                    // 패키지 가져오기 (Import)
+                    if (unitypackageFilePath != null && File.Exists(unitypackageFilePath))
+                        ImportPackage(unitypackageFilePath, $"Assets/{folderName}");
                 }
 
                 EditorApplication.UnlockReloadAssemblies();
@@ -322,6 +333,21 @@ namespace CWJ.Editor
                 CopyDirectory(subDir, destSubDir);
             }
         }
+
+        private static void ImportPackage(string unitypackagePath, string importTargetFolder)
+        {
+            if (!File.Exists(unitypackagePath))
+            {
+                Debug.LogError($"Unitypackage file not found: {unitypackagePath}");
+                return;
+            }
+
+            // Import Package
+            AssetDatabase.ImportPackage(unitypackagePath, false);
+
+            Debug.Log("Import complete.");
+        }
+
 
         // private static void ExportSamplesPath(PackageInfo packageInfo, string exportTargetPath, string moveToPath)
         // {

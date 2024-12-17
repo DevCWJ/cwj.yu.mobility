@@ -399,7 +399,7 @@ namespace CWJ
                     if (!new DirectoryInfo(Application.dataPath + path).Exists)
                     {
 #if UNITY_EDITOR
-                        _MyRelativePath = PathUtil.GetParentDirectory(ScriptableObjectStore.CacheFilePath<ScriptableObjectStore>(), 2).Replace('\\', '/') + "/";
+                        _MyRelativePath = PathUtil.GetParentDirectory(ScriptableObjectStore.GetCacheFilePath<ScriptableObjectStore>(), 2).Replace('\\', '/') + "/";
 #endif
                         return _MyRelativePath;
                     }

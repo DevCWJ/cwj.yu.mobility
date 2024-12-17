@@ -259,7 +259,7 @@ namespace CWJ.Editor
                 return;
             }
 
-            if (!UnityEditor.EditorUtility.DisplayDialog(MyPackageInAssetName, "다소 시간이 소모됩니다.\n unitypackage를 다운로드 받으시겠습니까?", "Ok", "Cancel"))
+            if (!UnityEditor.EditorUtility.DisplayDialog(MyPackageInAssetName, "다소 시간이 소모됩니다.\n unitypackage를 다운로드 받으시겠습니까?\n기존 파일들은 지우고 다시 Download하는걸 추천합니다.", "Ok", "Cancel"))
             {
                 return;
             }

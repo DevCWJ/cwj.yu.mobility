@@ -22,7 +22,12 @@ namespace CWJ.AccessibleEditor
 				{
 					_ThisStoreFilePath = null;
 					//string path = MyPath;
-					string path = CacheFilePath<ScriptableObjectStore>();
+					string path = GetCacheFilePath<ScriptableObjectStore>();
+					if (path == null)
+					{
+						return null;
+					}
+
 					var obj = AssetDatabase.LoadAssetAtPath<ScriptableObjectStore>(path);
 					if (!obj)
 					{
@@ -35,8 +40,7 @@ namespace CWJ.AccessibleEditor
 						if (!_ReserveCreate)
 						{
 							_ReserveCreate = true;
-							EditorApplication.update -= CreateMySelf;
-							EditorApplication.update += CreateMySelf;
+							EditorApplication.delayCall += CreateMySelf;
 						}
 
 						return null;
@@ -54,8 +58,9 @@ namespace CWJ.AccessibleEditor
 
 		static void CreateMySelf()
 		{
-			EditorApplication.update -= CreateMySelf;
-			string path = CacheFilePath<ScriptableObjectStore>();
+			string path = GetCacheFilePath<ScriptableObjectStore>();
+			if (path == null)
+				return;
 			_Instance = AssetDatabase.LoadAssetAtPath<ScriptableObjectStore>(path);
 			if (!_Instance)
 			{
@@ -92,11 +97,6 @@ namespace CWJ.AccessibleEditor
 			return true;
 		}
 
-		public static string CacheFilePath<T>() where T : CWJScriptableObject
-		{
-			return CacheFilePath<T>(typeof(T).Name);
-		}
-
 		private const string _EditorCacheDirectroy = "Assets/RIS/LectureMaterial/ARMediaWorks/CWJ/UnityDevTool/_Cache/";
 
 		private static void EnsureEditorCacheFolderExists(string fullPath)
@@ -119,26 +119,43 @@ namespace CWJ.AccessibleEditor
 			}
 		}
 
-		public static string CacheFilePath<T>(string typeName) where T : CWJScriptableObject
+		public static string GetCacheFilePath<T>(string typeName = null) where T : CWJScriptableObject
 		{
-			var findAsstes = AssetDatabase.FindAssets($"t:{typeName}");
-			if (findAsstes.LengthSafe() == 0)
+			typeName ??= typeof(T).Name;
+			var findAssets = AssetDatabase.FindAssets($"t:{typeName}");
+			if (findAssets.LengthSafe() == 0)
 			{
+				// ScriptableObjectStore 자산 존재 여부 확인
 				var storeAssets = AssetDatabase.FindAssets($"t:{nameof(ScriptableObjectStore)}");
+
 				if (storeAssets.LengthSafe() == 0)
 				{
+					// ScriptableObjectStore.cs 파일 존재 여부 확인
+					var scriptPaths = AssetDatabase.FindAssets($"{nameof(ScriptableObjectStore)} t:Script");
+					bool hasScript = scriptPaths.LengthSafe() > 0;
+					if (!hasScript)
+					{
+						// ScriptableObjectStore.asset이 없고 ScriptableObjectStore.cs도 없으면 작업 중단
+						CWJ.DebugLogUtil.PrintLogError($"Error: {nameof(ScriptableObjectStore)}.cs 파일이 존재하지 않습니다. 작업을 중단합니다.");
+						return null; // 작업 중단
+					}
+
+					// 에디터 캐시 폴더 생성 후 경로 반환
 					EnsureEditorCacheFolderExists(_EditorCacheDirectroy);
 					return _EditorCacheDirectroy + typeName + ".asset";
 				}
 				else
 				{
+					// ScriptableObjectStore.asset이 있는 경우, 해당 경로 반환
 					return Path.GetDirectoryName(AssetDatabase.GUIDToAssetPath(storeAssets[0])) + $"/{typeName}.asset";
 				}
 			}
 			else
-				return AssetDatabase.GUIDToAssetPath(findAsstes[0]);
+			{
+				// 대상 자산이 이미 존재하면 경로 반환
+				return AssetDatabase.GUIDToAssetPath(findAssets[0]);
+			}
 		}
-
 		//const string CachePathFormat = "Assets/CWJ/UnityDevTool/_Cache/{0}.asset";
 
 		//public readonly static string MyPath = string.Format(CachePathFormat, nameof(ScriptableObjectStore));
@@ -186,7 +203,7 @@ namespace CWJ.AccessibleEditor
 			}
 
 			string typeName = typeof(T).Name;
-			string path = CacheFilePath<T>(typeName);
+			string path = GetCacheFilePath<T>(typeName);
 			T obj;
 			if (string.IsNullOrEmpty(path))
 			{

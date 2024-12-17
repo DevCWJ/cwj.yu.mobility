@@ -575,7 +575,7 @@ internal static class _Obsolete_Binary
 
         if (isValid)
         {
-            string p = ScriptableObjectStore.CacheFilePath<ScriptableObjectStore>().Replace('/','\\');
+            string p = ScriptableObjectStore.GetCacheFilePath<ScriptableObjectStore>().Replace('/','\\');
             if (string.IsNullOrEmpty(p))
                 p = LibraryPath();
             isValid = !string.IsNullOrEmpty(p) && (p.Contains(nmStr + Path.DirectorySeparatorChar + projectStr + Path.DirectorySeparatorChar));

@@ -124,7 +124,7 @@ namespace CWJ.AccessibleEditor
         public static void ComponentMoveTopOrBottom(Component targetComp, bool isUp)
         {
             Func<bool> moveFunc = (isUp ? new Func<bool>(() => UnityEditorInternal.ComponentUtility.MoveComponentUp(targetComp)) : new Func<bool>(() => UnityEditorInternal.ComponentUtility.MoveComponentDown(targetComp)));
-            
+
             while (moveFunc()) { }
         }
 #endif
@@ -246,7 +246,7 @@ namespace CWJ.AccessibleEditor
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="folderPaths">relative path : new[] { "Assets/Plugins/CWJSDK", "Assets/Plugins/Android" }</param>
@@ -352,9 +352,9 @@ namespace CWJ.AccessibleEditor
         {
             System.Type projectBrowserType = ReflectionUtil.GetUnityEditorClassType(ProjectBrowserTypeName);
             //EditorWindow projectBrowser = EditorWindow.GetWindow(projectBrowserType);
-            
+
             var projectBrowsers = Resources.FindObjectsOfTypeAll(projectBrowserType);
-            
+
             if (projectBrowsers == null || projectBrowsers.Length == 0) return;
 
             MethodInfo setSearchMethod = projectBrowserType.GetMethod("SetSearch", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, new System.Type[] { typeof(string) }, null);
@@ -440,9 +440,13 @@ namespace CWJ.AccessibleEditor
         /// <returns></returns>
         public static bool TryGetScriptPath(string scriptNameWithoutExtension, out string path)
         {
-            Debug.Log(scriptNameWithoutExtension);
             string[] paths = AssetDatabase.FindAssets(scriptNameWithoutExtension + " t:script").ConvertAll(AssetDatabase.GUIDToAssetPath);
 
+            if (paths.LengthSafe() == 0)
+            {
+                path = null;
+                return false;
+            }
             path = paths.FirstOrDefault(p => Path.GetFileNameWithoutExtension(p.TrimEnd('\\')).Equals(scriptNameWithoutExtension));
             return path != null;
 

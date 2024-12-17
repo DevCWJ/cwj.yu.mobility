@@ -87,7 +87,7 @@ namespace CWJ.Editor
 				//
 				downloadRuntimePackageBtn = new Button();
 				downloadRuntimePackageBtn.text = "Download Runtime Resources";
-				downloadRuntimePackageBtn.clicked += DownloadRuntimeUnityPackage;
+				downloadRuntimePackageBtn.clicked += DownloadRuntimeResources;
 				downloadRuntimePackageBtn.style.width = width;
 				buttonsLine2.Add(downloadRuntimePackageBtn);
 
@@ -199,7 +199,7 @@ namespace CWJ.Editor
 				_CurPackage = isTargetPackage ? packageInfo : null;
 				if (isTargetPackage)
 				{
-					DownloadRuntimeUnityPackage();
+					DownloadRuntimeResources();
 				}
 			}
 
@@ -224,31 +224,9 @@ namespace CWJ.Editor
 		/// 사실 Runtime~ 폴더를 unitypackage로 export하는거임
 		/// </summary>
 		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Download RuntimeResources", false)]
-		private static void DownloadRuntimeUnityPackage()
+		private static void DownloadRuntimeResources()
 		{
-			if (EditorUtility.DisplayDialog(MyPackageInAssetName,
-			                                $"{MyPackageInAssetName}의 Runtime.unitypackage파일을\n 다운로드 받으시겠습니까?.\n다소 시간이 소모됩니다."
-			                              , "Download", "Cancel"))
-			{
-				if (TrySelectDownloadPath(out string downloadFolderPath) && downloadFolderPath != null)
-				{
-					string packageSrcPath = $"{PackageFullPath}/{IgnoreRuntimeFolderName}"; //경로
-					string exportFilePath = downloadFolderPath + $"/{MyPackageInAssetName}.Runtime.unitypackage";
-					Debug.LogError(packageSrcPath + " -> " + exportFilePath);
-					try
-					{
-						AssetDatabase.ExportPackage(packageSrcPath, exportFilePath, ExportPackageOptions.Recurse);
-						AssetDatabase.Refresh();
-						Debug.Log("Folder download successfully: " + exportFilePath);
-					}
-					catch (IOException ex)
-					{
-						Debug.LogError("Error download : " + ex.Message);
-					}
-
-					ImportUnityPackage(exportFilePath);
-				}
-			}
+			ExportPackageFromLibrary();
 		}
 
 		private static bool HasTmpEssential()

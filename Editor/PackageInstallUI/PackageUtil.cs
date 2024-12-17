@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using System;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -236,6 +237,90 @@ namespace CWJ.Editor
             }
 
             return latestTag;
+        }
+
+        public static void ExportPackageFromLibrary(string srcFolderRootInPackagePath = RuntimeIgnoreFolderName)
+        {
+            if (srcFolderRootInPackagePath == null) srcFolderRootInPackagePath = RuntimeIgnoreFolderName;
+
+            // Library/com.cwj.yu.mobility/Runtime~
+            string downloadSrcFolderRoot = Path.Combine(PackageRelativePath, srcFolderRootInPackagePath);
+            if (!Directory.Exists(downloadSrcFolderRoot))
+            {
+                Debug.LogError($"Source folder not found: {downloadSrcFolderRoot}");
+                return;
+            }
+
+            string[] subDirectories = Directory.GetDirectories(downloadSrcFolderRoot);
+            if (subDirectories.Length == 0)
+            {
+                Debug.LogError("No subdirectories found in the Runtime~ folder.");
+                return;
+            }
+
+            string targetFolder = null;
+            try
+            {
+                EditorApplication.LockReloadAssemblies();
+
+                string sourceFolder = subDirectories[0]; // 복사 대상 폴더 (첫 번째 폴더)
+
+                // Assets/CWJ.UnityPackages/temp_랜덤숫자 폴더 생성
+                string randomFolderName = $"temp_{UnityEngine.Random.Range(1000, 9999)}";
+                targetFolder = Path.Combine(RuntimeDownloadAssetsPath, randomFolderName);
+
+                if (!Directory.Exists(RuntimeDownloadAssetsPath))
+                    Directory.CreateDirectory(RuntimeDownloadAssetsPath);
+
+                CopyDirectory(sourceFolder, targetFolder);
+                AssetDatabase.Refresh();
+
+                // .unitypackage 파일 경로 설정
+                string folderName = Path.GetFileName(sourceFolder); // 폴더 이름 추출
+                string unitypackageFilePath = Path.Combine(RuntimeDownloadAssetsPath, $"{MyPackageInAssetName}.{folderName}.unitypackage");
+                Debug.Log($"Exporting: {sourceFolder} -> {unitypackageFilePath}");
+
+                // 패키지 내보내기
+                AssetDatabase.ExportPackage(targetFolder, unitypackageFilePath, ExportPackageOptions.Recurse);
+                Debug.Log($"Exported folder to UnityPackage: {unitypackageFilePath}");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Error exporting folder: {ex}");
+            }
+            finally
+            {
+                // 리로드 잠금 해제
+                // 정리: 임시 폴더 삭제
+                if (targetFolder != null && Directory.Exists(targetFolder))
+                {
+                    Directory.Delete(targetFolder, true);
+                    File.Delete(targetFolder + ".meta");
+                }
+
+                EditorApplication.UnlockReloadAssemblies();
+                AssetDatabase.Refresh();
+            }
+        }
+
+        private static void CopyDirectory(string sourceDir, string targetDir)
+        {
+            if (!Directory.Exists(targetDir))
+                Directory.CreateDirectory(targetDir);
+
+            // 하위 파일 복사
+            foreach (string file in Directory.GetFiles(sourceDir))
+            {
+                string destFile = Path.Combine(targetDir, Path.GetFileName(file));
+                File.Copy(file, destFile, true);
+            }
+
+            // 하위 폴더 복사 (재귀)
+            foreach (string subDir in Directory.GetDirectories(sourceDir))
+            {
+                string destSubDir = Path.Combine(targetDir, Path.GetFileName(subDir));
+                CopyDirectory(subDir, destSubDir);
+            }
         }
 
         // private static void ExportSamplesPath(PackageInfo packageInfo, string exportTargetPath, string moveToPath)

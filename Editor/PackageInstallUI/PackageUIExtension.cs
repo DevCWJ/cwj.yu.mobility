@@ -212,7 +212,7 @@ namespace CWJ.Editor
 				_CurPackage = isTargetPackage ? packageInfo : null;
 				if (isTargetPackage)
 				{
-					DownloadRuntimeResources();
+					EditorApplication.delayCall += DownloadRuntimeResources;
 				}
 			}
 

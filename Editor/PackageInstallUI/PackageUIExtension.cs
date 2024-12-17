@@ -25,7 +25,7 @@ namespace CWJ.Editor
 		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Import "+ ThirdPartyPackageFolderName, false)]
 		public static void ImportThirdPartyPackage()
 		{
-			ImportThirdPartyPackage(ThirdPartyPackageFileName, false, $"{RuntimeDownloadAssetsPath}/{ThirdPartyPackageFolderName}");
+			ImportThirdPartyPackage(ThirdPartyPackageFileName, false, $"Assets/{UnityPacakgesFolderName}/{ThirdPartyPackageFolderName}");
 		}
 
 		/// <summary>

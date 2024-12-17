@@ -11,10 +11,10 @@ namespace CWJ.Editor
 		public const string UnityPackageFolderName = "UnityPackages~";
 		public const string TmpEssentialPackageFileName = "TMP Essential Resources.unitypackage";
 		public const string RuntimeIgnoreFolderName = "Runtime~";
-		public const string RuntimeDownloadAssetsPath = "Assets/CWJ.UnityPackages";
 
+		public const string UnityPacakgesFolderName = "CWJ.UnityPackages";
 		public const string ThirdPartyPackageFolderName = "ThirdPartyPackages";
-		public const string ThirdPartyPackageFileName = ThirdPartyPackageFolderName+".unitypackage"; ////import to Assets/CWJ.UnityPackages/ThirdPartyPackages
+		public const string ThirdPartyPackageFileName = ThirdPartyPackageFolderName+".unitypackage"; ////will import to Assets/CWJ.UnityPackages/ThirdPartyPackages
 	}
 }
 

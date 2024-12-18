@@ -62,16 +62,16 @@ public class DemoManager : MonoBehaviour
 		escCallback.enabled = true;
 		SetLockCameraAndFreeCursor(false);
 
-		//WebGLHelper 테스트
-// #if UNITY_WEBGL
-// 		var fCallback = KeyEventManager_PC.GetKeyListener(KeyCode.F, true);
-// 		fCallback.onTouchBegan.AddListener(WebGLHelper.WebGLWindow.SwitchFullscreen);
-// 		fCallback.enabled = true;
-//
-// 		var nCallback = KeyEventManager_PC.GetKeyListener(KeyCode.G, true);
-// 		nCallback.onTouchBegan.AddListener(() => WebGLHelper.WebGLWindow.GoUrl("https://www.google.com/"));
-// 		nCallback.enabled = true;
-// #endif
+		//WebGLHelper 테스트w
+#if UNITY_WEBGL && !UNITY_EDITOR
+		var fCallback = KeyEventManager_PC.GetKeyListener(KeyCode.F, true);
+		fCallback.onTouchBegan.AddListener(WebGLHelper.WebGLWindow.SwitchFullscreen);
+		fCallback.enabled = true;
+
+		var nCallback = KeyEventManager_PC.GetKeyListener(KeyCode.G, true);
+		nCallback.onTouchBegan.AddListener(() => WebGLHelper.WebGLWindow.GoUrl("https://www.google.com/"));
+		nCallback.enabled = true;
+#endif
 	}
 
 

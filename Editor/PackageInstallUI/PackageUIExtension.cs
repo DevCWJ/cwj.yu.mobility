@@ -224,7 +224,7 @@ namespace CWJ.Editor
 				_CurPackage = isTargetPackage ? packageInfo : null;
 				if (isTargetPackage)
 				{
-					// EditorApplication.delayCall += DownloadRuntimeResources; //스스로 download누르게 두자
+					EditorApplication.delayCall += DownloadRuntimeResources; //스스로 download누르게 둘까?
 				}
 			}
 

@@ -4857,7 +4857,7 @@ GameObject:
   - component: {fileID: 7219582790670236656}
   - component: {fileID: 6251272373281886806}
   m_Layer: 0
-  m_Name: '[YU.Robot.Topic3]'
+  m_Name: YU.Robot.Topic3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

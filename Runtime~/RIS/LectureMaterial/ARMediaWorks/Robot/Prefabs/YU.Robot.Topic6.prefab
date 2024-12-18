@@ -1188,7 +1188,7 @@ GameObject:
   - component: {fileID: 294827640350439810}
   - component: {fileID: 294827640350439813}
   m_Layer: 0
-  m_Name: '[YU.Robot.Topic6]'
+  m_Name: YU.Robot.Topic6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

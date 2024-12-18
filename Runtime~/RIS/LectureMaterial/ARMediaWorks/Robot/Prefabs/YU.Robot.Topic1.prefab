@@ -2218,10 +2218,10 @@ RectTransform:
   m_Father: {fileID: 6118795580513883987}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 354.785, y: -45}
-  m_SizeDelta: {x: 551.57, y: 60}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6118795579198354022
 CanvasRenderer:
@@ -2251,7 +2251,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TitleTitleTitleTitleTitleTitleTitleTitle
+  m_text: 'Title
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a4692aff06b2ffc46b1b6dbceef2f5de, type: 2}
   m_sharedMaterial: {fileID: 3800094445494498857, guid: a4692aff06b2ffc46b1b6dbceef2f5de,
@@ -4096,7 +4098,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 630.57, y: 90}
+  m_SizeDelta: {x: 0, y: 90}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6118795580513883989
 CanvasRenderer:
@@ -6083,12 +6085,12 @@ GameObject:
   - component: {fileID: 8366230217815008782}
   - component: {fileID: 8366230217815008777}
   m_Layer: 0
-  m_Name: '[YU.Robot.Topic1]'
+  m_Name: YU.Robot.Topic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8366230217815008782
 Transform:
   m_ObjectHideFlags: 0

@@ -213,7 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5507206782725675095}
   m_Layer: 0
-  m_Name: '[YU.Robot.World]'
+  m_Name: YU.Robot.World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

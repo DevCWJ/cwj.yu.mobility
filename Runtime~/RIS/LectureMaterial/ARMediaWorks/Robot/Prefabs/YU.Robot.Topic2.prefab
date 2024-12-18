@@ -19919,7 +19919,7 @@ GameObject:
   - component: {fileID: 6251272373399945271}
   - component: {fileID: 6251272373399945264}
   m_Layer: 0
-  m_Name: '[YU.Robot.Topic2]'
+  m_Name: YU.Robot.Topic2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

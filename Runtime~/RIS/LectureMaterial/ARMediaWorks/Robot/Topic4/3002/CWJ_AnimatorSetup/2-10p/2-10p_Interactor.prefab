@@ -526,7 +526,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uAD00\uC808\uC758 \uC6B4\uB3D9\uBC29\uD5A5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: abf4e69a4f747cd43a29ec42ee97755b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
   m_sharedMaterial: {fileID: -2393721285569084327, guid: abf4e69a4f747cd43a29ec42ee97755b,
     type: 2}
   m_fontSharedMaterials: []
@@ -594,7 +594,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 689873064}
   m_maskType: 0
 --- !u!1 &709089706
@@ -3230,7 +3230,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2377976278233652031}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -3245,8 +3245,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0db08f57f3302524884f34556f86eb09, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 0db08f57f3302524884f34556f86eb09,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5457,6 +5457,7 @@ MonoBehaviour:
   myAnimator: {fileID: 7804340830294645166}
   isReserveSetTriggerContinuously: 0
   reserveSetTriggerName: 
+  isSetIdleOnDisable: 0
   triggerNamesCache:
   - "X\uCD95 \uBC30\uCE581"
   - "X\uCD95 \uBC30\uCE582"

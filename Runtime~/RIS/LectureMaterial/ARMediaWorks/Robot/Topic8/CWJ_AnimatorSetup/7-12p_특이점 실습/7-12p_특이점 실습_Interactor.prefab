@@ -2944,7 +2944,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7836115267435328189}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -2960,8 +2960,8 @@ MonoBehaviour:
   m_text: "\uC190\uBAA9\uC758 \uC911\uC2EC\uC774 \uAD00\uC808 2,3\uC774\n\uD30C\uB780\uC0C9
     \uB2E8\uBA74\uC5D0 \uC788\uC744 \uB54C \uD2B9\uC774\uC810 \uBC1C\uC0DD"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0db08f57f3302524884f34556f86eb09, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 0db08f57f3302524884f34556f86eb09,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3186,6 +3186,7 @@ MonoBehaviour:
   myAnimator: {fileID: 7146776135225808499}
   isReserveSetTriggerContinuously: 0
   reserveSetTriggerName: 
+  isSetIdleOnDisable: 0
   triggerNamesCache:
   - "\uC190\uBAA91"
   - "\uC190\uBAA92"

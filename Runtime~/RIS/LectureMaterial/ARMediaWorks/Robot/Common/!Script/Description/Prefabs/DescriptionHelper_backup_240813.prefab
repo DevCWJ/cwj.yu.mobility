@@ -58,17 +58,37 @@ MonoBehaviour:
   viewImg: {fileID: 6353863375048929002}
   scrollBar: {fileID: 2435698405481569027}
   spherePointer: {fileID: 2326551620470124125}
+  isClickBgToClose: 0
+  isIn3DCanvas: 0
+  maxDist: 200
+  panelPositionType: 0
+  autoOffsetXPercent: 35
+  autoOffsetYPercent: 15
+  autoLimitPercent: 30
+  isMarginPercentage: 1
+  marginPercent:
+    left: 5
+    right: 5
+    top: 5
+    bottom: 5
+  marginPixel:
+    left: 10
+    right: 10
+    top: 10
+    bottom: 10
   verticalPositionOfLinePanelConnection: 1
-  test_descDataDic:
+  descDataDicByTag:
     keyValues: []
     conflictKeyOriginIndexes: 
     conflictKeyWarningIndexes: 
     nullKeyIndexes: 
-  descDataDic:
+  descDataDicByName:
     keyValues: []
     conflictKeyOriginIndexes: 
     conflictKeyWarningIndexes: 
     nullKeyIndexes: 
+  eventSystemObj: {fileID: 0}
+  _isOpenedPanel: 0
 --- !u!1 &2330640315749734492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,8 +1091,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Description Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0db08f57f3302524884f34556f86eb09, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 0db08f57f3302524884f34556f86eb09,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

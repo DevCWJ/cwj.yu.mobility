@@ -746,7 +746,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
+  - {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -790,8 +790,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: X
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -858,7 +858,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 1014915530337848224}
   m_maskType: 0
 --- !u!1 &3949208594748522880
@@ -2021,8 +2021,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Z
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2168,7 +2168,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
+  - {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2212,8 +2212,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Y
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2280,7 +2280,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 1592806892453845651}
   m_maskType: 0
 --- !u!1 &7646878925428449012
@@ -2631,7 +2631,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
+  - {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2675,8 +2675,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2743,7 +2743,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 13546709051393570}
   m_maskType: 0
 --- !u!1 &8541221219554699713
@@ -2822,7 +2822,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
+  - {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2866,8 +2866,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2934,7 +2934,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 9111244941594125456}
   m_maskType: 0
 --- !u!1 &8541221220015390435
@@ -3057,8 +3057,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3204,7 +3204,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
+  - {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3248,8 +3248,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3316,7 +3316,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 7295802789755166317}
   m_maskType: 0
 --- !u!1 &8541221220808236262
@@ -3395,7 +3395,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
+  - {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3439,8 +3439,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3586,7 +3586,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
+  - {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3630,8 +3630,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3698,7 +3698,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 2818503464449096101}
   m_maskType: 0
 --- !u!1 &8681073310735665021

@@ -36,7 +36,7 @@ namespace CWJ.AccessibleEditor
 
 		public static bool IsBuilding { get; private set; } = false;
 
-		[InitializeOnLoadMethod]
+		// [InitializeOnLoadMethod]
 		static void InitializeOnLoad()
 		{
 			BuildPlayerWindow.RegisterBuildPlayerHandler(ProceduralBuildProcess); //빌드콜백 이벤트 추가
@@ -247,7 +247,7 @@ namespace CWJ.AccessibleEditor
 
 				if (DisplayDialogUtil.DisplayDialog<BuildPipeline>(buildCompletedMsg, ok: "Open", cancel: "Ok", isPrintLog: false))
 				{
-					System.Diagnostics.Process.Start(System.IO.Path.GetDirectoryName(pathToBuiltProject));
+					EditorApplication.delayCall += () => System.Diagnostics.Process.Start(System.IO.Path.GetDirectoryName(pathToBuiltProject));
 				}
 
 				AfterBuildEvent?.Invoke();

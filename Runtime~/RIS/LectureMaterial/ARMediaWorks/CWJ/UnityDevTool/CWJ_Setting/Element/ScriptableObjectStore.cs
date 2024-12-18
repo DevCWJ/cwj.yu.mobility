@@ -135,6 +135,7 @@ namespace CWJ.AccessibleEditor
 		    return Path.GetDirectoryName(scriptPath)!.Replace('\\', '/');
 	    }
 
+		public const string EditorCacheFolderName = "_EditorCache";
 	    public static string GetCacheFilePath<T>(string typeName = null) where T : CWJScriptableObject
 	    {
 		    typeName ??= typeof(T).Name;
@@ -161,7 +162,7 @@ namespace CWJ.AccessibleEditor
 		    }
 
 		    string unityDevToolDir = PathUtil.GetParentDirectory(storeScriptDirectory, 2).Replace('\\', '/');
-		    string cacheDirectory = unityDevToolDir + "/_EditorCache";
+		    string cacheDirectory = unityDevToolDir + "/" + EditorCacheFolderName;
 		    EnsureEditorCacheFolderExists(cacheDirectory);
 
 		    return $"{cacheDirectory}/{typeName}.asset";

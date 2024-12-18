@@ -197,7 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2678175bff336b4a98a2bc8918bb877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabFilePathCache: 
+  isAnimLoop: 1
+  isAnimLoopPose: 0
   clipNamesCache:
   - Theta_Plane
   - Psi_Plane
@@ -211,6 +212,7 @@ MonoBehaviour:
   - Theta
   - Psi
   - Phi
+  prefabFilePathCache: 
 --- !u!114 &8398035321902782443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +228,7 @@ MonoBehaviour:
   myAnimator: {fileID: 1325234538207623266}
   isReserveSetTriggerContinuously: 0
   reserveSetTriggerName: 
+  isSetIdleOnDisable: 0
   triggerNamesCache:
   - Theta
   - Psi
@@ -1091,8 +1094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInit: 1
-  modelTrf: {fileID: 657843289403587987}
   animHandler: {fileID: 8398035321902782443}
+  modelTrf: {fileID: 657843289403587987}
   btnParentTrf: {fileID: 832707704735154897}
   animPlayBtn_prefab: {fileID: 7496913224815504210}
   animPlayBtnList:
@@ -1375,8 +1378,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Theta
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1896,8 +1899,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Phi
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 606a19e78594e8e48ae5ee8c2ef69060, type: 2}
-  m_sharedMaterial: {fileID: -464190955510802785, guid: 606a19e78594e8e48ae5ee8c2ef69060,
+  m_fontAsset: {fileID: 11400000, guid: 9cadc9359bd99ab47abdc2b4a4d661bc, type: 2}
+  m_sharedMaterial: {fileID: 5370753699538831451, guid: 9cadc9359bd99ab47abdc2b4a4d661bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

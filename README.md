@@ -19,5 +19,3 @@
 
 #### 3. 'API Compatibility Level'를 '.NET Framework' 또는 '.NET Framework 4.x' 로 설정
 
-
-### submodule Push하기전에 Runtime폴더 Runtime~로 이름바꾸고 Runtime.meta파일지우기

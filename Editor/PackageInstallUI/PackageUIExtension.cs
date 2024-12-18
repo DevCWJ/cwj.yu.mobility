@@ -29,6 +29,14 @@ namespace CWJ.Editor
 		}
 
 		/// <summary>
+		/// 사실 Runtime~ 폴더를 unitypackage로 export하는거임
+		/// </summary>
+		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Download RuntimeResources", false)]
+		private static void DownloadRuntimeResources()
+		{
+			DownloadOrImportRuntimePackage();
+		}
+		/// <summary>
 		/// UnityPackages~ 안의 unitypackage import
 		/// </summary>
 		/// <param name="unityPackageFilename"></param>
@@ -40,7 +48,7 @@ namespace CWJ.Editor
 			if (originPath)
 				AssetDatabase.ImportPackage(packageFullPath, true);
 			else
-				ImportUnityPackage(packageFullPath, targetPath ?? "Assets/");
+				ImportUnityPackage(packageFullPath, targetPath ?? "Assets");
 		}
 
 		public static void ImportTmpEssentialPackage()
@@ -161,14 +169,15 @@ namespace CWJ.Editor
 				else
 				{
 					isUpdateChecking = true;
-					dotCount = 3;
+					dotCount = 0;
 					EditorApplication.update += OnUpdateChecking;
 					EditorApplication.delayCall += CheckForUpdates;
 					EditorApplication.delayCall += CheckTmpEssential;
 				}
 			}
 
-			private int dotCount = 3;
+			private int dotCount = 0;
+			private int updateInterval = 3;
 
 			private void OnUpdateChecking()
 			{
@@ -178,9 +187,12 @@ namespace CWJ.Editor
 					return;
 				}
 
-				dotCount = (dotCount + 1) % 6; //0 ~ 5
-
-				updateDescLbl.text = "Checking for Updates" + new string('.', dotCount);
+				if (++updateInterval >= 3)
+				{
+					updateInterval = 0;
+					dotCount = (dotCount + 1) % 6;
+					updateDescLbl.text = "Checking for Updates" + new string('.', dotCount);
+				}
 			}
 
 			private bool isUpdateChecking = false;
@@ -233,14 +245,7 @@ namespace CWJ.Editor
 		}
 
 
-		/// <summary>
-		/// 사실 Runtime~ 폴더를 unitypackage로 export하는거임
-		/// </summary>
-		[MenuItem("CWJ/Package/" + MyPackageInAssetName + "/Download RuntimeResources", false)]
-		private static void DownloadRuntimeResources()
-		{
-			DownloadOrImportRuntimePackage();
-		}
+
 
 		private static bool HasTmpEssential()
 		{

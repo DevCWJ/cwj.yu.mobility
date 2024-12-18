@@ -112,14 +112,14 @@ namespace CodeStage.PackageToFolder.Partial
 		// Unity Editor menus integration
 		///////////////////////////////////////////////////////////////
 
-		[MenuItem("Assets/Import Package/Here...", true, 10)]
+		// [MenuItem("Assets/Import Package/Here...", true, 10)]
 		private static bool IsImportToFolderCheck()
 		{
 			var selectedFolderPath = GetSelectedFolderPath();
 			return !string.IsNullOrEmpty(selectedFolderPath);
 		}
 
-		[MenuItem("Assets/Import Package/Here...", false, 10)]
+		// [MenuItem("Assets/Import Package/Here...", false, 10)]
 		private static void Package2FolderCommand()
 		{
 			var packagePath = EditorUtility.OpenFilePanel("Import package ...", "",  "unitypackage");
@@ -127,7 +127,7 @@ namespace CodeStage.PackageToFolder.Partial
 			if (!File.Exists(packagePath)) return;
 
 			var selectedFolderPath = GetSelectedFolderPath();
-			ImportPackageToFolder(packagePath, selectedFolderPath, true);
+			ImportPackageToPath(packagePath, selectedFolderPath, true);
 		}
 
 		///////////////////////////////////////////////////////////////
@@ -141,7 +141,7 @@ namespace CodeStage.PackageToFolder.Partial
 		/// <param name="selectedFolderPath">Path to the target folder where you wish to import package into.
 		/// Relative to the project folder (should start with 'Assets')</param>
 		/// <param name="interactive">If true - imports using standard import window, otherwise does this silently.</param>
-		public static void ImportPackageToFolder(string packagePath, string selectedFolderPath, bool interactive)
+		public static void ImportPackageToPath(string packagePath, string selectedFolderPath, bool interactive)
 		{
 			string packageIconPath;
 #if CS_P2F_NEW_ARGUMENT_2
@@ -186,7 +186,7 @@ namespace CodeStage.PackageToFolder.Partial
 			DestinationAssetPathFieldInfo.SetValue(assetItem, destinationPath);
 		}
 #if CS_P2F_NEW_ARGUMENT_2
-		public static void ShowImportPackageWindow(string path, object[] array, string packageIconPath)
+		private static void ShowImportPackageWindow(string path, object[] array, string packageIconPath)
 		{
 			ShowImportPackageMethodInfo.Invoke(null, new object[]
 			{
@@ -199,13 +199,13 @@ namespace CodeStage.PackageToFolder.Partial
 			});
 		}
 #else
-		public static void ShowImportPackageWindow(string path, object[] array, string packageIconPath, bool allowReInstall)
+		private	static void ShowImportPackageWindow(string path, object[] array, string packageIconPath, bool allowReInstall)
 		{
 			ShowImportPackageMethodInfo.Invoke(null, new object[] { path, array, packageIconPath, allowReInstall });
 		}
 #endif
 
-		public static void ImportPackageSilently(string packageName, object[] assetsItems)
+		private static void ImportPackageSilently(string packageName, object[] assetsItems)
 		{
 #if CS_P2F_NEW_NON_INTERACTIVE_LOGIC
 			ImportPackageAssetsMethodInfo.Invoke(null, new object[] { packageName, assetsItems });

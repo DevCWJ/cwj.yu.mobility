@@ -237,7 +237,7 @@ namespace CWJ.Editor
 
             if (File.Exists(releaseUnitypackagePath))
             {
-                ImportUnityPackage(releaseUnitypackagePath, $"Assets", false);
+                ImportUnityPackage(releaseUnitypackagePath, "Assets", false);
                 return;
             }
 
@@ -268,8 +268,11 @@ namespace CWJ.Editor
 
             string downloadDestPath = $"{UnityPacakgesFolderName}/{folderName}";
 
+            string downloadRelativePath = $"Assets/{downloadDestPath}";
+            if (AssetDatabase.IsValidFolder(downloadRelativePath))
+                AssetDatabase.DeleteAsset(downloadRelativePath);
+            CreateFoldersUsingAssetDatabase(downloadRelativePath);
 
-            string downloadFolderFullPath = ToSystemIoPath($"{assetsFullPath}/{downloadDestPath}");
 
             string unitypackageFileFullPath = $"{assetsFullPath}/{UnityPacakgesFolderName}/{MyPackageInAssetName}.unitypackage";
             unitypackageFileFullPath = ToSystemIoPath(unitypackageFileFullPath);
@@ -281,12 +284,10 @@ namespace CWJ.Editor
                 {
                     EditorApplication.LockReloadAssemblies();
 
-                    if (Directory.Exists(downloadFolderFullPath))
-                        Directory.Delete(downloadFolderFullPath, true);
-                    System.IO.Directory.CreateDirectory(downloadFolderFullPath);
-                    CheckFolderMeta(downloadFolderFullPath);
+                    // AssetDatabase.Refresh();
 
-                    // Debug.LogError($"CopyDirectory : {sourceFolder} to {targetFolderFullPath}");
+                    string downloadFolderFullPath = ToSystemIoPath($"{assetsFullPath}/{downloadDestPath}");
+
                     CopyDirectory(sourceFolder, downloadFolderFullPath);
 
                     // AssetDatabase.Refresh();
@@ -302,7 +303,8 @@ namespace CWJ.Editor
             {
                 if (!alreadyDownload)
                 {
-                    // DeleteDirectoryAndMeta(downloadFolderFullPath); //너무느려 Export는 하지않기로해서 리소스폴더 살림
+                    // if (AssetDatabase.IsValidFolder(downloadRelativePath))
+                    //     AssetDatabase.DeleteAsset(downloadRelativePath); //너무느려 Export는 하지않기로해서 리소스폴더 살림
                     EditorApplication.UnlockReloadAssemblies();
                     AssetDatabase.Refresh();
                 }
@@ -311,7 +313,7 @@ namespace CWJ.Editor
                 {
                     EditorApplication.delayCall += () =>
                     {
-                        ImportUnityPackage(unitypackageFileFullPath, $"Assets", false);
+                        ImportUnityPackage(unitypackageFileFullPath, "Assets", false);
 
                         // EditorApplication.delayCall += () =>
                         // {
@@ -328,12 +330,45 @@ namespace CWJ.Editor
             }
         }
 
+        private static void CreateFoldersUsingAssetDatabase(string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath) || relativePath == "Assets") return;
+            relativePath = ToUnityPath(relativePath);
+            // 경로를 '/' 기준으로 나누기
+            string[] folders = relativePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+            // 첫 번째 폴더는 항상 "Assets"로 시작해야 함
+            if (folders.Length == 0 || folders[0] != "Assets")
+            {
+                Debug.LogError("경로는 'Assets'로 시작해야 합니다.");
+                return;
+            }
+
+            string currentPath = folders[0]; // "Assets"
+
+            for (int i = 1; i < folders.Length; i++)
+            {
+                string newFolderName = folders[i];
+                string nextPath = $"{currentPath}/{newFolderName}";
+
+                // 폴더가 없으면 생성
+                if (!AssetDatabase.IsValidFolder(nextPath))
+                {
+                    AssetDatabase.CreateFolder(currentPath, newFolderName);
+                }
+
+                // 경로를 다음 폴더로 업데이트
+                currentPath = nextPath;
+            }
+
+            Debug.Log($"폴더 생성 완료: {relativePath}");
+        }
+
         private static void CopyDirectory(string sourceDir, string targetDir)
         {
             // 경로 통일 및 끝에 슬래시 제거
             sourceDir = ToSystemIoPath(sourceDir.TrimEnd(Path.DirectorySeparatorChar, '/'));
             targetDir = ToSystemIoPath(targetDir.TrimEnd(Path.DirectorySeparatorChar, '/'));
-            // Debug.Log($"CopyDirectory : {sourceDir} to {targetDir}");
 
             // 대상 폴더가 없으면 먼저 생성
             if (!Directory.Exists(targetDir))
@@ -363,41 +398,42 @@ namespace CWJ.Editor
             }
         }
 
-        private static void CheckFolderMeta(string path)
-        {
-            // 상위 폴더 검사
-            DirectoryInfo currentDir = new DirectoryInfo(ToSystemIoPath(path));
-            string assetsPath = ToSystemIoPath(Application.dataPath).TrimEnd(Path.DirectorySeparatorChar);
-
-            while (currentDir != null) // Assets 폴더까지 검사
-            {
-                if (currentDir.FullName.TrimEnd(Path.DirectorySeparatorChar)
-                              .Equals(assetsPath, System.StringComparison.OrdinalIgnoreCase))
-                {
-                    break;
-                }
-
-                string folderMetaPath = currentDir.FullName + ".meta";
-
-                CreateMetaFile(folderMetaPath);
-
-                // 상위 폴더로 이동
-                currentDir = currentDir.Parent;
-            }
-        }
-
-        private static void CreateMetaFile(string path)
-        {
-            if (!File.Exists(path))
-                File.WriteAllText(path, GenerateDefaultMetaContent());
-        }
-
-        private static string GenerateDefaultMetaContent()
-        {
-            // Unity 기본 메타 파일의 형식을 흉내낸 내용
-            return "fileFormatVersion: 2\nguid: " + System.Guid.NewGuid().ToString("N") +
-                   "\nfolderAsset: yes\nDefaultImporter:\n  externalObjects: {}\n  userData: \n  assetBundleName: \n  assetBundleVariant: ";
-        }
+        // private static void CheckFolderMeta(string path)
+        // {
+        //     // 상위 폴더 검사
+        //     DirectoryInfo currentDir = new DirectoryInfo(ToSystemIoPath(path));
+        //     string assetsPath = ToSystemIoPath(Application.dataPath).TrimEnd(Path.DirectorySeparatorChar);
+        //
+        //     while (currentDir != null) // Assets 폴더까지 검사
+        //     {
+        //         if (currentDir.FullName.TrimEnd(Path.DirectorySeparatorChar)
+        //                       .Equals(assetsPath, System.StringComparison.OrdinalIgnoreCase))
+        //         {
+        //             break;
+        //         }
+        //
+        //         string folderMetaPath = currentDir.FullName + ".meta";
+        //
+        //         CreateMetaFile(folderMetaPath);
+        //
+        //         // 상위 폴더로 이동
+        //         currentDir = currentDir.Parent;
+        //     }
+        // }
+        //
+        // private static void CreateMetaFile(string assetPath)
+        // {
+        //     string metaPath = assetPath + ".meta";
+        //
+        //     if (!File.Exists(metaPath))
+        //     {
+        //         string metaContent = "fileFormatVersion: 2\n" +
+        //                              "guid: " + System.Guid.NewGuid().ToString("N") + "\n" +
+        //                              "timeCreated: " + DateTimeOffset.UtcNow.ToUnixTimeSeconds() + "\n" +
+        //                              "licenseType: Pro\n";
+        //         File.WriteAllText(metaPath, metaContent);
+        //     }
+        // }
 
         private static void DeleteDirectoryAndMeta(string folderPath)
         {
@@ -418,6 +454,12 @@ namespace CWJ.Editor
                 if (File.Exists(metaFile)) File.Delete(metaFile);
             }
         }
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="unitypackageFilePath"></param>
+        /// <param name="importTargetPath">Assets넣으면 Assets root에 import함</param>
+        /// <param name="needCheckExists"></param>
         public static void ImportUnityPackage(string unitypackageFilePath, string importTargetPath, bool needCheckExists = true)
         {
             if (!File.Exists(unitypackageFilePath))
@@ -426,10 +468,10 @@ namespace CWJ.Editor
                 return;
             }
 
-            if (needCheckExists)
+            if (needCheckExists && importTargetPath != "Assets")
                 EnsureEditorCacheFolderExists(importTargetPath);
             EditorApplication.delayCall += () =>
-                CodeStage.PackageToFolder.Partial.Package2Folder_Partial.ImportPackageToFolder(unitypackageFilePath, importTargetPath, true);
+                CodeStage.PackageToFolder.Partial.Package2Folder_Partial.ImportPackageToPath(unitypackageFilePath, importTargetPath, true);
         }
 
         private static void EnsureEditorCacheFolderExists(string relativePath)

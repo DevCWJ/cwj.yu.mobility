@@ -106,19 +106,7 @@ public class DemoManager : MonoBehaviour
 		if (wannaIndex >= 0)
 		{
 			Debug.Log("Start Topic Index: " + wannaIndex);
-			SetTopic(wannaIndex);
+			ProjectManager.SetCurTopicIndex(wannaIndex);
 		}
-	}
-
-	void SetTopic(int topicIndex)
-	{
-		if (topicIndex < 0) return;
-
-		ProjectManager.TryGetOrCreateSingleton(transform);
-
-		ThreadDispatcher.LateUpdateQueue(() =>
-		{
-			ProjectManager.Instance.SetTopic(topicIndex);
-		});
 	}
 }

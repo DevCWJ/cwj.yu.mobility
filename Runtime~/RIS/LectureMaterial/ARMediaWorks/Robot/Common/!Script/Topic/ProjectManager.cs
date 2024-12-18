@@ -62,7 +62,23 @@ namespace CWJ.YU.Mobility
 
 
         public static bool isDuringSetTopic { get; private set; } = false;
-        public void SetTopic(int topicIndex, Topic lastTopic = null)
+
+
+        /// <summary>
+        /// use this
+        /// </summary>
+        /// <param name="topicIndex"></param>
+        public static void SetCurTopicIndex(int topicIndex)
+        {
+            EnsureSingletonObject();
+
+            ThreadDispatcher.UIEnqueue(() =>
+            {
+                __UnsafeFastIns._SetCurTopicIndex(topicIndex);
+            });
+
+        }
+        void _SetCurTopicIndex(int topicIndex)
         {
             if(!TryGetTopic(topicIndex, out var targetTopic))
             {
@@ -73,7 +89,7 @@ namespace CWJ.YU.Mobility
 
             transform.parent.SetParent(targetTopic.transform, true);
 
-            foreach (Topic t in topicDics.Values.ToArray())
+            foreach (Topic t in topicDics.Values)
             {
                 t.Init();
             }
@@ -88,7 +104,9 @@ namespace CWJ.YU.Mobility
                 SceneControlManager.UpdateSceneObj(true);
             });
 
+            #if UNITY_EDITOR
             CWJ.AccessibleEditor.AccessibleEditorUtil.PingObj(targetTopic.gameObject);
+            #endif
         }
 
         public bool TryGetTopic(int topicIndex, out Topic topic)
@@ -99,40 +117,58 @@ namespace CWJ.YU.Mobility
             {
                 return true;
             }
-            topic = InstantiateTopic(topicIndex);
-            if (!topic)
-            {
-                return false;
-            }
-            topicDics[topicIndex] = topic;
 
-            return true;
+            return UpdateCacheAndTryGetTopic(topicIndex, out topic);
         }
 
-        Topic InstantiateTopic(int topicIndex)
+        private bool UpdateCacheAndTryGetTopic(int topicIndex, out Topic targetT)
         {
-            var src = Resources.Load<GameObject>(string.Format(TopicObjName, topicIndex + 1));
-            if (!src)
+            // string topicObjName = string.Format(TopicObjNameFormat, topicIndex + 1);
+            var allOfTopics = FindObjectsOfType<Topic>(true);
+
+            targetT = null;
+            foreach (Topic topic in allOfTopics)
             {
-                Debug.LogError("아직 제작되지 않은 Topic : " + (topicIndex + 1));
-                return null;
+                if (topicDics.TryGetValue(topicIndex, out var exists))
+                {
+                    if (!exists || exists.gameObject != topic.gameObject)
+                    {
+                        topicDics[topic.topicIndex] = topic;
+                        if (exists)
+                            exists.gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    topicDics.Add(topic.topicIndex, topic);
+                }
+
+                if (topicIndex == topic.topicIndex)
+                    targetT = topic;
             }
-            var obj = Instantiate(src);
-            obj.transform.Reset();
-            return obj ? obj.GetComponent<Topic>() : null;
+
+
+            if (targetT && targetT != null)
+            {
+                targetT.transform.Reset();
+
+                return true;
+            }
+
+            Debug.LogError("씬에 배치되지않았거나 제작되지 않은 Topic : " + (topicIndex + 1));
+            return false;
         }
 
         public static event System.Action<ProjectManager> OnSingletonCreated;
 
-        public static bool TryGetOrCreateSingleton(Transform tmpParent)
+        static bool EnsureSingletonObject()
         {
             if (!IsExists)
             {
                 var src = Resources.Load<GameObject>(SingletonObjName);
                 if (src)
                 {
-                    var s = Instantiate(src, tmpParent);
-                    s.transform.SetParent(null);
+                    var s = Instantiate(src);
                     var pm = s.GetComponentInChildren<ProjectManager>();
                     pm.UpdateInstanceForcibly();
                     if (OnSingletonCreated != null)

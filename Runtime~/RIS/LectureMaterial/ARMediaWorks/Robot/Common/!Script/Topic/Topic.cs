@@ -49,10 +49,6 @@ namespace CWJ.YU.Mobility
 		{
 			yield return null;
 
-			ProjectManager.TryGetOrCreateSingleton(transform);
-
-			yield return null;
-
 			Debug.Assert(!string.IsNullOrEmpty(topicTitle) && topicTitle.Contains(')')
 			           , $"ERR : Topic[{topicIndex}] - {nameof(topicTitle)} null!\n{topicTitle}", gameObject);
 
@@ -63,7 +59,7 @@ namespace CWJ.YU.Mobility
 			{
 				try
 				{
-					ProjectManager.Instance.SetTopic(topicIndex);
+					ProjectManager.SetCurTopicIndex(topicIndex);
 				}
 				catch (System.Exception ex)
 				{
@@ -466,11 +462,11 @@ namespace CWJ.YU.Mobility
 				if (toScenarioIndex < 0)
 				{
 					if (topicIndex - 1 >= 0)
-						ProjectManager.Instance.SetTopic(topicIndex - 1, this);
+						ProjectManager.SetCurTopicIndex(topicIndex - 1);
 				}
 				else if (toScenarioIndex >= scenarioLength)
 				{
-					ProjectManager.Instance.SetTopic(topicIndex + 1, this);
+					ProjectManager.SetCurTopicIndex(topicIndex + 1);
 				}
 			}
 		}

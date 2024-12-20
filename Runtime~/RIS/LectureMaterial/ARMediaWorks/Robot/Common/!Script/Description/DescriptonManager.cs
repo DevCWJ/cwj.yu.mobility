@@ -549,13 +549,13 @@ namespace CWJ
 				Debug.LogError("[DescriptionManager] RaycastHit에서 targetTrf를 찾지 못했습니다." + cnt, targetTrf);
 			}
 
-			// 패널 크기 계산 (Canvas 스케일링 모드에 따라 조정 필요)
 			CanvasScaler canvasScaler = canvas.GetComponent<CanvasScaler>();
 			float scaleFactor = 1.0f;
 
 			if (canvasScaler != null && canvasScaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize)
 				scaleFactor = canvasWidth / canvasScaler.referenceResolution.x;
 
+			// 패널 크기 계산
 			float panelWidth = panelRectTrf.rect.width * scaleFactor;
 			float panelHeight = panelRectTrf.rect.height * scaleFactor;
 
@@ -587,11 +587,8 @@ namespace CWJ
 				{
 					panelTitle.SetText(descData._title);
 
-					// DoTween을 사용하여 주기적으로 텍스트를 업데이트하고 페이드 효과 적용
-					// 먼저, 텍스트의 alpha를 1로 설정
 					DOFade(panelDescription, 1, 0);
 
-					// 시퀀스 생성
 					updateTextTween = DOTween.Sequence()
 					                         .AppendInterval(0.4f)
 					                         .Append(DOFade(panelDescription, 0.5f, 0.25f)) // 페이드 아웃
@@ -611,7 +608,6 @@ namespace CWJ
 						var strData = descData.getDataFunc.Invoke(targetTrf);
 						if (strData.sprite)
 						{
-							viewImg.transform.parent.gameObject.SetActive(true);
 							SetSpriteAndAdjustScale(viewImg, strData.sprite);
 						}
 						else
@@ -634,17 +630,8 @@ namespace CWJ
 
 		static void SetSpriteAndAdjustScale(Image image, Sprite sprite)
 		{
-			if (!image)
-			{
-				Debug.LogError("Image 컴포넌트가 할당되지 않았습니다.");
-				return;
-			}
-
-			if (!sprite)
-			{
-				Debug.LogError("할당할 Sprite가 null입니다.");
-				return;
-			}
+			Debug.Assert(image, "Image 컴포넌트가 할당되지 않았습니다.");
+			Debug.Assert(sprite, "할당할 Sprite가 null입니다.");
 
 			// Image의 RectTransform 가져오기
 			RectTransform imageRect = image.GetComponent<RectTransform>();
@@ -662,34 +649,39 @@ namespace CWJ
 				return;
 			}
 
-			LayoutRebuilder.ForceRebuildLayoutImmediate(parentRect.GetComponentInParent<LayoutGroup>().GetComponent<RectTransform>());
+			image.transform.parent.gameObject.SetActive(true);
 
-			// 부모 Rect 크기와 Image Rect 크기 비교
-			float parentWidth = parentRect.rect.width;
-			float parentHeight = parentRect.rect.height;
-			float spriteWidth = sprite.rect.width;
-			float spriteHeight = sprite.rect.height;
-
-			// 스프라이트 할당 및 네이티브 사이즈 설정
 			image.sprite = sprite;
 			image.SetNativeSize();
 
-			// 스케일 조정이 필요한지 확인
-			if (spriteWidth > parentWidth || spriteHeight > parentHeight)
-			{
-				// 가로와 세로 중 더 작은 비율을 선택하여 스케일 계산
-				float scaleX = parentWidth / spriteWidth;
-				float scaleY = parentHeight / spriteHeight;
-				float scale = Mathf.Min(scaleX, scaleY);
+			LayoutRebuilder.ForceRebuildLayoutImmediate(parentRect.GetComponentInParent<LayoutGroup>().GetComponent<RectTransform>());
 
-				// 원본 비율을 유지하면서 스케일 조정
-				imageRect.localScale = new Vector3(scale, scale, 1f);
-			}
-			else
+			ThreadDispatcher.Enqueue(() =>
 			{
-				// 스케일을 원래대로 복원
-				imageRect.localScale = Vector3.one;
-			}
+				// 부모 Rect 크기와 Image Rect 크기 비교
+				float parentWidth = parentRect.rect.width;
+				float parentHeight = parentRect.rect.height;
+				float spriteWidth = sprite.rect.width;
+				float spriteHeight = sprite.rect.height;
+
+				// 스케일 조정이 필요한지 확인
+				if (spriteWidth > parentWidth || spriteHeight > parentHeight)
+				{
+					// 가로와 세로 중 더 작은 비율을 선택하여 스케일 계산
+					float scaleX = parentWidth / spriteWidth;
+					float scaleY = parentHeight / spriteHeight;
+					float scale = Mathf.Min(scaleX, scaleY);
+
+					// 원본 비율을 유지하면서 스케일 조정
+					imageRect.localScale = new Vector3(scale, scale, 1f);
+				}
+				else
+				{
+					// 스케일을 원래대로 복원
+					imageRect.localScale = Vector3.one;
+				}
+			});
+
 		}
 
 

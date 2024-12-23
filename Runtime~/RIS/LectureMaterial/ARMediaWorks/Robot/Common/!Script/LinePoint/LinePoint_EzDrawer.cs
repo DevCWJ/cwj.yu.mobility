@@ -392,7 +392,7 @@ namespace CWJ
 
 			if (isDoDraw)
 			{
-				ThreadDispatcher.Enqueue(Draw);
+				MultiThreadHelper.Enqueue(Draw);
 			}
 
 			if (lastSequence != null)
@@ -422,7 +422,7 @@ namespace CWJ
 		{
 			DisableDraw();
 			if (Application.isPlaying)
-				ThreadDispatcher.Enqueue(DrawImmediately);
+				MultiThreadHelper.Enqueue(DrawImmediately);
 			else
 				DrawImmediately();
 		}
@@ -450,22 +450,22 @@ namespace CWJ
 				if (p.isAngleLine)
 				{
 					var parentPoint = new PointData(p.pointTrfs[0], p.color);
-					var parentKv = Generate(new PointData[2] { parentPoint, parentPoint }, false, animTime, arrowWidth, arrowHeight
-					                      , isCreateToObjOnly: true, lineWidths);
+					var parentKv = Generate(new PointData[2] { parentPoint, parentPoint }, false, animTime, arrowWidth, arrowHeight, lineWidths
+					                      , isCreateToObjOnly: true);
 
 					cacheTmpList.Add(parentKv.cacheID);
 
 					for (int j = 1; j < p.pointTrfs.Length; j++)
 					{
 						var pointDatas = new PointData[2] { parentPoint, new PointData(p.pointTrfs[j], p.color) };
-						var kv = Generate(pointDatas, false, animTime, arrowWidth, arrowHeight, isCreateToObjOnly: true, lineWidths);
+						var kv = Generate(pointDatas, false, animTime, arrowWidth, arrowHeight, lineWidths, isCreateToObjOnly: true);
 						cacheTmpList.Add(kv.cacheID);
 					}
 				}
 				else
 				{
 					var pointDatas = p.pointTrfs.Select(t => new PointData(t, p.color)).ToArray();
-					var kv = Generate(pointDatas, p.isLineLoop, animTime, arrowWidth, arrowHeight, isCreateToObjOnly: false, lineWidths);
+					var kv = Generate(pointDatas, p.isLineLoop, animTime, arrowWidth, arrowHeight, lineWidths, isCreateToObjOnly: false);
 					cacheTmpList.Add(kv.cacheID);
 				}
 

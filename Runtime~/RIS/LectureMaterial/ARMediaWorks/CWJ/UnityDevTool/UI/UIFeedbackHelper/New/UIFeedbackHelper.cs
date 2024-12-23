@@ -84,7 +84,7 @@ namespace CWJ
 					return;
 				}
 
-				ThreadDispatcher.LateUpdateQueue((s) =>
+				MultiThreadHelper.LateUpdateQueue((s) =>
 				{
 					if (!s) //버튼이 눌리며 Destroy가 실행중인 경우 (DestroyImmediate가 아닐것으로 추측)
 					{

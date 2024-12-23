@@ -1568,8 +1568,9 @@ MonoBehaviour:
   linePrefab: {fileID: 7729517771989788473}
   pointPrefab: {fileID: 1188422191894528460}
   textPrefab: {fileID: 3881431745119780659}
-  defaultArrowHeight: 0.025
-  defaultArrowWidth: 0.025
+  defaultArrowHeight: 0.02
+  defaultArrowWidth: 0.015
+  defaultLineWidth: 0.014
 --- !u!1 &3273534911865080801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,7 +3100,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7610531351869105271}
   m_HandleRect: {fileID: 7716668746315705931}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

@@ -81,7 +81,7 @@ namespace CWJ
             }
             ResetAllTrigger();
             InitEventMark();
-            ThreadDispatcher.Enqueue(() =>
+            MultiThreadHelper.Enqueue(() =>
             {
                 lastSetTriggerName = triggerName;
                 isStartEventInvoked = false;
@@ -182,7 +182,7 @@ namespace CWJ
         {
             if (!string.IsNullOrEmpty(reserveSetTriggerName))
             {
-                ThreadDispatcher.Enqueue(SetTrigger, reserveSetTriggerName);
+                MultiThreadHelper.Enqueue(SetTrigger, reserveSetTriggerName);
                 if (!isReserveSetTriggerContinuously)
                     reserveSetTriggerName = null;
             }

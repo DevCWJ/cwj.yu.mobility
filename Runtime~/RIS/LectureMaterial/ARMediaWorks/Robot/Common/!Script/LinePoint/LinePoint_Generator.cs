@@ -29,8 +29,9 @@ namespace CWJ
         [SerializeField] MeshRenderer pointPrefab;
         [SerializeField] TMPro.TextMeshPro textPrefab;
 
-        public float defaultArrowHeight = 0.025f;
-        public float defaultArrowWidth = 0.025f;
+        public float defaultArrowHeight = 0.02f;
+        public float defaultArrowWidth = 0.015f;
+        public float defaultLineWidth = 0.0125f;
 
         [Serializable]
         public struct PointData
@@ -91,8 +92,7 @@ namespace CWJ
 
         [InvokeButton]
         public static (int cacheID, LinePointCachePack[] lpCaches)
-            Generate(PointData[] pointDatas, bool isLineLoop, float animTime, float arrowWidth = -1, float arrowHeight = -1, bool isCreateToObjOnly = false,
-                     float lineWidth = 0.01f)
+            Generate(PointData[] pointDatas, bool isLineLoop, float animTime, float arrowWidth = -1, float arrowHeight = -1, float lineWidth = -1, bool isCreateToObjOnly = false)
         {
 #if UNITY_EDITOR
             if (!Application.isPlaying) animTime = 0; //나중에 Editor에서도 animation되게 할거
@@ -101,7 +101,7 @@ namespace CWJ
             bool hasAnimation = animTime > 0.0f && pointDataLength > 1;
             isLineLoop = isLineLoop && pointDataLength > 2;
 
-            return _Generate(pointDatas, isLineLoop, hasAnimation, animTime, arrowWidth, arrowHeight, isCreateToObjOnly, lineWidth);
+            return _Generate(pointDatas, isLineLoop, hasAnimation, animTime, arrowWidth, arrowHeight, lineWidth, isCreateToObjOnly);
         }
         public void DisableLinePointByCache(bool isDestroyCache, int[] cacheIDs)
         {
@@ -131,7 +131,7 @@ namespace CWJ
         #region Generate
 
         static (int cacheID, LinePointCachePack[]) _Generate(PointData[] pointDatas, bool isLineLoop, bool hasAnimation, float animTime, float arrowWidth,
-                                                             float arrowHeight, bool isCreateToObjOnly = false, float lineWidth = 0.01f)
+                                                             float arrowHeight, float lineWidth, bool isCreateToObjOnly = false)
         {
             int pointDataLength = pointDatas.LengthSafe();
             if (pointDataLength == 0) return (-1, null);
@@ -144,6 +144,7 @@ namespace CWJ
             var helper = LinePoint_Generator.Instance;
             arrowWidth = arrowWidth < 0 ? helper.defaultArrowWidth : arrowWidth;
             arrowHeight = arrowHeight < 0 ? helper.defaultArrowHeight : arrowHeight;
+            lineWidth = lineWidth < 0 ? helper.defaultLineWidth : lineWidth;
 
 
             if (!helper._CacheDic.TryGetValue(cacheID, out var lpCacheArr))

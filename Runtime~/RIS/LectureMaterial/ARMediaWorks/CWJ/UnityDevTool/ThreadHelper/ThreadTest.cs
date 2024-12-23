@@ -8,14 +8,14 @@ namespace CWJ
 {
     public class ThreadTest : MonoBehaviour
     {
-        private SortedSet<ThreadDispatcher.DelayedQueueItem> actionSortedSet = new SortedSet<ThreadDispatcher.DelayedQueueItem>();
-        Queue<ThreadDispatcher.DelayedQueueItem> actionsCache;
-        [SerializeField] SortedQueue<ThreadDispatcher.DelayedQueueItem> actionQueue = null;
+        private SortedSet<MultiThreadHelper.DelayedQueueItem> actionSortedSet = new SortedSet<MultiThreadHelper.DelayedQueueItem>();
+        Queue<MultiThreadHelper.DelayedQueueItem> actionsCache;
+        [SerializeField] SortedQueue<MultiThreadHelper.DelayedQueueItem> actionQueue = null;
         [InvokeButton]
         void Enqueue(Action action, float delay = 0)
         {
             if (actionQueue == null)
-                actionQueue = new SortedQueue<ThreadDispatcher.DelayedQueueItem>(new ThreadDispatcher.DelayedQueueItem[5]);
+                actionQueue = new SortedQueue<MultiThreadHelper.DelayedQueueItem>(new MultiThreadHelper.DelayedQueueItem[5]);
             void actionTest()
             {
 
@@ -23,11 +23,11 @@ namespace CWJ
             if (action == null)
             {
                 action = actionTest;
-                //╫га╕╥п return;
+                //О©╫О©╫О©╫О©╫О©╫О©╫ return;
             }
             lock (actionQueue)
             {
-                actionQueue.Enqueue(new ThreadDispatcher.DelayedQueueItem(action, delay));
+                actionQueue.Enqueue(new MultiThreadHelper.DelayedQueueItem(action, delay));
                 Debug.LogError("[ADD] " + delay);
             }
         }
@@ -45,7 +45,7 @@ namespace CWJ
         [InvokeButton]
         void New()
         {
-            actionQueue = new SortedQueue<ThreadDispatcher.DelayedQueueItem>(new ThreadDispatcher.DelayedQueueItem[4]);
+            actionQueue = new SortedQueue<MultiThreadHelper.DelayedQueueItem>(new MultiThreadHelper.DelayedQueueItem[4]);
         }
         [InvokeButton]
         void Clear()
@@ -70,7 +70,7 @@ namespace CWJ
                 int cnt = actionSortedSet.Count;
                 lock (actionSortedSet)
                 {
-                    actionsCache = new Queue<ThreadDispatcher.DelayedQueueItem>(cnt);
+                    actionsCache = new Queue<MultiThreadHelper.DelayedQueueItem>(cnt);
                     foreach (var item in actionSortedSet)
                         actionsCache.Enqueue(item);
                     actionSortedSet.Clear();
@@ -79,11 +79,11 @@ namespace CWJ
                 {
 
                 }
-                actionSortedSet = new SortedSet<ThreadDispatcher.DelayedQueueItem>(actionsCache);
+                actionSortedSet = new SortedSet<MultiThreadHelper.DelayedQueueItem>(actionsCache);
                 for (int i = 0; i < cnt; i++)
                 {
                 }
-                ThreadDispatcher.DelayedQueueItem min = actionSortedSet.Min;
+                MultiThreadHelper.DelayedQueueItem min = actionSortedSet.Min;
                 while (min.hasValue && isTimeToAct(min.time))
                 {
                     actionSortedSet.Remove(min);

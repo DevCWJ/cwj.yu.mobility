@@ -54,7 +54,7 @@ namespace CWJ.YU.Mobility
             topic.topicUI.SetTarget(fi.rotateObjByDrag.transform, false);
             string triggerName = fi.animHandler.GetTriggerNames()[0];
             topic.topicUI.SendLogTxt($"'{triggerName}' 를 활성화 했습니다");
-            ThreadDispatcher.LateUpdateQueue(() => fi.animHandler.SetTrigger(triggerName));
+            MultiThreadHelper.LateUpdateQueue(() => fi.animHandler.SetTrigger(triggerName));
         }
     }
 }

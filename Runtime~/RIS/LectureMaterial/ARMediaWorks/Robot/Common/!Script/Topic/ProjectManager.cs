@@ -72,7 +72,7 @@ namespace CWJ.YU.Mobility
         {
             EnsureSingletonObject();
 
-            ThreadDispatcher.UIEnqueue(() =>
+            MultiThreadHelper.UIEnqueue(() =>
             {
                 __UnsafeFastIns._SetCurTopicIndex(topicIndex);
             });
@@ -98,7 +98,7 @@ namespace CWJ.YU.Mobility
 
 
             targetTopic.Next();
-            ThreadDispatcher.Enqueue(() =>
+            MultiThreadHelper.Enqueue(() =>
             {
                 isDuringSetTopic = false;
                 SceneControlManager.UpdateSceneObj(true);
@@ -172,7 +172,7 @@ namespace CWJ.YU.Mobility
                     var pm = s.GetComponentInChildren<ProjectManager>();
                     pm.UpdateInstanceForcibly();
                     if (OnSingletonCreated != null)
-                        ThreadDispatcher.Enqueue(() => OnSingletonCreated.Invoke(pm));
+                        MultiThreadHelper.Enqueue(() => OnSingletonCreated.Invoke(pm));
                 }
                 return false;
             }

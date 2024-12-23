@@ -1,6 +1,17 @@
+#if UNITY_WITHOUT_MULTITHREADING
+#define USE_THREAD_SAFETY
+#else
+#undef USE_THREAD_SAFETY
+#endif
+
+using ActionQueue
+#if USE_THREAD_SAFETY
+    = System.Collections.Concurrent.ConcurrentQueue<System.Action>; //서버나 하드웨어 통신작업때문에 찐 multi thread 환경이 필요하다면 Thread-Safe한 ConcurrentQueue쓰기
+#else
+    = System.Collections.Generic.Queue<System.Action>;
+#endif
+
 using System;
-using System.Collections;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,15 +20,15 @@ namespace CWJ
     /// <summary>
     /// Thread처리할때 만듬.
     /// </summary>
-    public class ThreadDispatcher : CWJ.Singleton.SingletonBehaviour<ThreadDispatcher>
+    public class MultiThreadHelper : CWJ.Singleton.SingletonBehaviour<MultiThreadHelper>
     {
-        private static readonly ConcurrentQueue<Action> _ActionQueue = new();
+        private static readonly ActionQueue _ActionQueue = new();
         private const int MAX_ACTIONS_PER_FRAME = 30;
 
-        private static readonly ConcurrentQueue<Action> _UiActionsQueue = new();
+        private static readonly ActionQueue _UiActionsQueue = new();
         private const int MAX_UI_ACTIONS_PER_FRAME = 50;
 
-        private static readonly ConcurrentQueue<Action> _LateUpdateActionsQueue = new();
+        private static readonly ActionQueue _LateUpdateActionsQueue = new();
         private const int MAX_LATEUPDATE_ACTIONS_PER_FRAME = 30;
 
         private static readonly SortedSet<DelayedQueueItem> _DelayedActionsSet = new();
@@ -234,7 +245,7 @@ namespace CWJ
             _LateUpdateActionsQueue.Clear();
         }
 
-        private void ProcessQueue(ConcurrentQueue<Action> queue, int maxActionCnt
+        private void ProcessQueue(ActionQueue queue, int maxActionCnt
 #if UNITY_EDITOR || CWJ_DEVELOPMENT_BUILD
                                 , string queueName
 #endif
